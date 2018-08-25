@@ -12,33 +12,61 @@
         <title>Tydzień 1, Zadanie 1</title>
     </head>
 <body>
+
     <div class="container">
         <h1 class="page-header">Cw 1: Instrukcje warunkowe</h1>
 
-        <div class="subject">Obliczenie rabatu na podstawie ilości kupionego produktu</div>
-        <div class="line">
-            <span class="label">Cena produktu: </span>
-            <input type="number" name="price" value="10">
-            <!-- <span class="value" id="price">10</span>-->
-        </div>
-        <div class="line">
-            <span class="label">Ilość kupionych: </span>
-            <input type="number" name="amount" value="100">
-            <!--<span class="value" id="amount">5</span>-->
-        </div>
-        <div class="line">
-            <button>OBLICZ</button>
+        <h3>Obliczenie rabatu na podstawie ilości kupionego produktu</h3>
+        <div class="form-group mainList">
+            <label for="cena">Wpisz cenę produktu:</label>
+            <input type="number" class="form-control" id="cena" name="price" aria-describedby="podpowiedzPole" placeholder="Cena">
+            <!-- <small id="podpowiedzPole" class="form-text text-muted">Cenę można wpisać lub przeklikać po prawej stronie pola</small> -->
         </div>
 
-        <div class="line">
-            <span class="label">Wynik </span>
-            <span class="value" id="poka">&nbsp;</span>
-            <!--        <span class="label">Wynik </span>-->
+        <div class="form-group mainList">
+            <label for="ilosc">Wpisz ilość:</label>
+            <input type="number" class="form-control" id="ilosc" name="amount" aria-describedby="podpowiedzPole" placeholder="Ilośc produktów">
+            <!-- <small id="podpowiedzPole" class="form-text text-muted">Ilosc również można wpisać lub przeklikać</small> -->
+        </div>
+
+        <!-- <button class="btn btn-outline-primary">Oblicz</button>
+
+        <div class="alert alert-primary mainList" id="poka" role="alert"> - czekam na dane - </div> -->
+
+        <div class="form-row mainList">
+            <div class="col-auto">
+                    <button class="btn btn-outline-primary">Oblicz</button>
+            </div>
+            <div class="col">
+                    <div class="alert alert-primary mainList" id="poka" role="alert"> - czekam na dane - </div>
+            </div>
         </div>
     </div>
 
-    <div id="pies"></div>
     <script src="w1e1.js"></script>
 </body>
 
 </html>
+
+<!-- 
+        <div class="subject">
+            <p>Obliczenie rabatu na podstawie ilości kupionego produktu</p>
+        </div>
+
+        <div class="line">
+            <span class="label">Cena produktu: </span>
+            <input type="number" name="price" value="10">
+        </div>
+        <div class="line">
+            <span class="label">Ilość kupionych: </span>
+            <input type="number" name="amount" value="100">
+        </div>
+        <div class="line">
+            <button>OBLICZ</button>
+        </div> 
+-->
+        <!-- <div class="line">
+            <span class="label">Wynik </span>
+        </div> -->
+    
+
