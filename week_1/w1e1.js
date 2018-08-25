@@ -39,6 +39,6 @@ buttton.onclick = function(){
     
     sum = amount_value*price_value - amount_value*price_value*discount/100;
 
-    poka.textContent = sum;
+    poka.textContent = sum + " zł";
 }
 

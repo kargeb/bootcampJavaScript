@@ -17,17 +17,28 @@ var movies = {
 };
 
 var p = document.querySelector("p");
-var poka = "";
+var pokaConsole = "",
+    pokaSite = "";
 
 for(var key in movies) {
-    poka += key + ": \n";
+    pokaConsole += key + ": \n";
     
     for(var i=0; i<movies[key].length; i++) {
-        poka += movies[key][i] + "\n"
+        pokaConsole += movies[key][i] + "\n"
     }
-    poka += "=================\n";
+    pokaConsole += "=================\n";
 }
 
-console.log(poka);
+ console.log(pokaConsole);
 
-p.innerHTML = poka;
+for(var key in movies) {
+    pokaSite += key + ": <br>";
+    
+    for(var i=0; i<movies[key].length; i++) {
+        pokaSite += movies[key][i] + "<br>"
+    }
+    pokaSite += "=================<br>";
+}
+
+
+p.innerHTML = pokaSite;
