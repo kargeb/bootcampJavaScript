@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/styleNew.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid template">
+        <div class="row ">
+          <div class="col-1  template">
+            <a href="../index.html"><i class="material-icons md-46">home</i></a>
+          </div>
+          <div class="col-6 ">
+            <h1 class="page-header">1. Instrukcje warunkowe</h1>
+            <h3>Obliczenie rabatu na podstawie ilości kupionego produktu</h3>
+            <div class="form-group mainList">
+                <label for="cena">Wpisz cenę produktu:</label>
+                <input type="number" class="form-control" id="cena" value="100" name="price" aria-describedby="podpowiedzPole" placeholder="_">
+            </div>
+            <div class="form-group mainList">
+                <label for="ilosc">Wpisz ilość:</label>
+                <input type="number" class="form-control" id="ilosc" value="50" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
+            </div>
+            <br>
+            <div class="form-row mainList">
+                <div class="col-auto">
+                    <button class="btn btn-outline-primary oblicz">Oblicz</button>
+                </div>
+                <div class="col ">
+                    <div class="alert alert-light mainList text-center font-weight-bold" id="poka" role="alert"> - wynik - </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-5 ">
+                <div class="accordion instruction border-bottom" id="accordionExample">
+                        <div class="card">
+                          <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Treść zadania
+                              </button>
+                            </h5>
+                          </div>
+                      
+                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                    Za pomocą instrukcji warunkowej if (wraz z blokami else) lub switch, stwórz skrypt, który 
+                                    w konsoli (za pomocą console.log()) wyświetli cenę produktu, w zależności od liczby 
+                                    zakupionych przez klienta do tej pory produktów. Oczywiście wszystko to jest abstrakcyjne, 
+                                    więc musisz utworzyć zmienną, która będzie przechowywała liczbę zakupionych produktów, 
+                                    np. 100, a następnie zmienną z ceną jakiegoś ﬁkcyjnego produktu, np. 50. Poniżej tych 
+                                    dwóch zmiennych utwórz blok instrukcji warunkowych, który ustali ostateczną cenę, w 
+                                    zależności od liczby zakupionych przez klienta produktów.
+                                    Jeśli zatem klient ma już na koncie od 5 do 20 zakupionych produktów, to przyznaj zniżkę 
+                                    5%. Jeśli 21 do 50, to 10%, od 51 do 100 produktów daje zniżkę 15%, a powyżej 100 
+                                    produktów zniżkę w wysokości 20%.
+                                    Musisz zatem obliczyć ostateczną cenę produktu, a następnie wyświetlić w konsoli 
+                                    komunikat, np. “Podstawowa cena produktu to 20zł, po obniżce to 17zł”. Aby to 
+                                    przetestować, będziesz musiał zmieniać liczbę                             </div>
+                          </div>
+                        </div>
+                      </div>
+<!--                 
+                        <div class="card border-primary mb-3 instruction">
+                        <div class="card-header text-primary"><h5>1. Instrukcje warunkowe </h5> </div>
+                        <div class="card-body ">
+                          <h5 class="card-title">Primary card title</h5> 
+                          <p class="card-text">Za pomocą instrukcji warunkowej if (wraz z blokami else) lub switch, stwórz skrypt, który 
+                                w konsoli (za pomocą console.log()) wyświetli cenę produktu, w zależności od liczby 
+                                zakupionych przez klienta do tej pory produktów. Oczywiście wszystko to jest abstrakcyjne, 
+                                więc musisz utworzyć zmienną, która będzie przechowywała liczbę zakupionych produktów, 
+                                np. 100, a następnie zmienną z ceną jakiegoś ﬁkcyjnego produktu, np. 50. Poniżej tych 
+                                dwóch zmiennych utwórz blok instrukcji warunkowych, który ustali ostateczną cenę, w 
+                                zależności od liczby zakupionych przez klienta produktów.
+                                Jeśli zatem klient ma już na koncie od 5 do 20 zakupionych produktów, to przyznaj zniżkę 
+                                5%. Jeśli 21 do 50, to 10%, od 51 do 100 produktów daje zniżkę 15%, a powyżej 100 
+                                produktów zniżkę w wysokości 20%.
+                                Musisz zatem obliczyć ostateczną cenę produktu, a następnie wyświetlić w konsoli 
+                                komunikat, np. “Podstawowa cena produktu to 20zł, po obniżce to 17zł”. Aby to 
+                                przetestować, będziesz musiał zmieniać liczbę zakupionych przez klienta produktów w 
+                                zmiennej, w której taką informację zapiszesz.</p>
+                        </div>
+                      </div> -->
+                    
+        </div>
+        </div>
+    </div>
+
+    <script src="w1e1.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
+</body>
+</html>

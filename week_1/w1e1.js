@@ -1,5 +1,3 @@
-console.log("dupa dupa");
-
 var price = document.querySelector('input[name="price"]'),
     amount = document.querySelector('input[name="amount"]'),
     poka = document.querySelector("#poka"),
