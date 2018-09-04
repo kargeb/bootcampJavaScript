@@ -21,25 +21,116 @@
             <a href="../index.html"><i class="material-icons md-46">home</i></a>
           </div>
           <div class="col-6 ">
-            <h1 class="page-header">1. Instrukcje warunkowe</h1>
-            <h3>Obliczenie rabatu na podstawie ilości kupionego produktu</h3>
-            <div class="form-group mainList">
-                <label for="cena">Wpisz cenę produktu:</label>
-                <input type="number" class="form-control" id="cena" value="100" name="price" aria-describedby="podpowiedzPole" placeholder="_">
-            </div>
-            <div class="form-group mainList">
-                <label for="ilosc">Wpisz ilość:</label>
-                <input type="number" class="form-control" id="ilosc" value="50" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
-            </div>
+              <div class="row">
+                  <div class="col">
+                        <h1 class="page-header">1. Instrukcje warunkowe</h1>
+                        <h3>Obliczenie rabatu na podstawie ilości kupionego produktu</h3>
+                        <hr>
+                        <br>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-4">
+                        <div class="form-group ">
+                                <label for="cena"><b>Wpisz cenę produktu:</b></label>
+                                <input type="number" class="form-control" id="cena" value="100" name="price" aria-describedby="podpowiedzPole" placeholder="_">
+                            </div>
+                            <div class="form-group ">
+                                <label for="ilosc"><b>Wpisz ilość:</b></label>
+                                <input type="number" class="form-control" id="ilosc" value="4" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
+                            </div>
+                  </div>
+                  <div class="col-2">
+
+                  </div>
+                  <div class="col-4">
+                        <table id="discount_table" class="table table-sm table-borderless">
+                                <thead>
+                                  <tr>
+                                    <td>Ilość produktów</td>
+                                    <td>Rabat</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>5 - 20</td>
+                                    <td>5%</td>
+                                  </tr>
+                                  <tr>
+                                    <td>21 - 50</td>
+                                    <td>10%</td>
+                                  </tr>
+                                  <tr>
+                                    <td>51 - 100</td>
+                                    <td>15%</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        <!-- style="max-width: 18rem;" -->
+                        <!-- <div class="card bg-light mb-3" >
+                      
+                                <div class="card-body ">
+                                  <h6 class="card-title">Tabela rabatów:</h6>
+                                  <p class="discount_table">5 - 20 produktów: 5%</p>
+                                  <p class="discount_table">21 - 50 produktów: 10%</p>
+                                  <p class="discount_table">51 - 100 produktów: 15%</p>
+                                  <p class="discount_table">100 - produktów: 20%</p>
+                                </div>
+                              </div> -->
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-4">
+                        <button class="btn btn-outline-primary oblicz">Oblicz pierwsze zakupy</button>
+                  </div>
+                  <div class="col-2">
+                        <button class="btn btn-outline-primary oblicz">Resetuj dane</button>
+                  </div>
+                  <div class="col-6">
+                  </div>
+              </div>
+              <br><br>
+              <div class="row">
+                  <div class="col">
+                        <table class="table table-bordered dense_border">
+                                <thead>
+                                  <tr>
+                                    <td>Ilość produktów</td>
+                                    <td>Zniżka</td>
+                                    <td>Cena przed zniżką</td>
+                                    <th >Cena po zniżce</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td id="products">-</td>
+                                    <td id="discount">-</td>
+                                    <td id="before_discount">-</td>
+                                    <td id="after_discount" class="mark">-</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                  </div>
+              </div>
+
+              <!-- <div class="row">
+                    <div class="col ">
+                            <div class="alert alert-light  text-center font-weight-bold" id="products" role="alert"> ilość produktów </div>
+                        </div>
+                        <div class="col ">
+                            <div class="alert alert-light  text-center font-weight-bold" id="discount" role="alert"> znizka </div>
+                        </div>
+                        <div class="col ">
+                            <div class="alert alert-light  text-center font-weight-bold" id="before_discount" role="alert"> - przed zniżką - </div>
+                        </div>
+                        <div class="col ">
+                            <div class="alert alert-light  text-center font-weight-bold" id="after_discount" role="alert"> - po zniżce - </div>
+                        </div>
+              </div> -->
+
             <br>
-            <div class="form-row mainList">
-                <div class="col-auto">
-                    <button class="btn btn-outline-primary oblicz">Oblicz</button>
-                </div>
-                <div class="col ">
-                    <div class="alert alert-light mainList text-center font-weight-bold" id="poka" role="alert"> - wynik - </div>
-                </div>
-            </div>
+
         </div>
         <div class="col-5 ">
                 <div class="accordion instruction border-bottom" id="accordionExample">
