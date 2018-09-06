@@ -35,6 +35,19 @@ h3 {
     border: solid;
 }
 
+#show_numbers{
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#show_sum{
+    font-size: 2em;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: -0.2em;
+}
+
 /* .mark {
     background-color: #dff0d8;
   } */
