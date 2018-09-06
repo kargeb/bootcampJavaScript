@@ -48,6 +48,14 @@ h3 {
     margin-top: -0.2em;
 }
 
+#show_data_button{
+    margin-top: 1em;
+}
+
+#show_data{
+    margin-top: 1em;
+}
+
 /* .mark {
     background-color: #dff0d8;
   } */
