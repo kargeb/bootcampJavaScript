@@ -60,8 +60,13 @@ h3 {
     display: none;
 }
 
-.link-danger {
-    color: #dc3545;
+.link-info {
+    color: #17a2b8;
+}
+
+.wrong{
+    border: outset 1.5px #dc3545;
+
 }
 
 /* .mark {
