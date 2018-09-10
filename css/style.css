@@ -16,9 +16,15 @@ h3 {
     margin-right: 40%;
 }
 
-.mainList a{
+.blue a{
     color: #007bff;
 }
+
+.red a{
+    color: #dc3545;
+}
+
+
 
 /* .sameHeight {
     height: 50px;

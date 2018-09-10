@@ -31,22 +31,10 @@
                         </div><br><br>
                         <div class="row">
                             <div class="col">
-                                
-                                <button id="show_button_1" class="btn btn-outline-danger">Pokaż treść</button>
-                                <br><br>
-                                <div id="hidden_div_1" class="alert alert-danger text-center hidden">
-                                    Ukryty element <br>(display: inline-block) <br> 
-                                </div>
+                                    <p>drugie zadanie</p>
+
                             </div>
-                            <div class="col">
-                                <button id="show_button_2" class="btn btn-outline-danger">Pokaż treść</button>
-                                <br><br>
-                                <div id="hidden_div_2" class="alert alert-danger text-center invisible">
-                                    Ukryty element <br>(visibility: visible)
-                                </div>
-                            </div>
-                        </div>
-                        
+                        </div> 
                     </div>
                     <div class="col-5 ">
                         <div class="accordion instruction border-bottom" id="accordionExample">
@@ -61,11 +49,19 @@
             
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        Stwórz projekt z ukrytym elementem HTML (np. div z display:none w CSS), a także 
-                                            przyciskiem (button). Przypisz na kliknięcie przycisku funkcję, która pokaże ukryty 
-                                            element, gdy jest niewidoczny i ukryje go, gdy jest widoczny. Podczas zmiany stanu 
-                                            widoczności tego elementu, zmień również tekst przycisku np. z “Pokaż treść” na “Ukryj 
-                                            treść” i na odwrót.
+                                        Stwórz prosty walidator formularza, który zawierał będzie pola 	&#60;input> o typach “text”, 
+                                        “email”, “number” oraz element 	&#60;textarea>. Dodaj do elementu 	&#60;form> atrybut 
+                                        novalidate, aby wyłączyć domyślną walidację przeglądarki. Od Ciebie zależy, czy chcesz 
+                                        wyświetlać komunikaty o błędach czy tylko podświetlać niepoprawnie uzupełnione pola np. 
+                                        na czerwono. Za poprawnie uzupełnione pole 	&#60;input> o typie “text” lub pole 	&#60;textarea> 
+                                        uznajemy takie, które ma wpisany przynajmniej jeden znak. W przypadku pola o typie 
+                                        “email” sprawdź czy zawiera ono znak @, a w przypadku pola o typie “number” czy podana 
+                                        wartość jest liczbą (pamiętaj, że DOM zwróci Ci zawsze wartość o typie String, więc 
+                                        musisz znaleźć sposób, jak sprawdzić czy string ten zawiera wyłącznie liczbę).<br>
+                                        <b>Uwaga:</b>Uwaga: Jeśli stworzysz pole 	&#60;input> o typie “number” to w niektórych przeglądarkach nie 
+                                        będzie możliwości wpisania innych znaków niż liczby. Mimo to napisz logikę, która taką 
+                                        walidację wykona, a aby móc wprowadzić inne znaki niż tylko liczby, zmień na czas testów 
+                                        atrybut type pola 	&#60;input> z “number” na “text”.
                                 </div>
                             </div>
                         </div>
@@ -73,7 +69,7 @@
                 </div>
         </div>
     </div>
-    <script src="21.js"></script>
+    <script src="22.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

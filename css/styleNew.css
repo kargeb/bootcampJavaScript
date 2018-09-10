@@ -60,6 +60,10 @@ h3 {
     display: none;
 }
 
+.link-danger {
+    color: #dc3545;
+}
+
 /* .mark {
     background-color: #dff0d8;
   } */
