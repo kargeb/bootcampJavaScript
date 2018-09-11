@@ -1,41 +1,27 @@
-var form = document.querySelector("form");
+var form = document.querySelector("form"),
+    message_name = document.getElementById("message_name"),
+    message_tel = document.getElementById("message_tel"),
+    message_email = document.getElementById("message_email"),
+    message_date = document.getElementById("message_date"),
+    message_card = document.getElementById("message_card"),
+    message_text = document.getElementById("message_text");
 
-// console.log(form);
 
-// console.log(form.email);
-// console.log(form.button);
-
-// console.log(form.button.value);
-
-// console.log(form.children);
-
-// console.log(form[4]);
-
-// console.log(form.email.value);
-
-// var dupa = "1234";
-// var kupa = "1234sdf";
-
-// console.log(Number(dupa));
-// console.log(Number(kupa));
-
-// form.name.classList.add("wrong");
+console.log(message_name);
 
 form.addEventListener("submit", function(e){
 
     var checksum = 0;
+    var  message = {};
 
     e.preventDefault();
-
-    // console.log(form.email.value);
-
-    // console.log( typeof form.name.value);
 
     if(form.name.value == ""){
         form.name.placeholder = "Pole obowiązkowe!";
         form.name.classList.add("wrong");
     } else {
         form.name.classList.remove("wrong");
+        message.name = form.name.value;
         checksum++
     }
 
@@ -44,6 +30,7 @@ form.addEventListener("submit", function(e){
         form.message.classList.add("wrong");
     } else {
         form.message.classList.remove("wrong");
+        message.text = form.message.value;
         checksum++
     }
 
@@ -56,6 +43,7 @@ form.addEventListener("submit", function(e){
         form.email.placeholder = "Niepoprawny adres email!";
     } else {
         form.email.classList.remove("wrong");
+        message.email = form.email.value;
         checksum++
     }
 
@@ -68,11 +56,51 @@ form.addEventListener("submit", function(e){
         form.tel.placeholder = "Niepoprawny numer! Dozwolone wyłącznie liczby.";
     } else {
         form.tel.classList.remove("wrong");
+        message.tel = form.tel.value;
         checksum++
     }    
 
 
+    if(checksum == 4){
+        $('.collapse').collapse();
+
+        console.log(message);
+
+        show_message(message);
+
+    }
+
+    //  $('.collapse').collapse();
 
     console.log(checksum);
 })
+
+function show_message(message){
+
+    console.log("z message");
+
+    var date = new Date();
+
+    date = date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear();
+
+    message_name.innerText = message.name;
+    message_tel.innerText = message.tel;
+    message_email.innerText = message.email;
+    message_text.innerText = message.text;
+    message_date.innerText = date;
+    
+
+}
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    $('#collapseOne').on('hidden.bs.collapse', function () {
+        console.log("zaparłem się");
+
+        message_card.classList.remove("hidden");
+      })
+
+})
+
 

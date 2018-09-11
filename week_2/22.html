@@ -33,16 +33,20 @@
                             <div class="col">
                                     <form novalidate>
                                         <div class="form-group">
-                                                <input type="text" name="name" class="form-control" placeholder="Podaj imię">
+                                                <label>Podaj imię:</label>
+                                                <input type="text" name="name" class="form-control" placeholder="Imię">
                                         </div>
                                         <div class="form-group">
-                                                <input type="email" name="email" class="form-control" placeholder="Podaj email">
+                                                <label>Podaj email:</label>
+                                                <input type="email" name="email" class="form-control" placeholder="Email">
                                         </div>
                                         <div class="form-group">
-                                                <input type="text" name="tel" class="form-control" placeholder="Podaj nr. telefonu">
+                                                <label>Podaj numer telefonu:</label>
+                                                <input type="text" name="tel" class="form-control" placeholder="Telefon">
                                         </div>
                                         <div class="form-group">
-                                                <textarea type="text" name="message" class="form-control" placeholder="Treść wiadomości"></textarea>
+                                                <label>Wpisz treść wiadomości:</label>
+                                                <textarea type="text" name="message" class="form-control" placeholder="Treść"></textarea>
                                         </div>
                                         <div class="form-group">
                                                 <button type="submit" name="button" class="btn btn-outline-info" value="1">Wyślij</button>
@@ -50,38 +54,57 @@
                                     </form>
                             </div>
                         </div> 
+
                     </div>
                     <div class="col-5 ">
-                        <div class="accordion instruction border-bottom" id="accordionExample">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link link-info" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Treść zadania
-                                        </button>
-                                    </h5>
-                                </div>
-            
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        Stwórz prosty walidator formularza, który zawierał będzie pola 	&#60;input> o typach “text”, 
-                                        “email”, “number” oraz element 	&#60;textarea>. Dodaj do elementu 	&#60;form> atrybut 
-                                        novalidate, aby wyłączyć domyślną walidację przeglądarki. Od Ciebie zależy, czy chcesz 
-                                        wyświetlać komunikaty o błędach czy tylko podświetlać niepoprawnie uzupełnione pola np. 
-                                        na czerwono. Za poprawnie uzupełnione pole 	&#60;input> o typie “text” lub pole 	&#60;textarea> 
-                                        uznajemy takie, które ma wpisany przynajmniej jeden znak. W przypadku pola o typie 
-                                        “email” sprawdź czy zawiera ono znak @, a w przypadku pola o typie “number” czy podana 
-                                        wartość jest liczbą (pamiętaj, że DOM zwróci Ci zawsze wartość o typie String, więc 
-                                        musisz znaleźć sposób, jak sprawdzić czy string ten zawiera wyłącznie liczbę).<br>
-                                        <b>Uwaga:</b>Uwaga: Jeśli stworzysz pole 	&#60;input> o typie “number” to w niektórych przeglądarkach nie 
-                                        będzie możliwości wpisania innych znaków niż liczby. Mimo to napisz logikę, która taką 
-                                        walidację wykona, a aby móc wprowadzić inne znaki niż tylko liczby, zmień na czas testów 
-                                        atrybut type pola 	&#60;input> z “number” na “text”.
+                        <div class="row">
+                            <div class="accordion instruction border-bottom" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link link-info" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                                aria-expanded="true" aria-controls="collapseOne">
+                                                Treść zadania
+                                            </button>
+                                        </h5>
+                                    </div>
+                    
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            Stwórz prosty walidator formularza, który zawierał będzie pola &#60;input> o typach “text”,
+                                            “email”, “number” oraz element &#60;textarea>. Dodaj do elementu &#60;form> atrybut
+                                            novalidate, aby wyłączyć domyślną walidację przeglądarki. Od Ciebie zależy, czy chcesz
+                                            wyświetlać komunikaty o błędach czy tylko podświetlać niepoprawnie uzupełnione pola np.
+                                            na czerwono. Za poprawnie uzupełnione pole &#60;input> o typie “text” lub pole &#60;textarea>
+                                            uznajemy takie, które ma wpisany przynajmniej jeden znak. W przypadku pola o typie
+                                            “email” sprawdź czy zawiera ono znak @, a w przypadku pola o typie “number” czy podana
+                                            wartość jest liczbą (pamiętaj, że DOM zwróci Ci zawsze wartość o typie String, więc
+                                            musisz znaleźć sposób, jak sprawdzić czy string ten zawiera wyłącznie liczbę).<br>
+                                            <b>Uwaga:</b>Uwaga: Jeśli stworzysz pole &#60;input> o typie “number” to w niektórych
+                                            przeglądarkach nie
+                                            będzie możliwości wpisania innych znaków niż liczby. Mimo to napisz logikę, która taką
+                                            walidację wykona, a aby móc wprowadzić inne znaki niż tylko liczby, zmień na czas testów
+                                            atrybut type pola &#60;input> z “number” na “text”.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <br><br><br><br><br><br><br>
+                        <div class="row">
+                                <div class="col">
+                                        <div id="message_card" class="card hidden" style="width: 18rem;">
+                                                <div class="card-body">
+                                                  <h5 id="message_name" class="card-title"></h5>
+                                                  <h6 id="message_date" class="card-subtitle mb-2 text-muted"></h6>
+                                                  <p id="message_text" class="card-text"></p>
+                                                  <a id="message_tel"  href="#" class="card-link"></a>
+                                                  <a id="message_email"  href="#" class="card-link"></a>
+                                                </div>
+                                              </div>
+                                </div>
+                        </div>
                     </div>
-                </div>
         </div>
     </div>
     <script src="22.js"></script>
