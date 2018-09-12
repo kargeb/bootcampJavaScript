@@ -25,7 +25,12 @@ EventEmitter.prototype.emit = function(type, data) {
 
 };
 
+Database.prototype = Object.create(EventEmitter.prototype);
+Database.prototype.constructor = Database;
+
 function Database(url) {
+
+    EventEmitter.call(this);
 
     this.url = url;
 
@@ -46,6 +51,8 @@ Database.prototype.disconnect = function() {
     this.emit("disconnect", this.url);
 
 }
+
+
 
 // Użycie EventEmittera
 var ev = new EventEmitter();
