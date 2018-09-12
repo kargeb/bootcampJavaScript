@@ -1,11 +1,14 @@
-var timer = document.getElementById("timer"),
+(function(){
+
+    var timer = document.getElementById("timer"),
     count_button = document.getElementById("count_button");
 
-timer.innerText = "dupa";
+timer.innerText = "";
 
 count_button.addEventListener("click",function(){
 
     console.log("duoasasd");
+    counter(callback);
 
 })
 
@@ -13,40 +16,24 @@ function callback(){
     console.log("Działa! z Callbacka");
 }
 
-// callback();
+var i = 10;
 
 function counter(fun){
 
-    var i = 10;
+    
+    
+    fun();
 
-    // fun();
-
-    var czosz = rek.bind(this, fun);
-
-    function rek(fun) {
-
-        fun();
-
-        console.log("z rek ");
-
-        setTimeout( function call(fun){
-            console.log("z cosia i = " + i);
-
-            i--;
-            if(i>0){
-                rek.bind(this, fun);
-            } else {
-                fun();
-            }
-
-        }, 1000);
+    if( i>=0 ) {
+        timer.innerText = i--;
+        setTimeout( counter.bind(this, fun), 1000);
+        
+    } else {
+        console.log("koniec");
+        timer.innerText = "KONIEC";
     }
-
-    czosz();
-
-
-
-
 }
 
-// counter(callback);
+})();
+
+
