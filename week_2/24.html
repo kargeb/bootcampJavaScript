@@ -31,7 +31,15 @@
                         </div><br><br>
                         <div class="row">
                             <div class="col">
-                                    <p>czosz</p>
+                                    <p><code>Database.prototype = Object.create(EventEmitter.prototype);</code></p>
+                                        <p><code> Database.prototype.constructor = Database;</code></p>
+                                        <br>
+                                        
+                                        <p><code>function Database(url) {</code></p>
+                                        
+                                            <p><code>EventEmitter.call(this);</code></p>
+                                        
+                                                <p><code> this.url = url;  }</code></p>
                             </div>
                         </div>
                     </div>
