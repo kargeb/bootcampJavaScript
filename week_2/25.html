@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/styleNew.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid template">
+            <div class="row ">
+                    <div class="col-1  template">
+                        <a href="../index.html"><i class="material-icons md-46">home</i></a>
+                    </div>
+                    <div class="col-6 ">
+                        <div class="row">
+                            <div class="col">
+                                <h1 class="page-header">5. Funkcja debounce </h1>
+                                <hr>
+                            </div>
+                        </div><br><br>
+                        <div class="row">
+                            <div class="col">
+                                <br>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5 ">
+                        <div class="accordion instruction border-bottom" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link link-danger" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Treść zadania
+                                        </button>
+                                    </h5>
+                                </div>
+            
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                            Stwórz funkcję o nazwie debounce, która przyjmie przy wywołaniu dwa argumenty. <br>
+                                            Pierwszy z nich to inna funkcja do późniejszego wywołania, a drugi to czas w 
+                                            milisekundach. Po takim wywołaniu, funkcja ta powinna zwrócić nową funkcję, którą 
+                                            można zapisać np. w zmiennej. Następnie tę nową funkcję będzie można wielokrotnie 
+                                            wywoływać (a ona powinna wywołać pierwotnie przekazaną funkcję), jednak jeśli czas 
+                                            pomiędzy poszczególnymi wywołaniami będzie krótszy, niż podany wcześniej (wspomniany argument z czasem w milisekundach), to funkcja nie powinna nic zrobić, ale ustawić licznik 
+                                            na kolejne Xms i dopiero wtedy się wywołać. <br> <br>
+                                            Rozwiązania typu debounce stosuje się np. przy obsłudze zdarzenia scroll w 
+                                            przeglądarkach, które wywoływane jest bardzo wiele razy. Jeśli nie chcemy, aby nasza 
+                                            funkcja negatywnie wpływała na wydajność podczas scrollowania, a wystarczy, że wywoła 
+                                            się np. 100ms po zakończeniu scrollowania, wtedy stosujemy funkcję debounce. Innym 
+                                            przykładem jest np. zdarzenie resize, które też jest wielokrotnie wywoływane podczas 
+                                            skalowania okna przeglądarki, a nam może zależeć, aby wywołać pewien kod dopiero 
+                                            wtedy, gdy taka akcja się zakończy. <br> <br>
+                                            Całość przetestować możesz z użyciem tego kodu: <a href="https://pastebin.com/J0BJVqtR">https://pastebin.com/J0BJVqtR</a>. Twoim 
+                                            zadaniem jest dopisanie funkcji debounce, aby ten kod zaczął działać. <br>
+                                            Podpowiedź: będziesz potrzebował funkcji setTimeout i clearTimeout.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <script src="25.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
