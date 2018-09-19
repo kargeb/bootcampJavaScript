@@ -25,41 +25,27 @@
                     <div class="col-6 ">
                         <div class="row">
                             <div class="col">
-                                <h1 class="page-header">1. Polyﬁll metody repeat dla String</h1>
+                                <h1 class="page-header">2. Wrapper Toggler dla elementów z drzewa DOM</h1>
                                 <hr>
                             </div>
                         </div><br><br>
                         <div class="row">
                             <div class="col">
-                                <pre>
-        if (typeof String.prototype.repeat) {
-            console.log('Function named \"repeat\" already exist in JavaScript, use \"iterate\" function instead.');
-        
-            String.prototype.iterate = function (times) {
-        
-                try {
-                    if (typeof times === "number" && times >= 0) {
-        
-                        var text = "";
-        
-                        while (times) {
-                            text += this;
-                            times--;
-                        }
-        
-                        return text;
-        
-                    } else {
-                        throw new Error("Wrong value! Only positive numbers are allowed.");
-                    }
-        
-                } catch (e) {
-                    console.log(e.message);
-                }
-            }
-        }
-                                </pre>
 
+                                <button class="btn btn-outline-warning">Naciś</button>
+
+                            </div>
+                            <div class="col">
+
+                            <section class="alert alert-warning" role="alert">
+
+                                    Czosz sakjdfhaskdjh aksjdh kajdhaskdj hkajsdh 
+
+                            </section>
+
+                            </div>
+                            <div class="col">
+                                
                             </div>
                         </div>
                     </div>
@@ -76,19 +62,17 @@
             
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
-                                            W standardzie EcmaScript 2015 (o którym więcej w 5 i 6 tygodniu Bootcampu) pojawiła się 
-                                            nowa metoda dostępna na obiektach typu String o nazwie repeat. Jej użycie wygląda 
-                                            następująco: <br>
-                                            “hej ”.repeat(3) // zwraca “hej hej hej ” <br>
-                                            Metoda ta jest dostępna we wszystkich nowoczesnych przeglądarkach internetowych, ale 
-                                            aby poćwiczyć rozszerzanie wbudowanych typów, utwórz jej polyﬁll. W kodzie sprawdź 
-                                            najpierw czy taka metoda już w przeglądarce została zaimplementowana, a jeśli nie, to 
-                                            dopisz własną funkcję, która będzie mogła być na dowolnym stringu wywołana w podany 
-                                            wyżej sposób. <br>
-                                            Podpowiedź: rozszerzaj prototyp konstruktora String. Przy sprawdzeniu czy taka metoda 
-                                            już istnieje, w nowoczesnych przeglądarkach otrzymasz odpowiedź pozytywną. Jeśli zatem 
-                                            napiszesz odpowiedni warunek, to nie będzie można przetestować Twojej metody. Z tego 
-                                            powodu, zamiast repeat możesz ją nazwać repeatt.
+                                            Do przygotowanego pod adresem <a href="http://pastebin.com/hUK5tnh3">http://pastebin.com/hUK5tnh3</a>
+                                             kodu dodaj konstruktor 
+                                            (klasę) o nazwie Toggler. Przy tworzeniu nowych jej instancji z użyciem słowa kluczowego 
+                                            new (jak możesz zobaczyć w przygotowanym kodzie) przekazywać będziemy selektor. Za 
+                                            jego pomocą należy znaleźć na stronie odpowiedni element (skorzystaj z metody 
+                                            document.querySelector) i zapisać go w nowo stworzonym obiekcie. Następnie dodaj 3 
+                                            metody. Pierwsza z nich o nazwie getElem powinna po prostu zwrócić znaleziony 
+                                            wcześniej element. Metoda show i hide powinny kolejno pokazywać i ukrywać element. Jeśli wszystko wykonasz poprawnie, kod który został już napisany powinien działać bez 
+                                            żadnych modyﬁkacji. Zauważ, że do elementu o identyﬁkatorze button zostało przypisane 
+                                            zdarzenie kliknięcia. Taki element musisz wstawić na stronę, podobnie jak i element, 
+                                            którego selektor zostanie przekazany przy tworzeniu nowego obiektu klasy Toggler.
                                 </div>
                             </div>
                         </div>
@@ -96,7 +80,7 @@
                 </div>
         </div>
     </div>
-    <script src="31.js"></script>
+    <script src="32.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
