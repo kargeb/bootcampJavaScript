@@ -1,7 +1,7 @@
 
 (function(){
     
-    if (typeof String.prototype.repeat) {
+    if (typeof String.prototype.repeat == "function") {
         console.log('Function named \"repeat\" already exist in JavaScript, use \"iterate\" function instead.');
     
         String.prototype.iterate = function (times) {
