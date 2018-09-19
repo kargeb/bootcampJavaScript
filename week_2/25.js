@@ -1,24 +1,31 @@
 (function() {
 
-    var start_button = document.getElementById("start");
+    var start_button = document.getElementById("start"),
+        showtime = document.getElementById("showtime");
+        
 
     function debounce(fn, time) {
 
         var time = time,
-            check = 0 ;
+            check = 0;
+            
 
         return function() {
 
             check++;
+            showtime.max++;
 
             var clear = setTimeout(function(){
 
                 if (check > 1){
                     clearTimeout(clear);
+                    console.log(clear);
                     check --;
+                    showtime.value++;
                 } else {
                     fn();
                     check = 0;
+                    showtime.value = showtime.max;
                 }
 
             }, time);
@@ -28,7 +35,7 @@
 
     var test = debounce( function(){
         console.log("z debance");
-    }, 3000);
+    }, 5000);
 
 
     start_button.addEventListener("click", test);
@@ -51,5 +58,8 @@
     }, 100);
 
     window.addEventListener("resize", handleResize, false);
+
+    console.log(showtime.value);
+    console.log(showtime.max);
 
 })();
