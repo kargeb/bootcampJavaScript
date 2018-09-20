@@ -22,7 +22,7 @@ if( typeof fetch == "function" ){
     } 
 
 } else {
-    console.log("nie ma fecz");
+    console.log("nie ma fecz nie ma nie ma nicz");
 }
 
 fecz("adres");
