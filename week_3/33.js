@@ -17,6 +17,8 @@ if( typeof fetch == "function" ){
 
 
         console.dir(xhr);
+        console.dir(xhr);
+        console.dir(xhr);
 
         console.log(xhr.response);
 
