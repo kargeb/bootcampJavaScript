@@ -25,7 +25,7 @@
                     <div class="col-6 ">
                         <div class="row">
                             <div class="col">
-                                <h1 class="page-header">3.  Ajaxowy polyﬁll dla funkcji fetch </h1>
+                                <h1 class="page-header">4.  Funkcja getJSON </h1>
                                 <hr>
                             </div>
                         </div><br><br>
@@ -60,26 +60,28 @@
             
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        Napisz polyﬁll dla funkcji  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">fetch</a>  
-                                        (nie będziemy się tutaj trzymać dokładnie tego, w jaki 
-                                        sposób ona działa, stworzysz jedynie prostą jej wersję). Wykorzystaj obiekt 
-                                        XMLHttpRequest w ten sposób, aby docelowo korzystanie z funkcji fetch wyglądało 
-                                        następująco: <br> <br> 
-                                        fetch("url", function(data) { <br> 
+                                        Mając już rozwiązanie zadania trzeciego, przepisz swój kod tak, aby stworzyć nową funkcję 
+                                        o nazwie getJSON. Idea działania i użycie będą bardzo podobne: <br> <br>
+                                        getJSON("url", function(data) { <br>
                                             console.log("Sukces"); <br>
                                             console.log(data); <br>
-                                        }, function(err) { <br>
+                                            // typeof data powinno zwrócić “object” <br> 
+                                        }, function(err) {  <br>
                                             console.log("Wystąpił błąd!"); <br> 
-                                            console.log(err); <br>
-                                        }); <br> <br> 
-                                        a zatem jako pierwszy argument przekazujemy adres URL (wyślij pod niego zapytanie 
-                                        GET), jako drugi funkcję, którą należy wykonać jeśli wszystko się powiedzie (przekaż jej 
-                                        pobrane dane), a jako trzeci funkcję, która wykona się na wypadek błędu (przekaż jej 
-                                        obiekt z błędem lub komunikat tekstowy). <br> <br>
-                                         W nowoczesnych przeglądarkach istnieje już 
-                                        funkcja fetch, a zatem aby jej nie nadpisywać, możesz nadać jej inną nazwę, np. fecz. 
-                                        Jako adres URL, z którego pobierane bedą dane, możesz wykorzystać <a href="http://code.eduweb.pl/bootcamp/users/">http://
-                                        code.eduweb.pl/bootcamp/users/</a> 
+                                            console.log(err);  <br>
+                                        }); <br> <br>
+                                        Różnica jest taka, że tym razem pod parametrem data przekazanym w funkcji callback, 
+                                        powinien się znajdować javascriptowy obiekt, a nie string przysłany z serwera. <br> Serwer, 
+                                        który przygotowaliśmy pod tym adresem: <a href="http://code.eduweb.pl/bootcamp/users/"> http://code.eduweb.pl/bootcamp/users/ </a> działa tak, 
+                                        że po otrzymaniu standardowego zapytania GET, np. kiedy wpiszesz ten adres w 
+                                        przeglądarce lub wyślesz zapytanie Ajaxem, zwróci dane zawarte w kodzie HTML. Jeśli 
+                                        jednak przy wysyłaniu zapytania dodasz nagłówek Accept: application/json, to serwer 
+                                        zwróci te same dane, ale w formacie JSON (bez kodu HTML). Z poziomu Twojego kodu 
+                                        JavaScript, otrzymane Ajaxem dane to cały czas typ String, ale za pomocą metody 
+                                        JSON.parse możesz ten string łatwo zamienić na javascriptowy obiekt. <br> To jest właśnie 
+                                        Twoje zadanie. Wysyłając żądanie do serwera, dodaj wspomniany wcześniej nagłówek za 
+                                        pomocą metody setRequestHeader, a otrzymane dane sparsuj za pomocą JSON.parse i 
+                                        dopiero wtedy przekaż jako parametr data do funkcji callback.
                                 </div>
                             </div>
                         </div>
@@ -87,7 +89,7 @@
                 </div>
         </div>
     </div>
-    <script src="33.js"></script>
+    <script src="34.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
