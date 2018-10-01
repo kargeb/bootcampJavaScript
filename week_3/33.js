@@ -1,5 +1,11 @@
 console.log("fecz");
 
+var button = document.querySelector("button");
+var alert = document.querySelector("div[role='alert']");
+var address = "http://code.eduweb.pl/bootcamp/users/";
+console.log(button);
+console.log(alert);
+
 if( typeof fetch == "function" ){
     console.log("jest fetch wiec robimy fecz");
 
@@ -12,37 +18,12 @@ if( typeof fetch == "function" ){
 
         var xhr = new XMLHttpRequest();
 
-        xhr.open("GET", "http://code.eduweb.pl/bootcamppp/users/", true);
+        xhr.open("GET", url, true);
 
 
         
         xhr.onreadystatechange = function(e){
-            
-            // console.log( this.status );
-            
-            // console.log( this.readyState );
-            
-            // console.log(xhr.response)
-            
-            // console.log(xhr);
-            
-            
-            if( this.readyState == 2 ) {
-                console.log("naglowki");
-                console.log(this.status);
-            }
 
-            if( this.readyState == 4 ) {
-
-                if( this.status == 200 ) {
-                    console.log("beje");
-                } else {
-                    console.log("dupa piessss dupa");
-                    console.log(this.status);
-                }
-
-            }
-            
             
             
             if( this.readyState == 4 && this.status == 200 ) {
@@ -58,7 +39,11 @@ if( typeof fetch == "function" ){
                 
                 console.log(e.type);
 
-                console.log(xhr.response)
+                console.log(xhr.response);
+
+                good();
+
+
                 
             } else if ( this.readyState == 4 && this.status != 200 ) {
                 
@@ -77,14 +62,7 @@ if( typeof fetch == "function" ){
                     console.log(" dupa dupa dupa");
                     console.log(e);
 
-                    console.log(this.status);
-                }
-
-                xhr.onloadend = function(e){
-
-                    console.log("onloadend");
-                    console.log(this);
-
+                    bad();
 
                 }
 
@@ -94,14 +72,7 @@ if( typeof fetch == "function" ){
 
 
         xhr.send(null);
-
-        console.log("koniec");
-             
-        
-        // console.log(xhr);
-        
-        // console.log(xhr.response);
-        
+       
     } 
     
 } else {
@@ -109,5 +80,21 @@ if( typeof fetch == "function" ){
 }
 
 
-fecz("adres");
-    
+
+function good(){
+    console.log("Great");
+    alert.classList.add("alert-success");
+    alert.innerText = "Great";
+}
+
+function bad(){
+    console.log("Fucked up");
+    alert.classList.add("alert-danger");
+    alert.innerText = "Fucked up";
+}
+
+button.addEventListener("click", function(){
+
+    fecz(address);
+
+});
