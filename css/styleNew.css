@@ -73,6 +73,11 @@ pre{
     font-size: 0.7em;
 }
 
+.form-control.form-yellow:focus {
+    border-color: rgba(239, 243, 9, 0.938);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+  }
+
 /* .mark {
     background-color: #dff0d8;
   } */
