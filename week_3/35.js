@@ -7,3 +7,6 @@ button_add_page.addEventListener("click", function(){
     window.location.href = "35.html?page=2";
 
 });
+
+var regex = /\/35\.html\?page=\d+$/
+
