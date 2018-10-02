@@ -4,38 +4,40 @@ var button_add_page = document.getElementById("button_add_page"),
     button_goToURL = document.getElementById("button_goToURL"),
     button_check = document.getElementById("button_check"),
     input = document.querySelector("input[type='text']"),
-    buttons_container = document.getElementById("buttons_container"),
-    result = document.querySelector("div[role='alert']");
+    // buttons_container = document.getElementById("buttons_container"),
+    // button_clear = document.getElementById("button_clear"),
+    result = document.querySelector("h1[class='display-4']");
     
 var regex = /\/35\.html\?page=\d+$/;
 
 var input_url ="";
 
-input.value = window.location.href;
+console.log(result);
 
+// result. = "chuj";
 
-/* button_add_page.addEventListener("click", function(){
-
-    window.location.href = "35.html?page=2";
-
-}); */
-
-console.log(input);
-console.log(buttons_container);
+// console.log(resul)
 
 
 function getPage(){
 
+    console.log("jestem");
+
+    console.log( window.location.href);
+
     if ( regex.test( window.location.href  ) ){
 
-        result.innerText = "jest";
 
-        // var page_number = 
+        console.log("jest teb zndhd");
+        result.innerText = /\d*$/.exec( window.location.href )[0];
 
-        return /\d*$/.exec( window.location.href )[0];
+
+         return  Number( result.innerText );
 
     } else {
-        result.innerText = "nie ma";
+        console.log("nie ma");
+        result.innerText = "null";
+        return null;
     }
 }
 
@@ -43,9 +45,11 @@ button_goToURL.addEventListener("click", function(){
 
     // console.log( window.location.href + input_url );    
     let temp = input_url;
-    input.value = "";
+    // input.value = "";
 
     window.location.href += temp; 
+
+    getPage();
 
     // console.log( getPage() );
 
@@ -53,30 +57,40 @@ button_goToURL.addEventListener("click", function(){
 
 button_check.addEventListener("click", function(){
 
+
+
     getPage();
 
 })
 
-buttons_container.addEventListener("click", function(e){
+// button_clear.addEventListener("click", function(){
 
-    console.log(input.innerText);
+//     input.value = "?";
+//     window.location.href = "35.html";
+    
 
-    if ( e.target.className !== "col" ){
-        console.log(e.target.innerText);
+// })
 
-        input.value += e.target.innerText;
+// buttons_container.addEventListener("click", function(e){
 
-        input_url = input.value;
+//     console.log(input.innerText);
 
-    }
+//     if ( e.target.className !== "col" ){
+//         console.log(e.target.innerText);
 
-    console.log(input.value);
+//         input.value += e.target.innerText;
+
+//         input_url = input.value;
+
+//     }
+
+//     console.log(input.value);
 
 
 
-        // console.log("nie wypisuj nicz");
-    // console.log(e);
+//         // console.log("nie wypisuj nicz");
+//     // console.log(e);
 
-})
+// })
 
 
