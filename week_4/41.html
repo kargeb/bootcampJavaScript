@@ -22,50 +22,188 @@
                     <div class="col-1  template">
                         <a href="../index.html"><i class="material-icons md-46">home</i></a>
                     </div>
-                    <div class="col-6 ">
+                    <div class="col-11 ">
                         <div class="row">
                             <div class="col">
                                 <h1 class="page-header">1. Selektory w jQuery</h1>
                                 <hr>
                             </div>
-                        </div><br><br>
+                        </div><br>
+                        <div class="row">
+                            <div class="col">
+                                    <div class="btn-group-vertical ">
+
+                                        <button type="button" class="btn btn-secondary">Wszystkie elementy &lt;div&gt;, posiadające zarówno klasę "grid" oraz klasę "grid-12"</button>
+                                        <button type="button" class="btn btn-secondary"> Wszystkie elementy &lt;a&gt;, których atrybut href zaczyna się na “http”, znajdujące się w 
+                                            elemencie o klasie nav</button>
+                                            <button type="button" class="btn btn-secondary">Wszystkie elementy &lt;input&gt;, których typ to "radio" lub "checkbox" oraz dodatkowo nie są 
+                                                aktualnie zaznaczone (checked)</button>
+                                                <button type="button" class="btn btn-secondary"> Wyłącznie pierwszy element &lt;p&gt;, który jest pusty (nie zawiera dzieci) oraz znajduje się w 
+                                                    elemencie &lt;div&gt; z identyﬁkatorem "text"</button>
+                                                    <button type="button" class="btn btn-secondary">Wszystkie elementy z klasą "pagination-item", które nie są elementem &lt;span&gt;</button>
+                                                </div>
+                                 
+                            </div>
+                        </div>
+
+                        <br><br>
                         <div class="row">
 
-                            <div class="col">
+                            <div class="col-4">
+
+                                    <div class="row">                 
+
+                                            <form>
+                                                    <div class="form-group row">
+                                                      <label for="inputEmail3" class="col-3 col-form-label">Email</label>
+                                                      <div class="col">
+                                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                                      </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                      <label for="inputPassword3" class="col-3 col-form-label">Password</label>
+                                                      <div class="col">
+                                                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                                      </div>
+                                                    </div>
+                                                    <fieldset class="form-group">
+                                                      <div class="row">
+                                                        <legend class="col-form-label col-3 pt-0">Radios</legend>
+                                                        <div class="col">
+                                                          <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                                            <label class="form-check-label" for="gridRadios1">
+                                                              First radio
+                                                            </label>
+                                                          </div>
+                                                          <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                                            <label class="form-check-label" for="gridRadios2">
+                                                              Second radio
+                                                            </label>
+                                                          </div>
+                                                          <div class="form-check disabled">
+                                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                                                            <label class="form-check-label" for="gridRadios3">
+                                                              Third disabled radio
+                                                            </label>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </fieldset>
+                                                    <div class="form-group row">
+                                                      <div class="col-3">Checkbox</div>
+                                                      <div class="col">
+                                                        <div class="form-check">
+                                                          <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                                          <label class="form-check-label" for="gridCheck1">
+                                                            Example checkbox
+                                                          </label>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                      <div class="col">
+                                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                                      </div>
+                                                    </div>
+                                                  </form>
+                                </div>
 
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-5 ">
-                        <div class="accordion instruction border-bottom" id="accordionExample">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link link-danger" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Treść zadania
-                                        </button>
-                                    </h5>
+                            <div class="col-5">
+                                    <div class="row">
+
+                                            <ul class="nav">
+                                                    <li class="nav-item">
+                                                      <a class="nav-link active" href="#">Active</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                      <a class="nav-link" href="#">Link</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                      <a class="nav-link" href="#">Link</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                      <a class="nav-link disabled" href="#">Disabled</a>
+                                                    </li>
+                                                </ul>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+
+                                            <div class="container" id="grid_task41">
+                                                    <div class="row">
+                                                      <div class="col grid">
+                                                        1 of 2
+                                                      </div>
+                                                      <div class="col grid grid-12">
+                                                        2 of 2
+                                                      </div>
+                                                    </div>
+                                                    <div class="row">
+                                                      <div class="col grid-12 grid">
+                                                        1 of 3
+                                                      </div>
+                                                      <div class="col grid-12">
+                                                        2 of 3
+                                                      </div>
+                                                      <div class="col grid-12">
+                                                        3 of 3
+                                                      </div>
+                                                    </div>
+                                                    <div class="row">
+                                                      <div class="col grid grid-12">
+                                                        1 of 3
+                                                      </div>
+                                                      <div class="col grid-12">
+                                                        2 of 3
+                                                      </div>
+                                                      <div class="col grid">
+                                                        3 of 3
+                                                      </div>
+                                                    </div>
+                                                  </div>
+        
                                 </div>
-            
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                            Podaj przykłady selektorów, które pozwolą znaleźć na stronie następujące elementy: <br> <br>
-                                            - wszystkie elementy &lt;div&gt;, posiadające zarówno klasę grid oraz klasę grid-12. <br>
-                                            - wszystkie elementy &lt;a&gt;, których atrybut href zaczyna się na “http”, znajdujące się w 
-                                            elemencie o klasie nav  <br>
-                                            - wszystkie elementy &lt;input&gt;, których typ to radio lub checkbox oraz dodatkowo nie są 
-                                            aktualnie zaznaczone (checked). <br>
-                                            - wyłącznie pierwszy element &lt;p&gt;, który jest pusty (nie zawiera dzieci) oraz znajduje się w 
-                                            elemencie &lt;div&gt; z identyﬁkatorem text <br>
-                                            - wszystkie elementy z klasą pagination-item, które nie są elementem &lt;span&gt;  <br> <br>
-                                            Uwaga: Możesz utworzyć prostą stronę w HTML, gdzie w jakiś sposób podświetlisz 
-                                            znalezione powyższymi selektorami elementy, ale możesz równie dobrze po prostu wypisać 
-                                            te selektory w pliku tekstowym, bez tworzenia dla tego przykładu specjalnej strony.
-                                </div>
+                                <br>
+                                <div class="row">
+
+                                        <nav aria-label="Page navigation example">
+                                                <ul class="pagination">
+                                                    <li class="page-item pagination-item"> <span><a class="page-link" href="https://developer.mozilla.org/en-US/">MDN</a></span> </li>
+                                                  <li class="page-item pagination-item"><a class="page-link" href="https://github.com">GIT</a></li>
+                                                  <li class="page-item pagination-item"><a class="page-link" href="#">1</a></li>
+                                                  <li class="page-item pagination-item"> <span><a class="page-link" href="#">3</a></span> </li>
+                                                  <li class="page-item pagination-item"><a class="page-link" href="#">4</a></li>
+                                                  <li class="page-item pagination-item"> <span><a class="page-link" href="https://eduweb.pl/">EDUWEB</a></span> </li>
+                                                  <li class="page-item pagination-item"><a class="page-link" href="https://eduweb.pl/">EDUWEB</a></li>
+                                                </ul>
+                                              </nav>
+
+                                        <nav aria-label="Page navigation example">
+                                                <ul class="pagination nav">
+                                                    <li class="page-item pagination-item"> <span><a class="page-link" href="#">5</a></span> </li>
+                                                    <li class="page-item pagination-item"> <span><a class="page-link" href="https://github.com">GIT</a></span> </li>
+                                                  <li class="page-item pagination-item"><a class="page-link" href="#">Previous</a></li>
+                                                  <li class="page-item pagination-item"><a class="page-link" href="https://github.com">GIT</a></li>
+                                                  <li class="page-item pagination-item"> <span><a class="page-link" href="#">3</a></span> </li>
+                                                  <li class="page-item pagination-item"><a class="page-link" href="https://eduweb.pl/">EDUWEB</a></li>
+                                                  <li class="page-item pagination-item"><a class="page-link" href="#">Next</a></li>
+                                                </ul>
+                                              </nav>
+    
+    
                             </div>
+                            </div>
+
                         </div>
+
+
+
+
+
                     </div>
-                </div>
         </div>
     </div>
     <script src="41.js"></script>
