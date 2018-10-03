@@ -83,6 +83,37 @@ pre{
     margin: 0.5em;
 }
 
+
+.task41_bg_button_first{
+    color: white;
+    background: #512DA8;
+
+}
+
+.task41_bg_button_second{
+    color: black;
+    background: #D1C4E9;
+
+}
+
+.task41_bg_button_third{
+    color: white;
+    background: #757575;
+
+}
+
+.task41_bg_button_fourth{
+    color: black;
+    background: #BDBDBD;
+
+}
+
+.task41_bg_button_fifth{
+    color: white;
+    background: #7C4DFF;
+
+}
+
 /* .line_break_buttons button{
     background-color: #17a2b8;
     white-space: normal;
