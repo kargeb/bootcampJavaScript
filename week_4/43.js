@@ -17,39 +17,9 @@
 
         console.log(input.attr("placeholder")) ; 
 
-      /*   button_input.on("click", function(){
-
-            if( input.val() ) {
-
-                input.attr("placeholder", "Wprowadź tekst" );
-
-                //  var temp = "<p>" + input
-                console.log( input.val() );
     
-                // poka.prepend("<p>" + input.val() + "</p>");   
-                var temp = "<li class=\"list-group-item\" >" + input.val() + "</li>";
-                    temp = $(temp).css("display", "none");
-    
-                list.prepend(temp.fadeIn());
-
-                // temp.fadeIn();
-    
-                input.val("");
-            } else {
-
-                input.attr("placeholder", "WPISZ WARTOŚĆ!!!");
-
-            }
-        }) */
-
-        // for(var i=0; i<tab.length; i++){
-        //     tab[i] = i*i;
-        //     console.log( "dla i=" + i + " tab[i] = " + tab[i] );
-        // }
-
         console.log(tab);
 
-        // console.log(items.first());
         
         button_input.on("click", function(){
 
@@ -63,13 +33,26 @@
                 input.attr("placeholder", "Wprowadź tekst" );
 
                 
-                tab.push( input.val() );
+                tab.unshift( input.val() );
 
                 for(var i=0; i<tab.length; i++){
 
-                    list.prepend(" <li class= \"list-group-item h1\">" + tab[i] + "</li>");
+                    if(i==0){
+                        var temp = $(" <li class= \"list-group-item h1\">" + tab[i] + "</li>").css("display","none");
+                        list.append( temp.fadeIn("slow") );
+                        
+                    } else {
+                        list.append(" <li class= \"list-group-item h1\">" + tab[i] + "</li>");
+                    }
 
+                    
                 }
+
+                // list.children().first().fadeIn("slow");
+
+                
+
+
 
 
                 
