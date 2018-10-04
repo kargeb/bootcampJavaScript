@@ -12,11 +12,22 @@ h3 {
     color: #6c757d;
 }
 
-.material-icons.md-46 { 
+.material-icons { 
     font-size: 46px;
     color: rgba(0, 0, 0, 0.6);
     margin-left: 0.2em;
     margin-top: 0.5em;
+}
+
+.menu_icon { 
+    color: #673ab7;
+    cursor: pointer;
+}
+
+.menu_icon:hover { 
+    transform: rotate(90deg);
+    color: #673ab7;
+    cursor: pointer;
 }
 
 .instruction {
@@ -112,6 +123,11 @@ pre{
     color: white;
     background: #7C4DFF;
 
+}
+
+#task42_container button{
+    color: #7C4DFF;
+    border-color: #7C4DFF;
 }
 
 /* .line_break_buttons button{
