@@ -125,6 +125,10 @@ pre{
 
 }
 
+#task42_container{
+    display: none;
+}
+
 #task42_container button{
     color: #7C4DFF;
     border-color: #7C4DFF;
