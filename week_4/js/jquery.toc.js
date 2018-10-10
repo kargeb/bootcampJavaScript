@@ -24,10 +24,8 @@
             });
 
             li.append(a);
-
             containerToc.find("ul").append(li);
             })
-
         };
 
 })(jQuery, window, document);
