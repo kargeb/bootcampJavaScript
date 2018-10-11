@@ -63,7 +63,6 @@ function good(data){
 
         console.log(data[elem]);
 
-        // let { name, username, email, address.geo[0], address.geo[1], website, company.name } = data[0];
         let { name, username, email, website, address : { geo : [first, second] }, company : { name : companyName } } = data[elem];
         
         console.log(name, username, email, website, first, second, companyName);
