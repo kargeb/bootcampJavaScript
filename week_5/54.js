@@ -34,6 +34,19 @@ class Lotek {
     
         return tempDrownNumbers;
     }
+
+    checkNumbers(userNumbers) {
+
+        let match = [];
+
+        for(let i=0; i<userNumbers.length; i++){
+
+            if( this.drownNumbers.includes( userNumbers[i] ) )
+            match.push( userNumbers[i] );
+        }
+
+        return `Trafiłeś ${match.length} liczb i są to ${match}`;
+    }
 }
 
 buttonNewNumber.addEventListener("click", function(){
