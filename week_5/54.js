@@ -11,39 +11,48 @@ let newNumbers = [];
 
 buttonNewNumber.addEventListener("click", function(){
 
-    // console.log( inputNewNumber.value );
-
-
-    inputNewNumber.value ? inserNewNumber( Number(inputNewNumber.value)) : inputNewNumber.placeholder = "Podaj liczbę!";
-
-    inputNewNumber.value = "";
-
+    inserNewNumber();
     console.log(newNumbers);
-
-    if(newNumbers.length == 6){
-        buttonNewNumber.disabled = true;
-        inputNewNumber.placeholder = "Podałeś wszystkie 6 liczb";
-    }
-
-    inputNewNumber.focus();
 
 })
 
-function inserNewNumber(number){
 
-    console.log( typeof number );
 
+function inserNewNumber(){
+    
+    if(newNumbers.length == 6){
+        buttonNewNumber.disabled = true;
+        inputNewNumber.placeholder = "Podałeś wszystkie 6 liczb";
+        return false;
+    }
+    
+    if( !inputNewNumber.value){
+        inputNewNumber.placeholder = "Podaj liczbę!";
+        return false;
+    }
+    
+    let number = Number(inputNewNumber.value);
+
+    if( newNumbers.includes(number) ){
+
+        inputNewNumber.placeholder = "Już podałeś taką liczbę!";
+        inputNewNumber.value = "";
+        return false;
+    }
+    
     if(Number.isInteger(number) && number > 0 && number < 49 ){
-
+        
         newNumbers.push(number);
         gotNumbers.innerText = newNumbers.join(", ");
-
-
+        
     } else {
         inputNewNumber.placeholder = "LIczba musi być CAŁKOWITA, większa od 0 i w zakresie 1-49";
     }
-
+    
+    inputNewNumber.value = "";
+    inputNewNumber.focus();
 }
+
 
 function draw(max){
     
