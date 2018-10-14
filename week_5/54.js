@@ -8,7 +8,7 @@ const inputNewNumber = document.getElementById("inputNewNumber"),
       buttonDraw = document.getElementById("buttonDraw");
 
 let newNumbers = [],
-    greatLotekNumbers;
+    greatLotek = new Lotek();
 
 class Lotek {
 
@@ -16,6 +16,7 @@ class Lotek {
         this.max = 49;
         this.numberOfDrownNumbers = 6;
         this.drownNumbers = this.getNumbers(this.max, this.numberOfDrownNumbers);
+        console.log(" z konstruktora, drownNumbers = " + this.drownNumbers);
     }
 
     getNumbers(max, numberOfDrownNumbers) {
@@ -55,13 +56,16 @@ buttonNewNumber.addEventListener("click", function(){
 
 buttonRandomNumbers.addEventListener("click", function(){
 
-    newNumbers = greatLotek();
+    newNumbers = drawSix(49).sort( function(a, b) { return a - b } );
     gotNumbers.innerText = newNumbers.join(", ");
 
 })
 
 buttonDraw.addEventListener("click", function(){
-    greatLotekNumbers = greatLotek();
+
+    console.log( greatLotek.drownNumbers );
+
+    greatLotekNumbers = drawSix(49).sort( function(a, b) { return a - b } );
     console.log(greatLotekNumbers);
     showDrawNumbers.innerText = greatLotekNumbers.join(", ");
 })
@@ -139,6 +143,6 @@ function drawSix(max){
     return drownNumbers;
 }
 
-function greatLotek() {
-    return drawSix(49).sort( function(a, b) { return a - b } );
-}
+// function greatLotek() {
+//     return drawSix(49).sort( function(a, b) { return a - b } );
+// }
