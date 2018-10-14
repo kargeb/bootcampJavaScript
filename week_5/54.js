@@ -1,15 +1,3 @@
-console.log("lotek");
-
-const inputNewNumber = document.getElementById("inputNewNumber"),
-      buttonNewNumber = document.getElementById("buttonNewNumber"),
-      buttonRandomNumbers = document.getElementById("buttonRandomNumbers"),
-      gotNumbers = document.getElementById("gotNumbers"),
-      showDrawNumbers = document.getElementById("showDrawNumbers"),
-      buttonDraw = document.getElementById("buttonDraw");
-
-let newNumbers = [],
-    greatLotek = new Lotek();
-
 class Lotek {
 
     constructor(){
@@ -40,15 +28,36 @@ class Lotek {
 
         let match = [];
 
+        console.log( " z new numbers : " + newNumbers);
+
         for(let i=0; i<userNumbers.length; i++){
 
             if( this.drownNumbers.includes( userNumbers[i] ) )
             match.push( userNumbers[i] );
         }
 
-        return `Trafiłeś ${match.length} liczb i są to ${match}`;
+        return { numbers : match.slice(0),
+                 count : match.length };
     }
+
+    *[Symbol.iterator](){
+        yield *this.drownNumbers;
+    }
+
 }
+
+console.log("lotek");
+
+const inputNewNumber = document.getElementById("inputNewNumber"),
+      buttonNewNumber = document.getElementById("buttonNewNumber"),
+      buttonRandomNumbers = document.getElementById("buttonRandomNumbers"),
+      gotNumbers = document.getElementById("gotNumbers"),
+      showDrawNumbers = document.getElementById("showDrawNumbers"),
+      buttonDraw = document.getElementById("buttonDraw");
+
+let newNumbers = [],
+    greatLotek = new Lotek();
+
 
 buttonNewNumber.addEventListener("click", function(){
     inserNewNumber();
@@ -64,10 +73,9 @@ buttonRandomNumbers.addEventListener("click", function(){
 buttonDraw.addEventListener("click", function(){
 
     console.log( greatLotek.drownNumbers );
+    showDrawNumbers.innerText = greatLotek.drownNumbers.sort( function(a, b) { return a - b } ).join(", ");
 
-    greatLotekNumbers = drawSix(49).sort( function(a, b) { return a - b } );
-    console.log(greatLotekNumbers);
-    showDrawNumbers.innerText = greatLotekNumbers.join(", ");
+    console.log( greatLotek.checkNumbers( newNumbers ) );
 })
 
 inputNewNumber.addEventListener("keypress",function(e){
@@ -142,7 +150,3 @@ function drawSix(max){
 
     return drownNumbers;
 }
-
-// function greatLotek() {
-//     return drawSix(49).sort( function(a, b) { return a - b } );
-// }
