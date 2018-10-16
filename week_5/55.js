@@ -1,7 +1,8 @@
 console.log("55");
 
 const   downloadButton = document.getElementById("downloadButton"),
-        poka = document.getElementById("poka");
+        poka = document.getElementById("poka"),
+        innosc = document.getElementById("innosc");
 
 const urls = [
     "http://code.eduweb.pl/kurs-jquery/images/photo-1.jpg",
