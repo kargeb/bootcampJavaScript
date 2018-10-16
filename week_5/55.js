@@ -14,21 +14,30 @@ const urls = [
 downloadButton.addEventListener("click", function(){
 
 
-    getPicture(urls[0]).then(
-        picture => poka.append(picture)
-    );
-    
-    
+    Promise.all([
+        getPicture(urls[0]),
+        getPicture(urls[1]),
+        getPicture(urls[2]),
+        getPicture(urls[3]),
+    ]).then( function(data){
+
+        data.forEach(element => {
+            poka.append(element);
+        });
+    })
+
+    // getPicture(urls[0]).then(
+    //     picture => poka.append(picture)
+    // );
 })        
 
 function getPicture(url){
     
     
-    let picture = document.createElement("img");
+    let picture = new Image(300, 210);
     
         picture.src = url;
     
-        
         let p = new Promise(function(resolve, reject){
             
             picture.addEventListener("load", function(){
@@ -37,9 +46,7 @@ function getPicture(url){
                 console.log("finished loading");
             })
             
-    
-    
         })
-        // poka.append(picture);
+
         return p;
 }
