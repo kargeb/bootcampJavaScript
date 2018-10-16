@@ -14,7 +14,32 @@ const urls = [
 downloadButton.addEventListener("click", function(){
 
 
-    Promise.all([
+    getPicture(urls).then( pics => {
+
+        console.log("pics = " + pics);
+        let docFrag = document.createDocumentFragment();
+
+   /*      pics.forEach( function(elem, i) {
+            docFrag.append(elem);
+
+            console.log(elem);
+            console.log(" i w pisc : " + i);
+
+            if(i == (pics.length-1)){
+                console.log("wysylyamy docFrag: " + docFrag);
+                return pics;
+            }
+        }) */
+        pics = "dupa";
+        return pics;
+
+    }).then( obj => {
+        console.log("ostatni :" + obj);
+        poka.append(obj) }
+        );
+
+})        
+/*     Promise.all([
         getPicture(urls[0]),
         getPicture(urls[1]),
         getPicture(urls[2]),
@@ -24,17 +49,45 @@ downloadButton.addEventListener("click", function(){
         data.forEach(element => {
             poka.append(element);
         });
-    })
+    }) */
 
     // getPicture(urls[0]).then(
     //     picture => poka.append(picture)
     // );
-})        
 
-function getPicture(url){
+function getPicture(urlsTab){
     
+    let tabImages = new Array(urlsTab.length),
+        counter = 0;
+
+    console.log(tabImages);
+
+    let p = new Promise(function(resolve){
+
+        urlsTab.forEach( function(elem, i) {
+            
+            tabImages[i] = new Image(300, 210);
+                tabImages[i].src = elem;
+
+            tabImages[i].addEventListener("load", function(){
+                counter++
+                console.log(counter);
+                if(counter == 4){
+                    console.log("wysylamy");
+                    console.log(tabImages);
+                    resolve(tabImages);
+                }
+            })    
+
+        });
+
+    });
     
-    let picture = new Image(300, 210);
+    return p;
+}
+
+
+  /*   let picture = new Image(300, 210);
     
         picture.src = url;
     
@@ -48,5 +101,24 @@ function getPicture(url){
             
         })
 
-        return p;
-}
+        return p; */
+
+// function getPicture(url){
+    
+    
+//     let picture = new Image(300, 210);
+    
+//         picture.src = url;
+    
+//         let p = new Promise(function(resolve, reject){
+            
+//             picture.addEventListener("load", function(){
+        
+//                 resolve(picture);
+//                 console.log("finished loading");
+//             })
+            
+//         })
+
+//         return p;
+// }
