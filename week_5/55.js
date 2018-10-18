@@ -64,6 +64,8 @@ downloadButton2.addEventListener("click", function(){
         // i wstaw je wszystkie do fragmentu dokumentu,
         // który na końcu zwrócisz, aby był dostępny
         // w kolejnym bloku .then
+
+        //
     })
     .then(function(docFragment) {
         poka.append(docFragment);
