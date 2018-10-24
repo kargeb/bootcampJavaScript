@@ -83,3 +83,23 @@ buttonGetData.addEventListener("click", function(){
 
 });
 
+ulPoka.addEventListener("click", function(e){
+
+    console.log(e.target);
+    console.log(this);
+
+    let clickedLi = e.target;
+
+    // console.log( liWeakMap.get(clickedLi).email );
+
+    let email = liWeakMap.get(clickedLi).email
+
+    clickedLi.innerHTML = "<li>" + clickedLi.innerText + "  <a href=\"" + email + "\">" + email +"</a></<li>";
+
+    // <li>Leanne Graham <a href=“mailto:Sincere@april.biz">Sincere@april.biz</a></li>
+
+    // let email = 
+
+
+})
+
