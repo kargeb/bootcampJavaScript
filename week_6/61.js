@@ -85,20 +85,34 @@ buttonGetData.addEventListener("click", function(){
 
 ulPoka.addEventListener("click", function(e){
 
+    console.log("--------------");
+
     console.log(e.target);
-    console.log(this);
+    console.log( liWeakMap.get(e.target) );
 
     let clickedLi = e.target;
+    let weakMapValue = liWeakMap.get(e.target);
 
-    // console.log( liWeakMap.get(clickedLi).email );
+    
+    let email = liWeakMap.get(clickedLi).email;
 
-    let email = liWeakMap.get(clickedLi).email
+    if( clickedLi.innerText.includes(email) ){
+        console.log("jest meilj");
 
-    clickedLi.innerHTML = "<li>" + clickedLi.innerText + "  <a href=\"" + email + "\">" + email +"</a></<li>";
+        clickedLi.innerHTML = weakMapValue.name;
 
-    // <li>Leanne Graham <a href=“mailto:Sincere@april.biz">Sincere@april.biz</a></li>
+    } else {
+        console.log("nie ma mejla");
 
-    // let email = 
+        clickedLi.innerHTML = weakMapValue.name + "  <a href=\"" + email + "\">" + email +"</a>";
+
+    }
+
+    
+
+    // clickedLi.innerHTML =  weakMapValue.name + " <a href=\"" + email + "\">" + email +"</a>";
+
+    // console.log( clickedLi.firstElementChild );
 
 
 })
