@@ -85,10 +85,6 @@ buttonGetData.addEventListener("click", function(){
 
 ulPoka.addEventListener("click", function(e){
 
-    console.log("--------------");
-
-    console.log(e.target);
-    console.log( liWeakMap.get(e.target) );
 
     let clickedLi = e.target;
     let weakMapValue = liWeakMap.get(e.target);
@@ -97,23 +93,14 @@ ulPoka.addEventListener("click", function(e){
     let email = liWeakMap.get(clickedLi).email;
 
     if( clickedLi.innerText.includes(email) ){
-        console.log("jest meilj");
 
         clickedLi.innerHTML = weakMapValue.name;
 
     } else {
-        console.log("nie ma mejla");
 
         clickedLi.innerHTML = weakMapValue.name + "  <a href=\"" + email + "\">" + email +"</a>";
 
     }
-
-    
-
-    // clickedLi.innerHTML =  weakMapValue.name + " <a href=\"" + email + "\">" + email +"</a>";
-
-    // console.log( clickedLi.firstElementChild );
-
 
 })
 
