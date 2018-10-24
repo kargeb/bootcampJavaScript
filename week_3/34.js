@@ -4,7 +4,7 @@ if( typeof fetch == "function" ){
     console.log("jest fetch wiec robimy fecz");
     
     
-    function fecz( url, fn_success, fn_failure ){
+    function getJSON( url, fn_success, fn_failure ){
         
         console.log(url);
         
@@ -67,6 +67,6 @@ function bad(message){
 
 button.addEventListener("click", function(){
 
-    fecz(address, good, bad);
+    getJSON(address, good, bad);
 
 });
