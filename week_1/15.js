@@ -9,7 +9,7 @@ function format(data){
 }
 
 show_data_button.addEventListener("click", function(){
-    show_data.innerText = format( data.getDay()) + "." + format( data.getMonth()+1 ) + "." + data.getFullYear()
+    show_data.innerText = format( data.getDate()) + "." + format( data.getMonth()+1 ) + "." + data.getFullYear()
 })
 
-console.log(  format( data.getDay() ), format( data.getMonth()+1 ), data.getFullYear());
+console.log(  format( data.getDate() ), format( data.getMonth()+1 ), data.getFullYear());
