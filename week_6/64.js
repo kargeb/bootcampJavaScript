@@ -40,42 +40,7 @@ const urls = [
 
 downloadButton.addEventListener("click", function(){
 
-
     show();
-    
-    /*     
-    preloadImages(urls)
-    .then(function(imgs) {
-        console.log("Obrazy wczytane.");
-        
-        let docFrag = document.createDocumentFragment();
-        
-        imgs.forEach( function(elem, i) {
-            docFrag.append(elem);
-            
-            console.log(elem);
-            console.log(" i w pisc : " + i);
-        })
-        
-        return docFrag;
-        // tutaj utwórz dla każdego adresu URL
-        // z przekazanej tablicy imgs element <img>
-        // i wstaw je wszystkie do fragmentu dokumentu,
-        // który na końcu zwrócisz, aby był dostępny
-        // w kolejnym bloku .then
-        
-        //
-    })
-    .then(function(docFragment) {
-        poka.append(docFragment);
-        // wstaw otrzymany fragment dokumentu na stronę,
-        // aby wczytane obrazy się pokazały
-    })
-    .catch(function(err) {
-        // na wypadek błędu, wyświetl komunikat w konsoli
-        console.log(err.message);
-    }); 
-    */
    
 })
 
