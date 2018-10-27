@@ -4,7 +4,7 @@ h1 {
 }
 
 #mainHeader {
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 h3 {
@@ -12,9 +12,8 @@ h3 {
     color: #6c757d;
 }
 
-.mainList {
-    margin-right: 40%;
-}
+
+
 
 .blue a{
     color: #007bff;
@@ -58,4 +57,15 @@ h3 {
     margin-left: -4em;
     margin-top: 0.5em;
     margin-right: -1em;
+}
+
+.hidden{
+    display: none;
+}
+
+.mainList {
+    margin-right: 40%;
+}
+.mainList a:first-child {
+    border-top: none;
 }
