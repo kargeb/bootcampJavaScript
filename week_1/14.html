@@ -40,94 +40,54 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                                <form>
-                                        <div class="form-row">
-                                            <div class="col">
-                                                <label>Podaj liczby:</label>
+                            <form>
+                                    <div class="form-group">
+                                      <label for="exampleInputEmail1">Email address</label>
+                                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+                                    <div class="form-group form-check">
+                                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                  </form>
+                                </div>
+                        <!-- <form>
+                                        <div class="form-group-row">
+                                            <div class="col-sm-6">
+                                                <label>Podaj lczby:</label>
                                             </div>
                                             
-                                        </div>
-                                            <div class="form-row ">
-                                              <div class=" col">
-                                                 
+                                            
+                                            <div class="col-sm-6">
+                                                
                                                 <input type="number" class="form-control" placeholder="-" required>
-                                              </div>
-                                              <div class="col-3">
+                                            </div>
+                                        </div> -->
+<!--                                         
+                                        <div class="form-row ">
+                                              <div class="col-md-3">
                                                 <button id="add" class="btn btn-outline-primary">Dodaj do puli</button>
                                                 </div>
-                                                <div class="col-3">
+                                                <div class="col-md-3">
                                                 <button id="reset_button" class="btn btn-outline-primary">Resetuj dane</button>
                                               </div>
-                                            </div>
-                                        </form>
-                                        </div>
+                                            </div> -->
+                                            
+                        <!-- </form> -->
                     </div>
-                    <div class="row">
-                                        
-                    </div>
+                  
 
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-sm-4">
                             <button id="calculate_button" class="btn btn-outline-primary">Oblicz pierwsze zakupy</button>
                         </div>
                         <div class="col-sm-4">
                             <button id="reset_button" class="btn btn-outline-primary">Resetuj dane</button>
                         </div>
-                    </div>
+                    </div> -->
                     <br>
-                    <div class="row">
-    
-                        <div class="col-sm-8">
-                            <br>
-                            <table id="result_table" class="table table-sm table-bordered dense_border">
-                                    <thead>
-                                        <tr>
-                                            <td>Ilość wszystkich produktów <br>zakupionych w sklepie</td>
-                                            <td class="discount_cell">Obniżka</td>
-                                            <td>Cena przed obniżką</td>
-                                            <th class="table-active">Cena po obniżce</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td id="products">-</td>
-                                            <td id="discount" class="discount_cell">-</td>
-                                            <td id="before_discount">-</td>
-                                            <td id="after_discount" class="mark table-active font-weight-bold">-</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                        </div>
-    
-                        <div class="col-sm-4">
-                            <table id="discount_table" class="table table-sm table-borderless">
-                                    <thead>
-                                        <tr>
-                                            <td>Ilość produktów</td>
-                                            <td>Rabat</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>5 - 20</td>
-                                            <td>5%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>21 - 50</td>
-                                            <td>10%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>51 - 100</td>
-                                            <td>15%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>101 &lt; &infin; </td>
-                                            <td>20%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                    </div>
     
     
                 </div>
