@@ -134,6 +134,16 @@ pre{
     border-color: #7C4DFF;
 }
 
+#homeButton{
+    /* border: 1px solid black; */
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    left: 45%;
+    margin-top: -1%;
+    
+}
+
 /* .line_break_buttons button{
     background-color: #17a2b8;
     white-space: normal;
