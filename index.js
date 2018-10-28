@@ -1,5 +1,6 @@
 let buttons = document.getElementById("buttons"),
-    tasks = document.getElementById("tasks").children;
+    tasks = document.getElementById("tasks").children,
+    previousPageId = window.location.href[window.location.href.length-1];
 
 
 hideAll();
@@ -13,6 +14,10 @@ hideAll();
 //     tasks[window.location.href[window.location.href.length-1]-1].classList.remove("hidden");
 //     lastOne = tasks[window.location.href[window.location.href.length-1]];
 // }
+
+if( previousPageId >=0 && previousPageId <=5) {
+    tasks[previousPageId].classList.remove("hidden");
+}
 
 
 buttons.addEventListener("click", function(e){

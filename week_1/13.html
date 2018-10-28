@@ -17,56 +17,67 @@
 </head>
 
 <body>
-    <div class="container-fluid template">
-        <div class="row ">
-            <div class="col-1  template">
-                <a href="../index.html"><i class="material-icons md-46">home</i></a>
-            </div>
-            <div class="col-6 ">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="page-header">3. Funkcja konwertująca wartość na typ Boolean </h1>
-                        <h3>Jaka wartośc Boolean:</h3>
-                        <hr>
-                        <br>
-                    </div>
-                </div>
-                <div class="row">
-                        <div class="col"></div>
-                    <div class="col">
-                        <p><code>function toBoolean(value){</code></p>
-                          <p><code>return Boolean(value);</code> </p> 
-                      <p> <code>}</code></p>
-                    </div>
-                    <div class="col"></div>
-                </div>
-            </div>
-            <div class="col-5 ">
-                <div class="accordion instruction border-bottom" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Treść zadania
-                                </button>
-                            </h5>
-                        </div>
+
+        <div class="container-fluid ">
+                <div id="homeButton">
+                        <a href="../index.html#0"><i class="material-icons md-46">home</i></a>
+                    </div> 
     
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body">
-                                Utwórz funkcję o nazwie toBoolean, która będzie przyjmowała jeden parametr. Po 
-                                przekazaniu do niej wartości przy jej wywołaniu, wartość ta powinna zostać skonwertowana 
-                                na typ Boolean, czyli na true lub false. Funkcja ta powinna tę wartość zwrócić.<br><br>
-                                Przykładowe jej użycie powinno wyglądać tak:<br>
-                                toBoolean(20); // zwraca wartość true<br>
-                                toBoolean(“”); // zwraca wartość false <br>
+            <div class="row">
+                
+    
+                <!-- Solution view -->
+    
+                <div class="col-sm-12 col-lg-8">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="page-header">3. Funkcja konwertująca wartość na typ Boolean</h1>
+                            <h3>Jaka wartośc Boolean:</h3>
+                            <hr>
+                            <!-- <br> -->
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                                <p><code>function toBoolean(value){</code></p>
+                                    <p><code>return Boolean(value);</code> </p> 
+                                <p> <code>}</code></p>
+                        </div>
+                    </div>
+
+                </div>
+    
+                <!-- Description view -->
+    
+                <div class="col-sm-12 col-lg-4">
+                    <div class="accordion instruction border-bottom" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Treść zadania
+                                    </button>
+                                </h5>
+                            </div>
+    
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        Utwórz funkcję o nazwie toBoolean, która będzie przyjmowała jeden parametr. Po 
+                                        przekazaniu do niej wartości przy jej wywołaniu, wartość ta powinna zostać skonwertowana 
+                                        na typ Boolean, czyli na true lub false. Funkcja ta powinna tę wartość zwrócić.<br><br>
+                                        Przykładowe jej użycie powinno wyglądać tak:<br>
+                                        toBoolean(20); // zwraca wartość true<br>
+                                        toBoolean(“”); // zwraca wartość false <br>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+    
             </div>
+    
         </div>
-    </div>
-    </div>
     <script src="13.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
