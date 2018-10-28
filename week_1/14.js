@@ -1,5 +1,5 @@
 var button_add = document.getElementById("add"),
-    input = document.querySelector("input"),
+    inputNumbers = document.getElementById("inputNumbers"),
     show_numbers = document.getElementById("show_numbers"),
     show_sum = document.getElementById("show_sum"),
     button_add_up = document.getElementById("add_up_button"),
@@ -8,26 +8,26 @@ var button_add = document.getElementById("add"),
 var numbers_to_show = "",
     numbers = [];
 
-    input.focus();
+    inputNumbers.focus();
 
     button_add.addEventListener("click", function(e){
 
         e.preventDefault();
 
-        if(input.value) {
+        if(inputNumbers.value) {
     
-            numbers.push( parseFloat(input.value)  )
+            numbers.push( parseFloat(inputNumbers.value)  )
 
-            numbers_to_show ? ( numbers_to_show += " + " + String(input.value) ) : (  numbers_to_show += String(input.value) );
+            numbers_to_show ? ( numbers_to_show += " + " + String(inputNumbers.value) ) : (  numbers_to_show += String(inputNumbers.value) );
     
-            input.value = "";
-            input.focus();
+            inputNumbers.value = "";
+            inputNumbers.focus();
     
             show_numbers.innerText = numbers_to_show;
 
-            input.placeholder = "";
+            inputNumbers.placeholder = "";
         } else {
-            input.placeholder = "PODAJ LICZBĘ!";
+            inputNumbers.placeholder = "PODAJ LICZBĘ!";
         }
     })
 
@@ -40,10 +40,10 @@ var numbers_to_show = "",
         e.preventDefault();
         numbers = [];
         numbers_to_show = "";
-        input.placeholder = "";
+        inputNumbers.placeholder = "";
         show_numbers.innerText = "";
-        input.value = "";
-        input.focus();
+        inputNumbers.value = "";
+        inputNumbers.focus();
         show_sum.innerText = "";
 
 

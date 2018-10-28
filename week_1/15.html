@@ -17,56 +17,68 @@
 </head>
 
 <body>
-    <div class="container-fluid template">
-        <div class="row ">
-            <div class="col-1  template">
-                <a href="../index.html"><i class="material-icons md-46">home</i></a>
-            </div>
-            <div class="col-6 ">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="page-header">5. Funkcja zwracająca sformatowaną datę</h1>
-                        <h3>Aktualna data: </h3>
-                        <hr>
-                        <br>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-4">
-                        <button id="show_data_button" class="btn btn-outline-primary">Pokaż aktualną datę</button>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-4">
-                            <h2 id="show_data"></h2>
-                        <!-- <p id="show_data">tuta data</p> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-5 ">
-                <div class="accordion instruction border-bottom" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Treść zadania
-                                </button>
-                            </h5>
+
+        <div class="container-fluid ">
+                <div id="homeButton">
+                        <a href="../index.html#0"><i class="material-icons md-46">home</i></a>
+                    </div> 
+    
+            <div class="row">
+                
+                <!-- Solution view -->
+    
+                <div class="col-sm-12 col-lg-8">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="page-header">5. Funkcja zwracająca sformatowaną datę</h1>
+                            <h3>Aktualna data:</h3>
+                            <hr>
+                            <!-- <br> -->
                         </div>
     
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body">
-                                Utwórz funkcję o nazwie getDate, która po wywołaniu zwróci aktualną, sformatowaną datę. <br>
-                                Data powinna być w formacie dd.mm.rrrr, czyli np. 17.04.2017. <br>
-                                Przykładowe użycie tej funkcji powinno wyglądać następująco: <br>
-                                getDate(); // zwraca np. “17.04.2017” 
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">
+                                <button id="show_data_button" class="btn btn-outline-primary">Pokaż aktualną datę</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                                <h2 id="show_data"></h2>
                         </div>
                     </div>
                 </div>
+    
+                <!-- Description view -->
+    
+                <div class="col-sm-12 col-lg-4">
+                    <div class="accordion instruction border-bottom" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Treść zadania
+                                    </button>
+                                </h5>
+                            </div>
+    
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        Utwórz funkcję o nazwie getDate, która po wywołaniu zwróci aktualną, sformatowaną datę. <br>
+                                        Data powinna być w formacie dd.mm.rrrr, czyli np. 17.04.2017. <br>
+                                        Przykładowe użycie tej funkcji powinno wyglądać następująco: <br>
+                                        getDate(); // zwraca np. “17.04.2017” 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
             </div>
+    
         </div>
-    </div>
-    </div>
+
     <script src="15.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

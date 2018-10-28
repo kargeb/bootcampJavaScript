@@ -42,40 +42,32 @@
                         <div class="col">
                             <form>
                                     <div class="form-group">
-                                      <label for="exampleInputEmail1">Email address</label>
-                                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                      <label for="inputNumbers">Podaj lczby:</label>
+                                      <input type="number" class="form-control" id="inputNumbers" aria-describedby="emailHelp">
+                                      <!-- <small id="emailHelp" class="form-text text-muted">-</small> -->
                                     </div>
-                                    <div class="form-group form-check">
-                                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    <div class="form-group">
+                                        
+                                        <button id="add" class="btn btn-outline-primary">Dodaj do puli</button>
+                                         <button id="reset_button" class="btn btn-outline-primary">Resetuj dane</button>
+                                        
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
                                   </form>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <p id="show_numbers"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                                <div class="col-sm-4">
+                                        <button id="add_up_button" class="btn btn-outline-primary">Oblicz sumę wszystkich: </button>
                                 </div>
-                        <!-- <form>
-                                        <div class="form-group-row">
-                                            <div class="col-sm-6">
-                                                <label>Podaj lczby:</label>
-                                            </div>
-                                            
-                                            
-                                            <div class="col-sm-6">
-                                                
-                                                <input type="number" class="form-control" placeholder="-" required>
-                                            </div>
-                                        </div> -->
-<!--                                         
-                                        <div class="form-row ">
-                                              <div class="col-md-3">
-                                                <button id="add" class="btn btn-outline-primary">Dodaj do puli</button>
-                                                </div>
-                                                <div class="col-md-3">
-                                                <button id="reset_button" class="btn btn-outline-primary">Resetuj dane</button>
-                                              </div>
-                                            </div> -->
-                                            
-                        <!-- </form> -->
+                                <div class="col-sm-4">
+                                    <p id="show_sum"></p>
+                                </div>
                     </div>
                   
 
@@ -106,18 +98,13 @@
                             </div>
     
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    Za pomocą instrukcji warunkowej if (wraz z blokami else) lub switch, stwórz skrypt, który w konsoli (za pomocą console.log())
-                                    wyświetli cenę produktu, w zależności od liczby zakupionych przez klienta do tej pory produktów.
-                                    Oczywiście wszystko to jest abstrakcyjne, więc musisz utworzyć zmienną, która będzie przechowywała
-                                    liczbę zakupionych produktów, np. 100, a następnie zmienną z ceną jakiegoś ﬁkcyjnego produktu,
-                                    np. 50. Poniżej tych dwóch zmiennych utwórz blok instrukcji warunkowych, który ustali ostateczną
-                                    cenę, w zależności od liczby zakupionych przez klienta produktów. Jeśli zatem klient ma już
-                                    na koncie od 5 do 20 zakupionych produktów, to przyznaj zniżkę 5%. Jeśli 21 do 50, to 10%,
-                                    od 51 do 100 produktów daje zniżkę 15%, a powyżej 100 produktów zniżkę w wysokości 20%. Musisz
-                                    zatem obliczyć ostateczną cenę produktu, a następnie wyświetlić w konsoli komunikat, np.
-                                    “Podstawowa cena produktu to 20zł, po obniżce to 17zł”. Aby to przetestować, będziesz musiał
-                                    zmieniać liczbę </div>
+                                    <div class="card-body">
+                                            Stwórz funkcję o nazwie sum, która będzie przyjmowała jeden parametr, którym będzie 
+                                            tablica z liczbami. Funkcja ta powinna zsumować wszystkie liczby z przekazanej tablicy, a 
+                                            następnie zwrócić wynik takiej operacji.<br>
+                                            Przykładowe jej użycie powinno wyglądać tak:<br><br>
+                                            sum([1, 10, 5, 4]); // zwraca wartość 20 
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -128,89 +115,6 @@
         </div>
 
 <!-- borderline beetween goodnes and badness -->
-
-
-    <div class="container-fluid template">
-        <div class="row ">
-            <div class="col-1  template">
-                <a href="../index.html"><i class="material-icons md-46">home</i></a>
-            </div>
-            <div class="col-6 ">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="page-header">4. Funkcja sumująca przekazane liczby</h1>
-                        <h3>Sumujemy wszystkie podanie liczby</h3>
-                        <hr>
-                        <br>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                            <form>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label>Podaj liczby:</label>
-                                    </div>
-                                    <div class="col"></div>
-                                </div>
-                                    <div class="form-row ">
-                                      <div class=" col">
-                                         
-                                        <input type="number" class="form-control" placeholder="-" required>
-                                      </div>
-                                      <div class="col-3">
-                                        <button id="add" class="btn btn-outline-primary">Dodaj do puli</button>
-                                        </div>
-                                        <div class="col-3">
-                                        <button id="reset_button" class="btn btn-outline-primary">Resetuj dane</button>
-                                      </div>
-                                    </div>
-                            </form>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p id="show_numbers"></p>
-                    </div>
-                </div>
-                <div class="row">
-                        <div class="col">
-                                <button id="add_up_button" class="btn btn-outline-primary">Oblicz sumę wszystkich: </button>
-                        </div>
-                        <div class="col">
-                            <p id="show_sum"></p>
-                        </div>
-                        <div class="col">
-
-                        </div>
-                </div>
-            </div>
-            <div class="col-5 ">
-                <div class="accordion instruction border-bottom" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Treść zadania
-                                </button>
-                            </h5>
-                        </div>
-    
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body">
-                                    Stwórz funkcję o nazwie sum, która będzie przyjmowała jeden parametr, którym będzie 
-                                    tablica z liczbami. Funkcja ta powinna zsumować wszystkie liczby z przekazanej tablicy, a 
-                                    następnie zwrócić wynik takiej operacji.<br>
-                                    Przykładowe jej użycie powinno wyglądać tak:<br><br>
-                                    sum([1, 10, 5, 4]); // zwraca wartość 20 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
     <script src="14.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
