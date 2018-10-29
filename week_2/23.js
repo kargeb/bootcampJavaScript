@@ -22,13 +22,13 @@ function counter(fun){
 
     
     
-    fun();
-
+    
     if( i>=0 ) {
         timer.innerText = i--;
         setTimeout( counter.bind(this, fun), 1000);
         
     } else {
+        fun();
         console.log("koniec");
         timer.innerText = "KONIEC";
     }

@@ -1,31 +1,37 @@
 (function() {
 
-    var start_button = document.getElementById("start"),
-        showtime = document.getElementById("showtime");
+    var start_button = document.getElementById("start");
+        // showtime = document.getElementById("showtime");
         
 
     function debounce(fn, time) {
 
         var time = time,
             check = 0;
+            // clear;
             
 
         return function() {
 
             check++;
-            showtime.max++;
+            // showtime.max++;
 
-            var clear = setTimeout(function(){
+            var clear = 0;
+
+            
+            clear = setTimeout(function(){
 
                 if (check > 1){
                     clearTimeout(clear);
                     console.log(clear);
                     check --;
-                    showtime.value++;
+                    // showtime.value++;
                 } else {
                     fn();
                     check = 0;
-                    showtime.value = showtime.max;
+                    console.log(clear);
+                    // clear = null;
+                    // showtime.value = showtime.max;
                 }
 
             }, time);
@@ -59,7 +65,7 @@
 
     window.addEventListener("resize", handleResize, false);
 
-    console.log(showtime.value);
-    console.log(showtime.max);
+    // console.log(showtime.value);
+    // console.log(showtime.max);
 
 })();
