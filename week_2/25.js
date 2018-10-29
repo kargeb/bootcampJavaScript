@@ -16,14 +16,15 @@
             check++;
             // showtime.max++;
 
-            var clear = 0;
+            
 
             
-            clear = setTimeout(function(){
+            var clear = setTimeout(function(){
 
                 if (check > 1){
                     clearTimeout(clear);
                     console.log(clear);
+                    clear--;
                     check --;
                     // showtime.value++;
                 } else {
