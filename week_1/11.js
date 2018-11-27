@@ -6,6 +6,7 @@ var discount_output = document.getElementById("discount"),
     result_table_cells = document.querySelectorAll(".discount_cell"),
     button_calc = document.getElementById("calculate_button"),
     button_reset = document.getElementById("reset_button");
+    // hidden_elements = document.getElementsByClassName("invisible");
 
 var discount_table_rows = discount_table.children[1].children;
 
@@ -13,6 +14,9 @@ var number_of_products = 0,
     discount = 0,
     sum,
     color_cell = null;
+
+
+
 
 button_calc.addEventListener("click", function () {
 
