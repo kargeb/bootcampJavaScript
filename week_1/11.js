@@ -77,13 +77,13 @@ function calculateDiscount(amount) {
         color_cell = 3;
     }
 
-    if (dis) {
-        result_table_cells[0].classList.add("table-primary");
-        result_table_cells[1].classList.add("table-primary");
-    } else {
-        result_table_cells[0].classList.remove("table-primary");
-        result_table_cells[1].classList.remove("table-primary");
-    }
+    // if (dis) {
+    //     result_table_cells[0].classList.add("table-primary");
+    //     result_table_cells[1].classList.add("table-primary");
+    // } else {
+    //     result_table_cells[0].classList.remove("table-primary");
+    //     result_table_cells[1].classList.remove("table-primary");
+    // }
 
     discount_table_rows[color_cell] ? discount_table_rows[color_cell].classList.add("table-primary") : null;
 
