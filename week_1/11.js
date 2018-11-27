@@ -27,7 +27,7 @@ button_calc.addEventListener("click", function () {
 
     var sum = (amount * product_price) - (amount * product_price) * discount / 100;
 
-    before_discount.innerText = amount * product_price + " zł";
+    before_discount.innerHTML = "<small>" + amount * product_price + " zł" + "</small>";
     after_discount.innerText = sum + " zł";
 
     button_calc.innerText = "Oblicz kolejne zakupy";
