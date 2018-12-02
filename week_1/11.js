@@ -27,7 +27,7 @@ button_calc.addEventListener("click", function () {
     discount = calculateDiscount(number_of_products);
 
     products_output.innerText = number_of_products;
-    discount_output.innerText = discount + " %";
+    discount_output.innerText = discount + "%";
 
     var sum = (amount * product_price) - (amount * product_price) * discount / 100;
 

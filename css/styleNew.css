@@ -80,9 +80,9 @@ h3 {
 
 }
 
-pre{
+/* pre{
     font-size: 0.7em;
-}
+} */
 
 .form-control.form-yellow:focus {
     border-color: rgba(239, 243, 9, 0.938);
@@ -139,24 +139,22 @@ pre{
     display: inline-block;
     position: absolute;
     z-index: 1;
-    left: 45%;
+    /* left: 5%; */
     margin-top: -1%;
     
 }
 
-/* .line_break_buttons button{
-    background-color: #17a2b8;
-    white-space: normal;
-} */
+#task1-p{
+    font-size: 1.1em;
+}
 
-/* #grid_task41 p {
-    background-color: #dc3545;
-} */
-/* .mark {
-    background-color: #dff0d8;
-  } */
-/* .rightWindow {
-    height: 50%;
-    overflow-y: scroll;
-    position: relative;
-} */
+#task1-p #products {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#task1-p #discount {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff;
+}
