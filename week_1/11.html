@@ -56,28 +56,32 @@
 
                             <div class="row">
 
-                                <div class="col shadow-sm bg-white rounded">
-                                        <div class="form-group row mt-4 justify-content-center">
-                                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-left  text-md-right" for="cena">Wpisz cenę produktu:</label>
-                                                <input  class="col-sm-2 form-control" type="number" id="cena" value="100" name="price"  placeholder="_">
+                                <div class="col-auto shadow-sm bg-white rounded offset-2">
+                                        <div class="form-group row mt-4 ">
+                                                <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="cena">Wpisz cenę produktu:</label>
+                                                <input  class="col-md-4 form-control" type="number" id="cena" value="100" name="price"  placeholder="_">
                                          </div>
-                                         <div class="form-group row justify-content-center">
+                                         <div class="form-group row ">
+                                                <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="ilosc">Wpisz ilość:</label>
+                                                <input class="col-md-4 form-control" type="number" id="ilosc" value="4" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
+                                        </div>
+                                         <!-- <div class="form-group row justify-content-center">
                                                 <label class="col-sm-4 col-lg-3 col-form-label text-sm-left  text-md-right" for="ilosc">Wpisz ilość:</label>
                                                 <input class="col-sm-2 form-control" type="number" id="ilosc" value="4" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
-                                        </div>
+                                        </div> -->
 
                                         <div class="row mt-5 mb-3 justify-content-center">
-                                                <div class="col-sm-3">
+                                                <div class="col-md-6">
                                                     <button id="calculate_button" class="btn btn-primary">Oblicz pierwsze zakupy</button>
                                                 </div>
-                                                <div class="col-sm-2 offset-sm-2">
+                                                <div class="col-md-4 offset-2">
                                                     <button id="reset_button" class="btn btn-link">Resetuj dane</button>
                                                 </div>
                                         </div>
                                 </div>
 
-                                <div class="col-auto mt-3 mr-2">
-                                    <table id="discount_table" class="table table-sm table-borderless shadow-sm bg-white rounded">
+                                <div class="col-auto ml-4 shadow-sm bg-white rounded">
+                                    <table id="discount_table" class="table table-sm table-borderless ">
                                             <thead>
                                                 <tr>
                                                     <th colspan="2" class="text-center" >Tabela zniżek</th>
