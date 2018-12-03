@@ -29,24 +29,8 @@
                     <a href="../index.html#0"><i class="material-icons md-46">home</i></a>
                 </div> 
 
-        <!-- <div class="row">
-            
-
-
-            <div class="col-sm-12 col-lg-8 offset-lg-2">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="page-header">1. Instrukcje warunkowe</h1>
-                        <h3>Obliczenie rabatu na podstawie ilości kupionego produktu</h3>
-                        <hr>
-                   
-                    </div>
-
-                </div>
-            </div>
-        </div> -->
         <div class="row mt-4"></div>
-        <div class="row head">
+        <div class="row head shadow-sm">
            
                 
           
@@ -66,13 +50,34 @@
       
         <!----------- MAIN TASK ------------>
                 
-        <div class="row">
+        <div class="row justify-content-center ">
 
-                <div class="col-lg-8 offset-md-3">
+                <div class="col-md-8">
 
-                        <div class="row ">
-                                <div class="col-auto offset-2">
-                                    <table id="discount_table" class="table table-sm table-borderless shadow-sm p-3 mb-3 bg-white rounded">
+                            <div class="row">
+
+                                <div class="col shadow-sm bg-white rounded">
+                                        <div class="form-group row mt-4 justify-content-center">
+                                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-left  text-md-right" for="cena">Wpisz cenę produktu:</label>
+                                                <input  class="col-sm-2 form-control" type="number" id="cena" value="100" name="price"  placeholder="_">
+                                         </div>
+                                         <div class="form-group row justify-content-center">
+                                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-left  text-md-right" for="ilosc">Wpisz ilość:</label>
+                                                <input class="col-sm-2 form-control" type="number" id="ilosc" value="4" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
+                                        </div>
+
+                                        <div class="row mt-5 mb-3 justify-content-center">
+                                                <div class="col-sm-3">
+                                                    <button id="calculate_button" class="btn btn-primary">Oblicz pierwsze zakupy</button>
+                                                </div>
+                                                <div class="col-sm-2 offset-sm-2">
+                                                    <button id="reset_button" class="btn btn-link">Resetuj dane</button>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="col-auto mt-3 mr-2">
+                                    <table id="discount_table" class="table table-sm table-borderless shadow-sm bg-white rounded">
                                             <thead>
                                                 <tr>
                                                     <th colspan="2" class="text-center" >Tabela zniżek</th>
@@ -102,66 +107,61 @@
                                             </tbody>
                                         </table>
                                     </div>
+
                             </div>
 
 
-                <div class="form-group row mt-4">
-                            <label class="col-sm-4 col-lg-3 col-form-label text-sm-left  text-md-right" for="cena">Wpisz cenę produktu:</label>
-                            <input  class="col-sm-2 form-control" type="number" id="cena" value="100" name="price"  placeholder="_">
-                </div>
-                <div class="form-group row">
-                            <label class="col-sm-4 col-lg-3 col-form-label text-sm-left  text-md-right" for="ilosc">Wpisz ilość:</label>
-                            <input class="col-sm-2 form-control" type="number" id="ilosc" value="4" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
-                </div>
-
-                <div class="row mt-5 mb-3">
-                    <div class="col-sm-3">
-                        <button id="calculate_button" class="btn btn-primary">Oblicz pierwsze zakupy</button>
+                    <!-- <div class="form-group row mt-4">
+                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-left  text-md-right" for="cena">Wpisz cenę produktu:</label>
+                                <input  class="col-sm-2 form-control" type="number" id="cena" value="100" name="price"  placeholder="_">
                     </div>
-                    <div class="col-sm-2 offset-sm-2">
-                        <button id="reset_button" class="btn btn-link">Resetuj dane</button>
-                    </div>
-                </div>
-
-                <br>
-
-
-
-                <div class="row my-2 ">
-                    <div class="col-7">
-
-                        <p id="task1-p"><em>Liczba wszystkich zamówień złożonych do tej pory to <span id="products" ></span>, <br>Twoja zniżka na zakupy wynosi <span id="discount"></span>.</em> </p>
-                    </div>
-                    <!-- <p id="products"></p>
-                    <p id="discount"></p> -->
-                </div>
-
-                <div class="row ">
-
-                    <div class="col-sm-6">
-                        <br>
-                        <table id="result_table" class="table table-bordered ">
-                                <thead>
-                                    <tr>
-                                        <!-- <td>Ilość wszystkich produktów <br>zakupionych w sklepie</td>
-                                        <td class="discount_cell">Obniżka</td> -->
-                                        <td>Cena przed obniżką:</td>
-                                        <th>Cena po obniżce:</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <!-- <td >-</td>
-                                        <td  class="discount_cell">-</td> -->
-                                        <td id="before_discount">-</td>
-                                        <td id="after_discount" class="font-weight-bold">-</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="form-group row">
+                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-left  text-md-right" for="ilosc">Wpisz ilość:</label>
+                                <input class="col-sm-2 form-control" type="number" id="ilosc" value="4" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
                     </div>
 
+                    <div class="row mt-5 mb-3">
+                        <div class="col-sm-3">
+                            <button id="calculate_button" class="btn btn-primary">Oblicz pierwsze zakupy</button>
+                        </div>
+                        <div class="col-sm-2 offset-sm-2">
+                            <button id="reset_button" class="btn btn-link">Resetuj dane</button>
+                        </div>
+                    </div> -->
 
-                </div>
+                    <br>
+
+
+
+                    <div class="row justify-content-center shadow-sm bg-white rounded">
+                        <div class="col-12 text-center py-1">
+
+                            <p id="task1-p"><em>Liczba wszystkich zamówień złożonych do tej pory to <span id="products" ></span>, Twoja zniżka na zakupy wynosi <span id="discount"></span>.</em> </p>
+                        </div>
+                    <!-- </div>
+
+                    <div class="row justify-content-center "> -->
+
+                        <div class="col-auto">
+                         
+                            <table id="result_table" class="table table-borderless ">
+                                    <thead>
+                                        <tr>
+                                            <td class="border-right" >Cena przed obniżką:</td>
+                                            <th>Cena po obniżce:</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td id="before_discount" class="border-right">-</td>
+                                            <td id="after_discount" class="font-weight-bold">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+
+
+                    </div>
 
 
             </div>
@@ -257,102 +257,3 @@ function calculateDiscount(amount) {
 </body>
 
 </html>
-
-
-<!-- <div class="row ">
-     <div class="col-1  template">
-        <a href="../index.html"><i class="material-icons md-46">home</i></a>
-    </div> 
-    <div class="col">
-        <div class="row">
-            <div class="col">
-                <h1 class="page-header">1. Instrukcje warunkowe</h1>
-                <h3>Obliczenie rabatu na podstawie ilości kupionego produktu</h3>
-                <hr>
-                <br>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-4">
-                <div class="form-group ">
-                    <label for="cena"><b>Wpisz cenę produktu:</b></label>
-                    <input type="number" class="form-control" id="cena" value="100" name="price" aria-describedby="podpowiedzPole" placeholder="_">
-                </div>
-                <div class="form-group ">
-                    <label for="ilosc"><b>Wpisz ilość:</b></label>
-                    <input type="number" class="form-control" id="ilosc" value="4" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
-                </div>
-            </div>
-            <div class="col-2">
-
-            </div>
-            <div class="col-4">
-                <table id="discount_table" class="table table-sm table-borderless">
-                    <thead>
-                        <tr>
-                            <td>Ilość produktów</td>
-                            <td>Rabat</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>5 - 20</td>
-                            <td>5%</td>
-                        </tr>
-                        <tr>
-                            <td>21 - 50</td>
-                            <td>10%</td>
-                        </tr>
-                        <tr>
-                            <td>51 - 100</td>
-                            <td>15%</td>
-                        </tr>
-                        <tr>
-                            <td>101 &lt; &infin; </td>
-                            <td>20%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-4">
-                <button id="calculate_button" class="btn btn-outline-primary">Oblicz pierwsze zakupy</button>
-            </div>
-            <div class="col-2">
-                <button id="reset_button" class="btn btn-outline-primary">Resetuj dane</button>
-            </div>
-            <div class="col-6">
-            </div>
-        </div>
-        <br><br>
-        <div class="row">
-            <div class="col">
-                <table id="result_table" class="table table-sm table-bordered dense_border">
-                    <thead>
-                        <tr>
-                            <td>Ilość wszystkich produktów <br>zakupionych w sklepie</td>
-                            <td class="discount_cell">Obniżka</td>
-                            <td>Cena przed obniżką</td>
-                            <th class="table-active">Cena po obniżce</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td id="products">-</td>
-                            <td id="discount" class="discount_cell">-</td>
-                            <td id="before_discount">-</td>
-                            <td id="after_discount" class="mark table-active font-weight-bold">-</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <br>
-
-    </div>
-
-</div> -->

@@ -16,7 +16,7 @@ h1 {
     font-size: 46px;
     color: rgba(0, 0, 0, 0.6);
     margin-left: 0.2em;
-    margin-top: 0.5em;
+    margin-top: 1em;
 }
 
 .menu_icon { 
@@ -145,7 +145,7 @@ h1 {
 }
 
 #task1-p{
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 #task1-p #products {
@@ -166,5 +166,9 @@ body {
 .head {
     background-color: #fff;
     padding-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
+}
+
+.task {
+    background-color: #fff;
 }
