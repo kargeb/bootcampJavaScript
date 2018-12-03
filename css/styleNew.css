@@ -145,16 +145,16 @@ h1 {
 }
 
 #task1-p{
-    font-size: 1em;
+    /* font-size: 0.9em; */
 }
 
 #task1-p #products {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
 }
 
 #task1-p #discount {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
     color: #007bff;
 }

@@ -52,11 +52,11 @@
                 
         <div class="row justify-content-center ">
 
-                <div class="col-md-8">
+                <div class="col-md-8 bg-white shadow rounded">
 
-                            <div class="row">
+                            <div class="row ">
 
-                                <div class="col-auto shadow-sm bg-white rounded offset-2">
+                                <div class="col-lg-9 border-bottom ">
                                         <div class="form-group row mt-4 ">
                                                 <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="cena">Wpisz cenę produktu:</label>
                                                 <input  class="col-md-4 form-control" type="number" id="cena" value="100" name="price"  placeholder="_">
@@ -65,23 +65,19 @@
                                                 <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="ilosc">Wpisz ilość:</label>
                                                 <input class="col-md-4 form-control" type="number" id="ilosc" value="4" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
                                         </div>
-                                         <!-- <div class="form-group row justify-content-center">
-                                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-left  text-md-right" for="ilosc">Wpisz ilość:</label>
-                                                <input class="col-sm-2 form-control" type="number" id="ilosc" value="4" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
-                                        </div> -->
 
-                                        <div class="row mt-5 mb-3 justify-content-center">
-                                                <div class="col-md-6">
+                                        <div class="row mt-5 mb-3 ">
+                                                <div class="col-6 offset-3">
                                                     <button id="calculate_button" class="btn btn-primary">Oblicz pierwsze zakupy</button>
                                                 </div>
-                                                <div class="col-md-4 offset-2">
+                                                <div class="col-3 ">
                                                     <button id="reset_button" class="btn btn-link">Resetuj dane</button>
                                                 </div>
                                         </div>
                                 </div>
 
-                                <div class="col-auto ml-4 shadow-sm bg-white rounded">
-                                    <table id="discount_table" class="table table-sm table-borderless ">
+                                    <div class="col-lg-3 border border-top-0">
+                                        <table id="discount_table" class="table table-sm table-borderless h-100 d-inline-block bg-white rounded">
                                             <thead>
                                                 <tr>
                                                     <th colspan="2" class="text-center" >Tabela zniżek</th>
@@ -113,56 +109,32 @@
                                     </div>
 
                             </div>
+                    
 
-
-                    <!-- <div class="form-group row mt-4">
-                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-left  text-md-right" for="cena">Wpisz cenę produktu:</label>
-                                <input  class="col-sm-2 form-control" type="number" id="cena" value="100" name="price"  placeholder="_">
-                    </div>
-                    <div class="form-group row">
-                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-left  text-md-right" for="ilosc">Wpisz ilość:</label>
-                                <input class="col-sm-2 form-control" type="number" id="ilosc" value="4" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
-                    </div>
-
-                    <div class="row mt-5 mb-3">
-                        <div class="col-sm-3">
-                            <button id="calculate_button" class="btn btn-primary">Oblicz pierwsze zakupy</button>
-                        </div>
-                        <div class="col-sm-2 offset-sm-2">
-                            <button id="reset_button" class="btn btn-link">Resetuj dane</button>
-                        </div>
-                    </div> -->
-
-                    <br>
-
-
-
-                    <div class="row justify-content-center shadow-sm bg-white rounded">
-                        <div class="col-12  text-center pt-3 pb-2">
+                    <div class="row ">
+                        <div class="col-12 text-center pt-3 pb-2 ">
 
                             <p id="task1-p"><em>Liczba wszystkich zamówień złożonych do tej pory to <span id="products" ></span>, Twoja zniżka na zakupy wynosi <span id="discount"></span>.</em> </p>
-                        </div>
-                    <!-- </div>
-
-                    <div class="row justify-content-center shadow-sm bg-white rounded"> -->
-                        
-
-                        <div class="col-auto">
-                         
-                            <table id="result_table" class="table table-borderless ">
+                            <div class="w-100"></div>
+                            <div class="col-6 offset-3 ">
+                                
+                                <table id="result_table" class="table table-sm table-borderless ">
                                     <thead>
-                                        <tr>
-                                            <td class="border-right" >Cena przed obniżką:</td>
-                                            <th>Cena po obniżce:</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td id="before_discount" class="border-right">-</td>
-                                            <td id="after_discount" class="font-weight-bold">-</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                                <tr>
+                                                    <td class="border-right border-dark" >Cena przed obniżką:</td>
+                                                    <th>Cena po obniżce:</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="before_discount" class="border-right border-dark">-</td>
+                                                    <td id="after_discount" class="font-weight-bold">-</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        
+                            </div>
+                            
                         </div>
 
 
@@ -324,7 +296,7 @@ function calculateDiscount(amount) {
                             </div>
                           </div>
                         </div>
-                        <div class="card border-dark">
+                        <!-- <div class="card border-dark">
                           <div class="card-header" id="headingThree">
                             <h5 class="mb-0">
                               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -337,53 +309,13 @@ function calculateDiscount(amount) {
                               Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                             </div>
                           </div>
-                        </div>
+                        </div> -->
                       </div>
             </div>
 
         </div>
 
-        <div class="row">
-
-            <div class="col-8 offset-2" >
-                <br><br>
-        
-
-                <pre><code>
-function calculateDiscount(amount) {
-
-    discount_table_rows[color_cell] ? discount_table_rows[color_cell].classList.remove("table-primary") : null;
-
-    var dis = null;
-
-    if (amount < 5) {
-        dis = 0;
-    } else if (amount >= 5 && amount < 21) {
-        dis = 5;
-        color_cell = 0;
-    } else if (amount >= 21 && amount < 51) {
-        dis = 10;
-        color_cell = 1;
-    } else if (amount >= 51 && amount < 101) {
-        dis = 15;
-        color_cell = 2;
-    } else if (amount >= 101) {
-        dis = 20;
-        color_cell = 3;
-    }
-
-    discount_table_rows[color_cell] ? discount_table_rows[color_cell].classList.add("table-primary") : null;
-
-    return dis;
-}
-                        </code>
-                </pre>
-
-            </div>
-
-        </div>
-
-
+    
 
     </div>
     <script src="11.js"></script>
