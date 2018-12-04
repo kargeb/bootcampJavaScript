@@ -30,11 +30,11 @@
                 </div> 
 
         <div class="row mt-4"></div>
-        <div class="row head ">
+        <div class="row head shadow-sm">
            
-                
-          
+            
             <div class="col-8 offset-2 ">
+                
                 <h3>
                         1. Instrukcje warunkowe 
                     </h3>
@@ -43,12 +43,14 @@
                     </p>
 
                 
+                    <br>
             </div>
 
 
         </div>
       
         <!----------- MAIN TASK ------------>
+        <br>
                 
         <div class="row justify-content-center ">
 
@@ -59,11 +61,11 @@
                                 <div class="col-lg-9 border-bottom ">
                                         <div class="form-group row mt-4 ">
                                                 <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="cena">Wpisz cenę produktu:</label>
-                                                <input  class="col-md-4 form-control" type="number" id="cena" placeholder="_" autofocus >
+                                                <input  class="col-md-4 form-control" type="number" id="cena" placeholder="-" autofocus >
                                          </div>
                                          <div class="form-group row ">
                                                 <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="ilosc">Wpisz ilość:</label>
-                                                <input class="col-md-4 form-control" type="number" id="ilosc" placeholder="_">
+                                                <input class="col-md-4 form-control" type="number" id="ilosc" placeholder="-">
                                         </div>
 
                                         <div class="row mt-5 mb-3 ">
@@ -112,13 +114,13 @@
                     
 
                     <div id="hiddenRow" class="row ">
-                        <div class="col-12 text-center pt-3 pb-2 ">
+                        <div class="col-12 text-center ">
 
-                            <p id="task1-p"><em>Liczba wszystkich zamówień złożonych do tej pory to <span id="products" ></span>, Twoja zniżka na zakupy wynosi <span id="discount"></span>.</em> </p>
+                            <p id="task1-p" class="pt-4 pb-3"><em>Liczba wszystkich zamówień złożonych do tej pory to <span id="products" >-</span>, Twoja zniżka na zakupy wynosi <span id="discount">-</span>.</em> </p>
                             <div class="w-100"></div>
                             <div class="col-8 offset-2 ">
                                 
-                                <table id="result_table" class="table table-sm table-borderless ">
+                                <table id="result_table" class="table table-sm table-borderless">
                                     <thead>
                                                 <tr>
                                                     <td class="border-right">Cena za sztukę:</td>
@@ -136,7 +138,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        
+                                        <br>
                             </div>
                             
                         </div>
@@ -148,7 +150,7 @@
             </div>
 
         </div>
-        <br>
+        <br><br>
 
         <div class="row">
             <div class="col-10 offset-1 ">
@@ -156,7 +158,7 @@
                         <div class="card border-dark ">
                           <div class="card-header" id="headingOne">
                             <h5 class="mb-0">
-                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              <button class="btn btn-link text-dark" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 #1 Kod źródłowy funkcji warunkowej:
                               </button>
                             </h5>
@@ -200,7 +202,7 @@ function calculateDiscount(amount) {
                         <div class="card border-dark border-top-0">
                           <div class="card-header" id="headingTwo">
                             <h5 class="mb-0">
-                              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              <button class="btn btn-link text-dark collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 #2 Cały kod źródłowy:
                               </button>
                             </h5>
@@ -306,7 +308,7 @@ function calculateDiscount(amount) {
 
         </div>
 
-    
+    <br><br>
 
     </div>
     <script src="11.js"></script>
