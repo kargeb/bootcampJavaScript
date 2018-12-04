@@ -3,25 +3,37 @@ var discount_output = document.getElementById("discount"),
     before_discount = document.getElementById("before_discount"),
     after_discount = document.getElementById("after_discount"),
     discount_table = document.getElementById("discount_table"),
-    result_table_cells = document.querySelectorAll(".discount_cell"),
+    // result_table_cells = document.querySelectorAll(".discount_cell"),
     button_calc = document.getElementById("calculate_button"),
-    button_reset = document.getElementById("reset_button");
-    // hidden_elements = document.getElementsByClassName("invisible");
+    button_reset = document.getElementById("reset_button"),
+    product_price_field = document.getElementById("product_price"),
+    amount_field = document.getElementById("amount"),
+    hidden_row = document.getElementById("hiddenRow");
 
 var discount_table_rows = discount_table.children[1].children;
 
 var number_of_products = 0,
     discount = 0,
     sum,
-    color_cell = null;
+    color_cell = null;  
 
 
 
 
 button_calc.addEventListener("click", function () {
 
-    var product_price = parseInt(document.querySelector("input[name='price']").value);
-    var amount = parseInt(document.querySelector("input[name='amount']").value);
+    var product_price = parseInt(document.getElementById("cena").value);
+    var amount = parseInt(document.getElementById("ilosc").value);
+
+    if( !product_price ) {
+        document.getElementById("cena").placeholder = "Podaj cenę!";
+        return false;
+    } else if (!amount) {
+        document.getElementById("ilosc").placeholder = "Podaj ilość!";
+        return false;
+    }
+
+    // hidden_row.classList.remove("d-none");
 
     number_of_products += amount;
     discount = calculateDiscount(number_of_products);
@@ -33,6 +45,8 @@ button_calc.addEventListener("click", function () {
 
     before_discount.innerHTML =  amount * product_price + " zł";
     after_discount.innerText = sum + " zł";
+    product_price_field.innerText = product_price;
+    amount_field.innerText = amount;
 
     button_calc.innerText = "Oblicz kolejne zakupy";
 
@@ -42,13 +56,13 @@ button_calc.addEventListener("click", function () {
 
 button_reset.addEventListener("click", function () {
 
-    if (number_of_products) {
+    // if (number_of_products) {
         number_of_products = 0;
         discount = 0;
         sum = 0;
         discount_table_rows[color_cell].classList.remove("table-primary");
-        result_table_cells[0].classList.remove("table-primary");
-        result_table_cells[1].classList.remove("table-primary");
+        // result_table_cells[0].classList.remove("table-primary");
+        // result_table_cells[1].classList.remove("table-primary");
         color_cell = null;
 
         products_output.innerText = " - ";
@@ -56,7 +70,8 @@ button_reset.addEventListener("click", function () {
         before_discount.innerText = " - ";
         after_discount.innerText = " - ";
         button_calc.innerText = "Oblicz pierwsze zakupy";
-    }
+        // hidden_row.classList.add("d-none");
+    // }
 })
 
 function calculateDiscount(amount) {

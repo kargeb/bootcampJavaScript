@@ -59,19 +59,19 @@
                                 <div class="col-lg-9 border-bottom ">
                                         <div class="form-group row mt-4 ">
                                                 <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="cena">Wpisz cenę produktu:</label>
-                                                <input  class="col-md-4 form-control" type="number" id="cena" value="100" name="price"  placeholder="_" autofocus >
+                                                <input  class="col-md-4 form-control" type="number" id="cena" placeholder="_" autofocus >
                                          </div>
                                          <div class="form-group row ">
                                                 <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="ilosc">Wpisz ilość:</label>
-                                                <input class="col-md-4 form-control" type="number" id="ilosc" value="4" name="amount" aria-describedby="podpowiedzPole" placeholder="_">
+                                                <input class="col-md-4 form-control" type="number" id="ilosc" placeholder="_">
                                         </div>
 
                                         <div class="row mt-5 mb-3 ">
                                                 <div class="col-6 offset-3">
-                                                    <button id="calculate_button" class="btn btn-outline-primary">Oblicz pierwsze zakupy</button>
+                                                    <button id="calculate_button" type="button" class="btn btn-outline-primary">Oblicz pierwsze zakupy</button>
                                                 </div>
                                                 <div class="col-3 ">
-                                                    <button id="reset_button" class="btn btn-link">Resetuj dane</button>
+                                                    <button id="reset_button" type="reset" class="btn btn-link">Resetuj dane</button>
                                                 </div>
                                         </div>
                                 </div>
@@ -111,24 +111,28 @@
                             </div>
                     
 
-                    <div class="row ">
+                    <div id="hiddenRow" class="row ">
                         <div class="col-12 text-center pt-3 pb-2 ">
 
                             <p id="task1-p"><em>Liczba wszystkich zamówień złożonych do tej pory to <span id="products" ></span>, Twoja zniżka na zakupy wynosi <span id="discount"></span>.</em> </p>
                             <div class="w-100"></div>
-                            <div class="col-6 offset-3 ">
+                            <div class="col-8 offset-2 ">
                                 
                                 <table id="result_table" class="table table-sm table-borderless ">
                                     <thead>
                                                 <tr>
+                                                    <td class="border-right">Cena za sztukę:</td>
+                                                    <td class="border-right">Ilość sztuk:</td>
                                                     <td class="border-right border-dark" >Cena przed obniżką:</td>
-                                                    <th>Cena po obniżce:</th>
+                                                    <th class="border border-dark border-bottom-0">Cena po obniżce:</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
+                                                    <td id="product_price" class="border-right">-</td>
+                                                    <td id="amount" class="border-right">-</td>
                                                     <td id="before_discount" class="border-right border-dark">-</td>
-                                                    <td id="after_discount" class="font-weight-bold">-</td>
+                                                    <td id="after_discount" class="font-weight-bold border border-dark border-top-0">-</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -296,20 +300,6 @@ function calculateDiscount(amount) {
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="card border-dark">
-                          <div class="card-header" id="headingThree">
-                            <h5 class="mb-0">
-                              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Collapsible Group Item #3
-                              </button>
-                            </h5>
-                          </div>
-                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parentt="#accordionExample">
-                            <div class="card-body">
-                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                            </div>
-                          </div>
-                        </div> -->
                       </div>
             </div>
 
