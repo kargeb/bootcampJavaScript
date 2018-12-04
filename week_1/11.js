@@ -3,12 +3,13 @@ var discount_output = document.getElementById("discount"),
     before_discount = document.getElementById("before_discount"),
     after_discount = document.getElementById("after_discount"),
     discount_table = document.getElementById("discount_table"),
-    // result_table_cells = document.querySelectorAll(".discount_cell"),
     button_calc = document.getElementById("calculate_button"),
     button_reset = document.getElementById("reset_button"),
     product_price_field = document.getElementById("product_price"),
     amount_field = document.getElementById("amount"),
-    hidden_row = document.getElementById("hiddenRow");
+    hidden_row = document.getElementById("hiddenRow"),
+    input_product_price = document.getElementById("cena"),
+    input_product_amount = document.getElementById("ilosc");
 
 var discount_table_rows = discount_table.children[1].children;
 
@@ -17,23 +18,33 @@ var number_of_products = 0,
     sum,
     color_cell = null;  
 
+input_product_price.addEventListener("keypress", function(e){
+    if( e.key == "Enter" ){
+        input_product_amount.focus();
+    }
+})
 
-
+input_product_amount.addEventListener("keypress", function(e){
+    if( e.key == "Enter" ){
+        button_calc.focus();
+    }
+})
 
 button_calc.addEventListener("click", function () {
 
-    var product_price = parseInt(document.getElementById("cena").value);
-    var amount = parseInt(document.getElementById("ilosc").value);
+    var product_price = parseInt(input_product_price.value);
+    var amount = parseInt(input_product_amount.value);
 
     if( !product_price ) {
-        document.getElementById("cena").placeholder = "Podaj cenę!";
+        input_product_price.placeholder = "Podaj cenę!";
         return false;
     } else if (!amount) {
-        document.getElementById("ilosc").placeholder = "Podaj ilość!";
+        input_product_amount.placeholder = "Podaj cenę!";
         return false;
+    } else {
+        input_product_price.placeholder = "-";
+        input_product_amount.placeholder = "-";
     }
-
-    // hidden_row.classList.remove("d-none");
 
     number_of_products += amount;
     discount = calculateDiscount(number_of_products);
@@ -52,26 +63,26 @@ button_calc.addEventListener("click", function () {
 
     console.log("Podstawowa cena produktów to " + amount * product_price + " zł, po obniżce to " + sum + " zł");
 
+    input_product_price.value = "";
+    input_product_amount.value = "";
+    input_product_price.focus();
 })
 
 button_reset.addEventListener("click", function () {
 
-    // if (number_of_products) {
         number_of_products = 0;
         discount = 0;
         sum = 0;
-        discount_table_rows[color_cell].classList.remove("table-primary");
-        // result_table_cells[0].classList.remove("table-primary");
-        // result_table_cells[1].classList.remove("table-primary");
-        color_cell = null;
-
+        input_product_price.focus();
         products_output.innerText = " - ";
         discount_output.innerText = " - ";
         before_discount.innerText = " - ";
         after_discount.innerText = " - ";
+        product_price_field.innerText = "-";
+        amount_field.innerText = "-";
         button_calc.innerText = "Oblicz pierwsze zakupy";
-        // hidden_row.classList.add("d-none");
-    // }
+        discount_table_rows[color_cell].classList.remove("table-primary");
+        color_cell = null;
 })
 
 function calculateDiscount(amount) {
@@ -80,13 +91,13 @@ function calculateDiscount(amount) {
 
     var dis = null;
 
-    if (amount < 5) {
+    if (amount < 5) {       // opis opis opis
         dis = 0;
-    } else if (amount >= 5 && amount < 21) {
+    } else if (amount >= 5 && amount < 21) {        // cos cos
         dis = 5;
         color_cell = 0;
-    } else if (amount >= 21 && amount < 51) {
-        dis = 10;
+    } else if (amount >= 21 && amount < 51) {       // cosa cosa cos
+        dis = 10;                                   //djastd75tuyastd785678 asd
         color_cell = 1;
     } else if (amount >= 51 && amount < 101) {
         dis = 15;
@@ -100,8 +111,3 @@ function calculateDiscount(amount) {
 
     return dis;
 }
-
-
-
-
-

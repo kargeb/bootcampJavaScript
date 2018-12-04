@@ -124,7 +124,7 @@
                                                     <td class="border-right">Cena za sztukę:</td>
                                                     <td class="border-right">Ilość sztuk:</td>
                                                     <td class="border-right border-dark" >Cena przed obniżką:</td>
-                                                    <th class="border border-dark border-bottom-0">Cena po obniżce:</th>
+                                                    <th class="border border-dark border-bottom-0">Cena do zapłaty:</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -171,13 +171,13 @@ function calculateDiscount(amount) {
 
     var dis = null;
 
-    if (amount < 5) {
+    if (amount < 5) {       // opis opis opis
         dis = 0;
-    } else if (amount >= 5 && amount < 21) {
+    } else if (amount >= 5 && amount < 21) {        // cos cos
         dis = 5;
         color_cell = 0;
-    } else if (amount >= 21 && amount < 51) {
-        dis = 10;
+    } else if (amount >= 21 && amount < 51) {       // cosa cosa cos
+        dis = 10;                                   //djastd75tuyastd785678 asd
         color_cell = 1;
     } else if (amount >= 51 && amount < 101) {
         dis = 15;
@@ -190,6 +190,7 @@ function calculateDiscount(amount) {
     discount_table_rows[color_cell] ? discount_table_rows[color_cell].classList.add("table-primary") : null;
 
     return dis;
+}
 }
                                                                     </code>
                                                             </pre>
