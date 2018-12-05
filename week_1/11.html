@@ -35,11 +35,12 @@
            
             
             <div class="col-8 offset-2 ">
+                    <span class="badge badge-light shadow">Treść zadania</span>
                 
-                <h3>
+                <h3><br>
                         1. Instrukcje warunkowe 
                     </h3>
-                    <p class="text-muted">Obliczenie rabatu na podstawie ilości wszystkich dotychczasowych zakupów dokonanych w sklepie.
+                    <p class="text-mute">Obliczenie rabatu na podstawie ilości wszystkich dotychczasowych zakupów dokonanych w sklepie.
                         Poszczególne wizyty w sklepie są zapamiętywane, dzięki czemu wraz z większą zakupów produktów rośnie również przyznany rabat
                     </p>
 
@@ -56,7 +57,8 @@
                 
         <div class="row justify-content-center ">
 
-                <div class="col-md-8 bg-secondary shadow rounded">
+            <div class="col-md-8 bg-white shadow rounded">
+                    <span class="badge badge-secondary shadow">Rozwiązanie</span>
 
                             <div class="row ">
 
@@ -80,11 +82,11 @@
                                         </div>
                                 </div>
 
-                                    <div class="col-lg-3 border border-top-0">
-                                        <table id="discount_table" class="table table-sm table-borderless text-center h-100 d-inline-block bg-info rounded">
+                                    <div class="col-lg-3 border border-top-0 pl-4 ">
+                                        <table id="discount_table" class="table table-sm table-borderless text-center h-100 d-inline-block rounded">
                                             <thead>
                                                 <tr>
-                                                    <th colspan="2"  >Tabela zniżek</th>
+                                                    <th colspan="2" class="pl-4" >Tabela zniżek</th>
                                                 </tr>
                                                 <tr>
                                                     <td class="pr-3 " >Produkty łącznie:</td>
@@ -155,23 +157,25 @@
         <br><br>
 
 
-
         <div class="row bg-secondary">
           
             <div class="col-8 offset-2 ">
                 <br><br>
+                <span class="badge badge-light shadow">Kody źródłowe</span>
                 <div class="accordion" id="accordionExample">
-                        <div class="card border-dark ">
+                        <div class="card text-white bg-dark border-dark ">
                           <div class="card-header" id="headingOne">
                             <h5 class="mb-0">
-                              <button class="btn btn-link text-dark" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Kod źródłowy funkcji warunkowej:
+                                <br>
+                              <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <h5 class="card-title">Kod źródłowy funkcji warunkowej:</h5>
                               </button>
                             </h5>
                           </div>
                       
                           <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parentt="#accordionExample">
-                            <div class="card-body">
+                           
+                                    
                                     <pre><code>
 function calculateDiscount(amount) {
 
@@ -200,21 +204,20 @@ function calculateDiscount(amount) {
     return dis;
 }
 }
-</code></pre></div>
+</code></pre>
                           </div>
                         </div>
-                        <div class="card border-dark border-top-0">
+                        <div class="card text-white bg-dark border-dark border-top-0">
                           <div class="card-header" id="headingTwo">
                             <h5 class="mb-0">
-                              <button class="btn btn-link text-dark collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Cały kod źródłowy:
+                              <button class="btn btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h5 class="card-title">Cały kod źródłowy:</h5>
+                                
                               </button>
                             </h5>
                           </div>
-                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parentt="#accordionExample">
-                            <div class="card-body">
-                                <pre>
-                                    <code>
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parentt="#accordionExample">  
+                                <pre><code>
 var discount_output = document.getElementById("discount"),
     products_output = document.getElementById("products"),
     before_discount = document.getElementById("before_discount"),
@@ -304,7 +307,7 @@ function calculateDiscount(amount) {
 }                                                     
 </code>
 </pre>       
-                            </div>
+                            
                           </div>
                         </div>
                       </div>

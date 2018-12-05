@@ -173,3 +173,11 @@ body {
 .task {
     background-color: #fff;
 }
+
+.badge {
+    margin-top: -2%;
+    margin-left: -6%;
+    font-size: 1.7em;
+    position: absolute;
+    z-index: 1;
+}
