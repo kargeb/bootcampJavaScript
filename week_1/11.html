@@ -25,12 +25,13 @@
 
 <body>
     <div class="container-fluid ">
+        <header>
             <div id="homeButton">
                     <a href="../index.html#0"><i class="material-icons md-46">home</i></a>
                 </div> 
 
         <div class="row mt-4"></div>
-        <div class="row head shadow-sm">
+        <div class="row head bg-secondary shadow-sm">
            
             
             <div class="col-8 offset-2 ">
@@ -48,13 +49,14 @@
 
 
         </div>
+    </header>
       
         <!----------- MAIN TASK ------------>
         <br>
                 
         <div class="row justify-content-center ">
 
-                <div class="col-md-8 bg-white shadow rounded">
+                <div class="col-md-8 bg-secondary shadow rounded">
 
                             <div class="row ">
 
@@ -79,13 +81,13 @@
                                 </div>
 
                                     <div class="col-lg-3 border border-top-0">
-                                        <table id="discount_table" class="table table-sm table-borderless h-100 d-inline-block bg-white rounded">
+                                        <table id="discount_table" class="table table-sm table-borderless text-center h-100 d-inline-block bg-info rounded">
                                             <thead>
                                                 <tr>
-                                                    <th colspan="2" class="text-center" >Tabela zniżek</th>
+                                                    <th colspan="2"  >Tabela zniżek</th>
                                                 </tr>
                                                 <tr>
-                                                    <td class="pr-3" >Produkty łącznie:</td>
+                                                    <td class="pr-3 " >Produkty łącznie:</td>
                                                     <td>Rabat:</td>
                                                 </tr>
                                             </thead>
@@ -152,14 +154,18 @@
         </div>
         <br><br>
 
-        <div class="row">
-            <div class="col-10 offset-1 ">
+
+
+        <div class="row bg-secondary">
+          
+            <div class="col-8 offset-2 ">
+                <br><br>
                 <div class="accordion" id="accordionExample">
                         <div class="card border-dark ">
                           <div class="card-header" id="headingOne">
                             <h5 class="mb-0">
                               <button class="btn btn-link text-dark" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                #1 Kod źródłowy funkcji warunkowej:
+                                Kod źródłowy funkcji warunkowej:
                               </button>
                             </h5>
                           </div>
@@ -194,16 +200,14 @@ function calculateDiscount(amount) {
     return dis;
 }
 }
-                                                                    </code>
-                                                            </pre>
-                            </div>
+</code></pre></div>
                           </div>
                         </div>
                         <div class="card border-dark border-top-0">
                           <div class="card-header" id="headingTwo">
                             <h5 class="mb-0">
                               <button class="btn btn-link text-dark collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                #2 Cały kod źródłowy:
+                                Cały kod źródłowy:
                               </button>
                             </h5>
                           </div>
@@ -304,11 +308,13 @@ function calculateDiscount(amount) {
                           </div>
                         </div>
                       </div>
+                      <br><br>
             </div>
 
-        </div>
 
-    <br><br>
+        </div>
+        <br><br>
+
 
     </div>
     <script src="11.js"></script>

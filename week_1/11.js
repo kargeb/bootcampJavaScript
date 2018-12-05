@@ -37,9 +37,11 @@ button_calc.addEventListener("click", function () {
 
     if( !product_price ) {
         input_product_price.placeholder = "Podaj cenę!";
+        input_product_price.focus();
         return false;
     } else if (!amount) {
         input_product_amount.placeholder = "Podaj cenę!";
+        input_product_amount.focus();
         return false;
     } else {
         input_product_price.placeholder = "-";
