@@ -34,7 +34,7 @@ for( let category in movies ){
     }
 
     console.log("=====================\n\n");
-    text += "=====================<br><br>";
+    text += "=====================<br>";
 }
 
 p.innerHTML = text;

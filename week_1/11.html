@@ -35,26 +35,31 @@
            
             
             <div class="col-8 offset-2 ">
-                    <span class="badge badge-light shadow">Treść zadania</span>
+                    <span class="badge badge-dark shadow">Treść zadania</span>
                 
-                <h3 class="text-white"><br>
-                        1. Instrukcje warunkowe 
-                    </h3>
-                    <p class="text-white">Za pomocą instrukcji warunkowej if (wraz z blokami else) lub switch, stwórz skrypt, który 
-                            w konsoli (za pomocą console.log()) wyświetli cenę produktu, w zależności od liczby 
-                            zakupionych przez klienta do tej pory produktów. Oczywiście wszystko to jest abstrakcyjne, 
-                            więc musisz utworzyć zmienną, która będzie przechowywała liczbę zakupionych produktów, 
-                            np. 100, a następnie zmienną z ceną jakiegoś ﬁkcyjnego produktu, np. 50. Poniżej tych 
-                            dwóch zmiennych utwórz blok instrukcji warunkowych, który ustali ostateczną cenę, w 
-                            zależności od liczby zakupionych przez klienta produktów. <br>
-                            Jeśli zatem klient ma już na koncie od 5 do 20 zakupionych produktów, to przyznaj zniżkę 
-                            5%. Jeśli 21 do 50, to 10%, od 51 do 100 produktów daje zniżkę 15%, a powyżej 100 
-                            produktów zniżkę w wysokości 20%. <br>
-                            Musisz zatem obliczyć ostateczną cenę produktu, a następnie wyświetlić w konsoli 
-                            komunikat, np. “Podstawowa cena produktu to 20zł, po obniżce to 17zł”. Aby to 
-                            przetestować, będziesz musiał zmieniać liczbę zakupionych przez klienta produktów w 
-                            zmiennej, w której taką informację zapiszesz.
-                    </p>
+                <div class="card border-light bg-white">
+                    <div class="card-body text-dark">
+                        <h3 class="card-title"><br>
+                                1. Instrukcje warunkowe 
+                            </h3>
+                            <p class="card-text blockquote">Za pomocą instrukcji warunkowej if (wraz z blokami else) lub switch, stwórz skrypt, który 
+                                    w konsoli (za pomocą console.log()) wyświetli cenę produktu, w zależności od liczby 
+                                    zakupionych przez klienta do tej pory produktów. Oczywiście wszystko to jest abstrakcyjne, 
+                                    więc musisz utworzyć zmienną, która będzie przechowywała liczbę zakupionych produktów, 
+                                    np. 100, a następnie zmienną z ceną jakiegoś ﬁkcyjnego produktu, np. 50. Poniżej tych 
+                                    dwóch zmiennych utwórz blok instrukcji warunkowych, który ustali ostateczną cenę, w 
+                                    zależności od liczby zakupionych przez klienta produktów. <br>
+                                    Jeśli zatem klient ma już na koncie od 5 do 20 zakupionych produktów, to przyznaj zniżkę 
+                                    5%. Jeśli 21 do 50, to 10%, od 51 do 100 produktów daje zniżkę 15%, a powyżej 100 
+                                    produktów zniżkę w wysokości 20%. <br>
+                                    Musisz zatem obliczyć ostateczną cenę produktu, a następnie wyświetlić w konsoli 
+                                    komunikat, np. “Podstawowa cena produktu to 20zł, po obniżce to 17zł”. Aby to 
+                                    przetestować, będziesz musiał zmieniać liczbę zakupionych przez klienta produktów w 
+                                    zmiennej, w której taką informację zapiszesz.
+                                </p>
+                    </div>
+                </div>
+
 
                 
                     <br>
@@ -76,12 +81,12 @@
 
                                 <div class="col-lg-9 border-bottom ">
                                         <div class="form-group row mt-4 ">
-                                                <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="cena">Wpisz cenę produktu:</label>
-                                                <input  class="col-md-4 form-control" type="number" id="cena" placeholder="-" autofocus >
+                                            <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="price">Wpisz cenę produktu:</label>
+                                            <input  class="col-md-4 form-control" type="number" id="price" placeholder="-" autofocus >
                                          </div>
                                          <div class="form-group row ">
-                                                <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="ilosc">Wpisz ilość:</label>
-                                                <input class="col-md-4 form-control" type="number" id="ilosc" placeholder="-">
+                                                <label class="col-md-6 col-form-label text-sm-left  text-md-right" for="amount">Wpisz ilość:</label>
+                                                <input class="col-md-4 form-control" type="number" id="amount" placeholder="-">
                                         </div>
 
                                         <div class="row mt-5 mb-3 ">
@@ -148,7 +153,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td id="product_price" class="border-right">-</td>
-                                                    <td id="amount" class="border-right">-</td>
+                                                    <td id="amount_field" class="border-right">-</td>
                                                     <td id="before_discount" class="border-right border-dark">-</td>
                                                     <td id="after_discount" class="font-weight-bold border border-dark border-top-0">-</td>
                                                 </tr>

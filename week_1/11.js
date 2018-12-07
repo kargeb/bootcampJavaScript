@@ -6,10 +6,10 @@ var discount_output = document.getElementById("discount"),
     button_calc = document.getElementById("calculate_button"),
     button_reset = document.getElementById("reset_button"),
     product_price_field = document.getElementById("product_price"),
-    amount_field = document.getElementById("amount"),
+    amount_field = document.getElementById("amount_field"),
     hidden_row = document.getElementById("hiddenRow"),
-    input_product_price = document.getElementById("cena"),
-    input_product_amount = document.getElementById("ilosc");
+    input_product_price = document.getElementById("price"),
+    input_product_amount = document.getElementById("amount");
 
 var discount_table_rows = discount_table.children[1].children;
 
