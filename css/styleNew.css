@@ -182,3 +182,7 @@ body {
     position: absolute;
     z-index: 1;
 }
+
+pre {
+    font-size: 1.2em;
+}
