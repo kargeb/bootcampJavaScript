@@ -16,25 +16,22 @@ var movies = {
     ]
 };
 
-var p = document.getElementById("content");
-var text = "";
+var output_solution = document.getElementById("solution"),
+    solutionText = "";
 
-
-console.log(movies);
-
-for( let category in movies ){
+for (var category in movies) {
 
     console.log(category + ":");
-    text += category + ": <br>";
+    solutionText += category + ": <br>";
 
-    for (let i=0; i<movies[category].length; i++){
+    for (var i = 0; i < movies[category].length; i++) {
 
         console.log(movies[category][i]);
-        text += movies[category][i] + "<br>";
+        solutionText += movies[category][i] + "<br>";
     }
 
     console.log("=====================\n\n");
-    text += "=====================<br>";
+    solutionText += "=====================<br>";
 }
 
-p.innerHTML = text;
+output_solution.innerHTML = solutionText;

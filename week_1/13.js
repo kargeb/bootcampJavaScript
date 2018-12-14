@@ -1,3 +1,7 @@
+var output_solution = document.getElementById("solution");
+
+
+
 function toBoolean(value){
     return Boolean(value);
 }

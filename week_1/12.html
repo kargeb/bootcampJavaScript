@@ -33,31 +33,34 @@
             <div class="row head bg-secondary shadow-sm">
                
                 
-                <div class="col-8 offset-2 ">
+                <div class="col-8 offset-2 text-white">
                         <span class="badge badge-light shadow">Treść zadania</span>
                     
-                    <h3 class="text-white"><br>
+                    <h3><br>
                         2. Pętle
                         </h3>
-                        <p class="text-white">Stwórz skrypt, który będzie wyświetlał ﬁlmy z podanego tutaj obiektu https://pastebin.com/
+                        <p>Stwórz skrypt, który będzie wyświetlał ﬁlmy z podanego tutaj obiektu https://pastebin.com/
                                 kCbqehMm (oczywiście skopiuj ten kod i wstaw go do swojego skryptu zanim rozpoczniesz 
                                 pracę). <br>
                                 Skrypt powinien wyświetlać ﬁlmy z 3 kategorii (użyj do tego celu console.log()) w 
-                                następujący sposób: <br>
-                                Dla dzieci: <br>
-                                Kubuś Puchatek i Przyjaciele <br>
-                                Zwariowane Melodie <br>
-                                Piotruś Pan <br>
-                                ======================= Dla młodzieży: <br>
-                                Szkoła uczuć <br>
-                                Podróż za jeden uśmiech <br>
-                                Szatan z 7-ej klasy <br>
-                                ======================= <br>
-                                Dla dorosłych: <br>
-                                Gwiezdne Wojny <br>
-                                Szklana Pułapka <br>
-                                Titanic <br>
-                                ======================= <br> 
+                                następujący sposób: <br> 
+                                <p class="pl-5">
+
+                                    Dla dzieci: <br>
+                                    Kubuś Puchatek i Przyjaciele <br>
+                                    Zwariowane Melodie <br>
+                                    Piotruś Pan <br>
+                                    ======================= <br> Dla młodzieży: <br>
+                                    Szkoła uczuć <br>
+                                    Podróż za jeden uśmiech <br>
+                                    Szatan z 7-ej klasy <br>
+                                    ======================= <br>
+                                    Dla dorosłych: <br>
+                                    Gwiezdne Wojny <br>
+                                    Szklana Pułapka <br>
+                                    Titanic <br>
+                                    ======================= <br> 
+                                </p>
                         </p>
     
                     
@@ -78,19 +81,13 @@
     
                         <div class="row ">
                             
-    
                                 <div class="col-auto offset-4">
                                     
-                                    <p id="content"></p>
-                      
+                                    <p id="solution" class="my-4 text-monospace"></p>
+                                    
                                 </div>
                                 
-                            
-    
-    
                         </div>
-    
-    
                 </div>
     
             </div>
@@ -108,7 +105,7 @@
                                 <h5 class="mb-0">
                                     <br>
                                   <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <h5 class="card-title">1:</h5>
+                                        <h5 class="card-title">Pętla:</h5>
                                   </button>
                                 </h5>
                               </div>
@@ -117,9 +114,19 @@
                                
                                         
                                         <pre><code>
-    {
-    
+    for (var category in movies) {
 
+        console.log(category + ":");
+        solutionText += category + ": &lt;br&gt;";
+
+        for (var i = 0; i < movies[category].length; i++) {
+
+            console.log(movies[category][i]);
+            solutionText += movies[category][i] + "&lt;br&gt;";
+        }
+
+        console.log("=====================\n\n");
+        solutionText += "=====================&lt;br&gt;";
     }
     </code></pre>
                               </div>
@@ -128,15 +135,50 @@
                               <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
                                   <button class="btn btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h5 class="card-title">2</h5>
+                                    <h5 class="card-title">Cały kod:</h5>
                                     
                                   </button>
                                 </h5>
                               </div>
                               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parentt="#accordionExample">  
                                     <pre><code>
-    {
-    }                                                     
+    var movies = {
+        "Dla dzieci": [
+            "Kubuś Puchatek i Przyjaciele",
+            "Zwariowane Melodie",
+            "Piotruś Pan"
+        ],
+        "Dla młodzieży": [
+            "Szkoła uczuć",
+            "Podróż za jeden uśmiech",
+            "Szatan z 7-ej klasy"
+        ],
+        "Dla dorosłych": [
+            "Gwiezdne Wojny",
+            "Szklana Pułapka",
+            "Titanic"
+        ]
+    };
+    
+    var output_solution = document.getElementById("solution"),
+        solutionText = "";
+    
+    for (var category in movies) {
+    
+        console.log(category + ":");
+        solutionText += category + ": &lt;br&gt;";
+    
+        for (var i = 0; i < movies[category].length; i++) {
+    
+            console.log(movies[category][i]);
+            solutionText += movies[category][i] + "&lt;br&gt;";
+        }
+    
+        console.log("=====================\n\n");
+        solutionText += "=====================&lt;br&gt;";
+    }
+    
+    output_solution.innerHTML = solutionText;                                                    
     </code>
     </pre>       
                                 
