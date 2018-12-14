@@ -31,19 +31,19 @@
                 <div class="row head bg-secondary shadow-sm">
                    
                     
-                    <div class="col-8 offset-2 ">
+                    <div class="col-8 offset-2 text-white">
                             <span class="badge badge-light shadow">Treść zadania</span>
                         
-                        <h3 class="text-white"><br>
+                        <h3 > <br>
                             4. Funkcja sumująca przekazane liczby
                             </h3>
-                            <p class="text-white">               
-                                    Stwórz funkcję o nazwie sum, która będzie przyjmowała jeden parametr, którym będzie 
-                                    tablica z liczbami. Funkcja ta powinna zsumować wszystkie liczby z przekazanej tablicy, a 
-                                    następnie zwrócić wynik takiej operacji.<br>
-                                    Przykładowe jej użycie powinno wyglądać tak:<br><br>
-                                    sum([1, 10, 5, 4]); // zwraca wartość 20 
+                            <p>
+                                Stwórz funkcję o nazwie sum, która będzie przyjmowała jeden parametr, którym będzie 
+                                tablica z liczbami. Funkcja ta powinna zsumować wszystkie liczby z przekazanej tablicy, a 
+                                następnie zwrócić wynik takiej operacji.
                             </p>
+                            <p> Przykładowe jej użycie powinno wyglądać tak: </p>
+                            <p class="pl-5"> sum([1, 10, 5, 4]); // zwraca wartość 20 </p>
         
                             <br>
                     </div>
@@ -60,35 +60,37 @@
                     <div class="col-md-8 bg-white shadow rounded">
                             <span class="badge badge-secondary shadow">Rozwiązanie</span>
         
-                            <div class="row">
-                                    <div class="col">
-                                        <form>
+                            <div class="row justify-content-center">
+                                    <div class="col-4">
+                                        
                                                 <div class="form-group">
                                                   <label for="inputNumbers">Podaj lczby:</label>
                                                   <input type="number" class="form-control" id="inputNumbers" aria-describedby="emailHelp">
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group ">
                                                     
-                                                    <button id="add" class="btn btn-outline-primary">Dodaj do puli</button>
-                                                     <button id="reset_button" class="btn btn-outline-primary">Resetuj dane</button>
+                                                    <button id="add" class="btn btn-outline-primary col-auto">Dodaj do puli</button>
+                                                     <button id="reset_button" class="btn btn-link offset-2">Resetuj dane</button>
                                                     
                                                 </div>
-                                              </form>
+                                       
                                         </div>
                                 </div>
                             
-                                <div class="row">
-                                    <div class="col">
+                                <div class="row justify-content-center">
+                                    <div class="col-8 text-center">
                                         <p id="show_numbers"></p>
                                     </div>
                                 </div>
-                                <div class="row">
-                                            <div class="col-sm-4">
-                                                    <button id="add_up_button" class="btn btn-outline-primary">Oblicz sumę wszystkich: </button>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <p id="show_sum"></p>
-                                            </div>
+                                <div class="row justify-content-center">
+                          
+                                        <div class="col-auto">
+                                                <button id="add_up_button" class="btn btn-outline-primary">Oblicz sumę wszystkich: </button>
+                                        </div>
+                                        <div id="show_sum" class="col-2 text-center ">
+                                            
+                                        </div>
+
                                 </div>
         
         
