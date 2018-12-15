@@ -61,23 +61,20 @@
                 <div class="col-md-8 bg-white shadow rounded">
                         <span class="badge badge-secondary shadow">Rozwiązanie</span>
     
-                        <div class="row">
-                                <div class="col">
+                        <div class="row justify-content-center">
+                                <div class="col-auto pt-4">
                                         <button id="show_data_button" class="btn btn-outline-primary">Pokaż aktualną datę</button>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-4">
-                                        <h2 id="show_data"></h2>
+                            <div class="row justify-content-center">
+                                <div class="col-auto pb-4">
+                                        <h2 id="show_data">&nbsp;</h2>
                                 </div>
                             </div>
-    
-    
                 </div>
     
             </div>
             <br><br>
-    
     
             <div class="row bg-secondary">
               
@@ -90,7 +87,7 @@
                                 <h5 class="mb-0">
                                     <br>
                                   <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <h5 class="card-title">1</h5>
+                                        <h5 class="card-title">Funkcja getDate:</h5>
                                   </button>
                                 </h5>
                               </div>
@@ -98,29 +95,61 @@
                               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parentt="#accordionExample">
                                
                                         
-                                        <pre><code>
-    {
-    
+<pre><code>
+    function getDate() {
+        var date = new Date(),
+            currentDate = "";
 
+        function checkTwoDigitFormat(number) {
+            return number < 10 ? ("0" + String(number)) : number;
+        }
+
+        currentDate = checkTwoDigitFormat(date.getDate()) + 
+            "." + checkTwoDigitFormat(date.getMonth() + 1) + 
+            "." + date.getFullYear();
+
+        return currentDate;
     }
-    </code></pre>
+
+</code></pre>
                               </div>
                             </div>
                             <div class="card text-white bg-dark border-dark border-top-0">
                               <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
                                   <button class="btn btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h5 class="card-title">2</h5>
+                                    <h5 class="card-title">Cały kod:</h5>
                                     
                                   </button>
                                 </h5>
                               </div>
                               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parentt="#accordionExample">  
-                                    <pre><code>
-    {
-    }                                                     
-    </code>
-    </pre>       
+<pre><code>
+    var button_showCurrentDate = document.getElementById("show_data_button"),
+        output_currentDate = document.getElementById("show_data");
+
+    button_showCurrentDate.addEventListener("click", function () {
+        output_currentDate.innerText = getDate();
+    })
+
+    console.log(getDate());
+
+    function getDate() {
+        var date = new Date(),
+            currentDate = "";
+
+        function checkTwoDigitFormat(number) {
+            return number < 10 ? ("0" + String(number)) : number;
+        }
+
+        currentDate = checkTwoDigitFormat(date.getDate()) +
+            "." + checkTwoDigitFormat(date.getMonth() + 1) +
+            "." + date.getFullYear();
+
+        return currentDate;
+    }              
+                                          
+</code></pre>       
                                 
                               </div>
                             </div>

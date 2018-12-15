@@ -1,15 +1,23 @@
-var show_data_button = document.getElementById("show_data_button");
-var show_data = document.getElementById("show_data");
+var button_showCurrentDate = document.getElementById("show_data_button"),
+    output_currentDate = document.getElementById("show_data");
 
-var data = new Date();
-
-function format(data){
-
-    return data < 10 ? "0" + String(data) : data;
-}
-
-show_data_button.addEventListener("click", function(){
-    show_data.innerText = format( data.getDate()) + "." + format( data.getMonth()+1 ) + "." + data.getFullYear()
+button_showCurrentDate.addEventListener("click", function () {
+    output_currentDate.innerText = getDate();
 })
 
-console.log(  format( data.getDate() ), format( data.getMonth()+1 ), data.getFullYear());
+console.log(getDate());
+
+function getDate() {
+    var date = new Date(),
+        currentDate = "";
+
+    function checkTwoDigitFormat(number) {
+        return number < 10 ? ("0" + String(number)) : number;
+    }
+
+    currentDate = checkTwoDigitFormat(date.getDate()) +
+        "." + checkTwoDigitFormat(date.getMonth() + 1) +
+        "." + date.getFullYear();
+
+    return currentDate;
+}

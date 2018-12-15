@@ -51,10 +51,7 @@
         
                 </div>
             </header>
-              
-                <!----------- MAIN TASK ------------>
-                <br>
-                        
+                <br>        
                 <div class="row justify-content-center ">
         
                     <div class="col-md-8 bg-white shadow rounded">
@@ -62,43 +59,38 @@
         
                             <div class="row justify-content-center">
                                     <div class="col-4">
-                                        
+                                        <br>
+                                        <form>
                                                 <div class="form-group">
                                                   <label for="inputNumbers">Podaj lczby:</label>
                                                   <input type="number" class="form-control" id="inputNumbers" aria-describedby="emailHelp">
                                                 </div>
                                                 <div class="form-group ">
-                                                    
                                                     <button id="add" class="btn btn-outline-primary col-auto">Dodaj do puli</button>
                                                      <button id="reset_button" class="btn btn-link offset-2">Resetuj dane</button>
-                                                    
                                                 </div>
-                                       
+                                        </form>
                                         </div>
                                 </div>
                             
                                 <div class="row justify-content-center">
                                     <div class="col-8 text-center">
-                                        <p id="show_numbers"></p>
+                                        <p id="show_numbers" class="h-100">_</p>
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
+                                <div class="row justify-content-center pb-4">
                           
                                         <div class="col-auto">
                                                 <button id="add_up_button" class="btn btn-outline-primary">Oblicz sumę wszystkich: </button>
                                         </div>
-                                        <div id="show_sum" class="col-2 text-center ">
-                                            
+                                        <div  class="col-2 text-center ">
+                                            <p id="show_sum">_</p>
                                         </div>
-
                                 </div>
-        
-        
                     </div>
         
                 </div>
                 <br><br>
-        
         
                 <div class="row bg-secondary">
                   
@@ -111,7 +103,7 @@
                                     <h5 class="mb-0">
                                         <br>
                                       <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            <h5 class="card-title">1</h5>
+                                            <h5 class="card-title">Funkcja sumująca:</h5>
                                       </button>
                                     </h5>
                                   </div>
@@ -119,29 +111,88 @@
                                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parentt="#accordionExample">
                                    
                                             
-                                            <pre><code>
-        {
-        
-    
-        }
-        </code></pre>
+<pre><code>
+function sum(arrayNumbers) {
+    var sum = 0;
+    for (var i = 0; i < arrayNumbers.length; i++) {
+        sum += arrayNumbers[i];
+    }
+    return sum;
+}    
+</code></pre>
                                   </div>
                                 </div>
                                 <div class="card text-white bg-dark border-dark border-top-0">
                                   <div class="card-header" id="headingTwo">
                                     <h5 class="mb-0">
                                       <button class="btn btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <h5 class="card-title">2</h5>
+                                        <h5 class="card-title">Cały kod:</h5>
                                         
                                       </button>
                                     </h5>
                                   </div>
                                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parentt="#accordionExample">  
-                                        <pre><code>
-        {
-        }                                                     
-        </code>
-        </pre>       
+<pre><code>
+var button_nextNumber = document.getElementById("add"),
+    input_nextNumber = document.getElementById("inputNumbers"),
+    output_allNumbers = document.getElementById("show_numbers"),
+    output_sum = document.getElementById("show_sum"),
+    button_addAllNumbers = document.getElementById("add_up_button"),
+    button_reset = document.getElementById("reset_button");
+
+var currentNumber = "",
+    arrayInputtedNumbers = [];
+
+input_nextNumber.focus();
+
+button_nextNumber.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (input_nextNumber.value) {
+        arrayInputtedNumbers.push(parseFloat(input_nextNumber.value))
+        currentNumber ? (currentNumber += " + " + String(input_nextNumber.value)) : (currentNumber += String(input_nextNumber.value));
+        input_nextNumber.value = "";
+        input_nextNumber.focus();
+        output_allNumbers.innerText = currentNumber;
+        input_nextNumber.placeholder = "";
+    } else {
+        input_nextNumber.placeholder = "PODAJ LICZBĘ!";
+        input_nextNumber.focus();
+    }
+})
+
+button_addAllNumbers.addEventListener("click", function () {
+    output_sum.innerText = sum(arrayInputtedNumbers);
+    input_nextNumber.value = "";
+    input_nextNumber.focus();
+})
+
+button_reset.addEventListener("click", function (e) {
+    e.preventDefault();
+    arrayInputtedNumbers = [];
+    currentNumber = "";
+    input_nextNumber.placeholder = "";
+    output_allNumbers.innerText = "_";
+    input_nextNumber.value = "";
+    input_nextNumber.focus();
+    output_sum.innerText = "_";
+})
+
+input_nextNumber.addEventListener("keypress", function (e) {
+    if (e.key == " ") {
+        output_sum.innerText = sum(arrayInputtedNumbers);
+        input_nextNumber.value = "";
+        input_nextNumber.focus();
+    }
+})
+
+function sum(arrayNumbers) {
+    var sum = 0;
+    for (var i = 0; i < arrayNumbers.length; i++) {
+        sum += arrayNumbers[i];
+    }
+    return sum;
+}                                                   
+</code></pre>       
                                     
                                   </div>
                                 </div>

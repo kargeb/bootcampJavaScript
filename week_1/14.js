@@ -1,60 +1,59 @@
-var button_add = document.getElementById("add"),
-    inputNumbers = document.getElementById("inputNumbers"),
-    show_numbers = document.getElementById("show_numbers"),
-    show_sum = document.getElementById("show_sum"),
-    button_add_up = document.getElementById("add_up_button"),
-    reset_button = document.getElementById("reset_button");
+var button_nextNumber = document.getElementById("add"),
+    input_nextNumber = document.getElementById("inputNumbers"),
+    output_allNumbers = document.getElementById("show_numbers"),
+    output_sum = document.getElementById("show_sum"),
+    button_addAllNumbers = document.getElementById("add_up_button"),
+    button_reset = document.getElementById("reset_button");
 
-var numbers_to_show = "",
-    numbers = [];
+var currentNumber = "",
+    arrayInputtedNumbers = [];
 
-    inputNumbers.focus();
+input_nextNumber.focus();
 
-    button_add.addEventListener("click", function(e){
-
-        e.preventDefault();
-
-        if(inputNumbers.value) {
-    
-            numbers.push( parseFloat(inputNumbers.value)  )
-
-            numbers_to_show ? ( numbers_to_show += " + " + String(inputNumbers.value) ) : (  numbers_to_show += String(inputNumbers.value) );
-    
-            inputNumbers.value = "";
-            inputNumbers.focus();
-    
-            show_numbers.innerText = numbers_to_show;
-
-            inputNumbers.placeholder = "";
-        } else {
-            inputNumbers.placeholder = "PODAJ LICZBĘ!";
-        }
-    })
-
-    button_add_up.addEventListener("click", function(){
-
-        show_sum.innerText = sum(numbers);
-    })
-
-    reset_button.addEventListener("click", function(e){
-        e.preventDefault();
-        numbers = [];
-        numbers_to_show = "";
-        inputNumbers.placeholder = "";
-        show_numbers.innerText = "";
-        inputNumbers.value = "";
-        inputNumbers.focus();
-        show_sum.innerText = "";
-
-
-    })
-
-
-function sum(arr) {
-    var sum = 0;
-    for (var i = 0; i < arr.length; i++) {
-        sum += arr[i];
+button_nextNumber.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (input_nextNumber.value) {
+        arrayInputtedNumbers.push(parseFloat(input_nextNumber.value))
+        currentNumber ? (currentNumber += " + " + String(input_nextNumber.value)) : (currentNumber += String(input_nextNumber.value));
+        input_nextNumber.value = "";
+        input_nextNumber.focus();
+        output_allNumbers.innerText = currentNumber;
+        input_nextNumber.placeholder = "";
+    } else {
+        input_nextNumber.placeholder = "PODAJ LICZBĘ!";
+        input_nextNumber.focus();
     }
+})
 
+button_addAllNumbers.addEventListener("click", function () {
+    output_sum.innerText = sum(arrayInputtedNumbers);
+    input_nextNumber.value = "";
+    input_nextNumber.focus();
+})
+
+button_reset.addEventListener("click", function (e) {
+    e.preventDefault();
+    arrayInputtedNumbers = [];
+    currentNumber = "";
+    input_nextNumber.placeholder = "";
+    output_allNumbers.innerText = "_";
+    input_nextNumber.value = "";
+    input_nextNumber.focus();
+    output_sum.innerText = "_";
+})
+
+input_nextNumber.addEventListener("keypress", function (e) {
+    if (e.key == " ") {
+        output_sum.innerText = sum(arrayInputtedNumbers);
+        input_nextNumber.value = "";
+        input_nextNumber.focus();
+    }
+})
+
+function sum(arrayNumbers) {
+    var sum = 0;
+    for (var i = 0; i < arrayNumbers.length; i++) {
+        sum += arrayNumbers[i];
+    }
     return sum;
-}    
+}
