@@ -190,3 +190,7 @@ pre {
 pre .language-js {
     font-size: 17px;
 }
+
+label {
+    cursor: pointer;
+}

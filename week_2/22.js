@@ -2,21 +2,19 @@ var form = document.querySelector("form"),
     message_name = document.getElementById("message_name"),
     message_tel = document.getElementById("message_tel"),
     message_email = document.getElementById("message_email"),
-    message_date = document.getElementById("message_date"),
     message_card = document.getElementById("message_card"),
     message_text = document.getElementById("message_text");
 
-
 console.log(message_name);
 
-form.addEventListener("submit", function(e){
+form.addEventListener("submit", function (e) {
 
     var checksum = 0;
-    var  message = {};
+    var message = {};
 
     e.preventDefault();
 
-    if(form.name.value == ""){
+    if (form.name.value == "") {
         form.name.placeholder = "Pole obowiązkowe!";
         form.name.classList.add("wrong");
     } else {
@@ -25,7 +23,7 @@ form.addEventListener("submit", function(e){
         checksum++
     }
 
-    if(form.message.value == ""){
+    if (form.message.value == "") {
         form.message.placeholder = "Pole obowiązkowe!";
         form.message.classList.add("wrong");
     } else {
@@ -34,10 +32,10 @@ form.addEventListener("submit", function(e){
         checksum++
     }
 
-    if(form.email.value == ""){
+    if (form.email.value == "") {
         form.email.placeholder = "Pole obowiązkowe!";
         form.email.classList.add("wrong");
-    } else if( form.email.value.indexOf("@") == -1 ){
+    } else if (form.email.value.indexOf("@") == -1) {
         form.email.value = "";
         form.email.classList.add("wrong");
         form.email.placeholder = "Niepoprawny adres email!";
@@ -47,10 +45,10 @@ form.addEventListener("submit", function(e){
         checksum++
     }
 
-    if(form.tel.value == ""){
+    if (form.tel.value == "") {
         form.tel.placeholder = "Pole obowiązkowe!";
         form.tel.classList.add("wrong");
-    } else if( isNaN( Number( form.tel.value))){
+    } else if (isNaN(Number(form.tel.value))) {
         form.tel.value = "";
         form.tel.classList.add("wrong");
         form.tel.placeholder = "Niepoprawny numer! Dozwolone wyłącznie liczby.";
@@ -58,49 +56,18 @@ form.addEventListener("submit", function(e){
         form.tel.classList.remove("wrong");
         message.tel = form.tel.value;
         checksum++
-    }    
-
-
-    if(checksum == 4){
-        $('.collapse').collapse();
-
-        console.log(message);
-
-        show_message(message);
-
     }
 
-    //  $('.collapse').collapse();
-
-    console.log(checksum);
+    if (checksum == 4) {
+        show_message(message);
+    }
 })
 
-function show_message(message){
-
-    console.log("z message");
-
-    var date = new Date();
-
-    date = date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear();
+function show_message(message) {
+    // message_card.classList.remove("hidden");
 
     message_name.innerText = message.name;
     message_tel.innerText = message.tel;
     message_email.innerText = message.email;
     message_text.innerText = message.text;
-    message_date.innerText = date;
-    
-
 }
-
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    $('#collapseOne').on('hidden.bs.collapse', function () {
-        console.log("zaparłem się");
-
-        message_card.classList.remove("hidden");
-      })
-
-})
-
-
