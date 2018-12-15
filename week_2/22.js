@@ -64,8 +64,7 @@ form.addEventListener("submit", function (e) {
 })
 
 function show_message(message) {
-    // message_card.classList.remove("hidden");
-
+    message_card.classList.remove("hidden");
     message_name.innerText = message.name;
     message_tel.innerText = message.tel;
     message_email.innerText = message.email;

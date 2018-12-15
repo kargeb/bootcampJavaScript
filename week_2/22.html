@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +7,24 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <link rel="stylesheet" href="../css/styleNew.css">
-
     <link rel="stylesheet" href="../css/styles/atom-one-dark.css">
-
-    
+ 
     <script src="../highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
     <title>Document</title>
 </head>
-
 <body>
         <div class="container-fluid ">
             <header>
                 <div id="homeButton">
                         <a href="../index.html#0"><i class="material-icons md-46">home</i></a>
-                    </div> 
-    
+                </div> 
             <div class="row mt-4"></div>
             <div class="row head bg-secondary shadow-sm">
                
-                
                 <div class="col-8 offset-2 ">
                         <span class="badge badge-light shadow">Treść zadania</span>
                     
@@ -55,16 +47,11 @@
                                 walidację wykona, a aby móc wprowadzić inne znaki niż tylko liczby, zmień na czas testów
                                 atrybut type pola &#60;input> z “number” na “text”.
                         </p>
-    
                         <br>
                 </div>
-    
-    
             </div>
         </header>
-          
             <!----------- MAIN TASK ------------>
-
             <br>
             <div class="row justify-content-center ">
 
@@ -96,28 +83,23 @@
                                         </form>
                                 </div>
 
-                                <!-- <div class="row justify-content-center"> -->
-                                    <div class="col-auto offset-1 align-self-center ">
-                                        <div id="message_card " class="card bg-white shadow rounded" style="width: 18rem;">
-                                                <div class="card-body">
-                                                    <h5 id="message_name" class="card-title"></h5>
-                                                    <!-- <h6 id="message_date" class="card-subtitle mb-2 text-muted"></h6> -->
-                                                    <p id="message_text" class="card-text"></p>
-                                                    <a id="message_tel"  href="#" class="card-link"></a>
-                                                    <a id="message_email"  href="#" class="card-link"></a>
-                                                </div>
+                                <div class="col-auto offset-1 align-self-center ">
+                                    <div id="message_card" class="card bg-white shadow rounded hidden" style="width: 18rem;">
+                                            <div class="card-body">
+                                                <h5 id="message_name" class="card-title"></h5>
+                                                <p id="message_text" class="card-text"></p>
+                                                <a id="message_tel"  href="#" class="card-link"></a>
+                                                <a id="message_email"  href="#" class="card-link"></a>
                                             </div>
-                                            <br>
                                         </div>
-                                        <!-- </div> -->
-
-                        </div> 
-                                        
+                                        <br>
+                                    </div>
+                        </div>                    
                     </div>
             </div>
             <br><br>
     
-            <div class="row bg-secondary hidden" id="toggleElement">
+            <div class="row bg-secondary" id="toggleElement">
               
                 <div class="col-8 offset-2 ">
                     <br><br>
@@ -134,49 +116,89 @@
                               </div>
                           
                               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parentt="#accordionExample">
-                               
-                                        
+                                           
 <pre><code>
-    var button_toggleElement = document.getElementById("button_toggleElement"),
-        toggleElement = document.getElementById("toggleElement");
+    var form = document.querySelector("form"),
+        message_name = document.getElementById("message_name"),
+        message_tel = document.getElementById("message_tel"),
+        message_email = document.getElementById("message_email"),
+        message_card = document.getElementById("message_card"),
+        message_text = document.getElementById("message_text");
     
-    button_toggleElement.addEventListener("click", function () {
-        toggleElement.classList.toggle("hidden");
+    console.log(message_name);
     
-        toggleElement.classList.contains("hidden") ?
-            button_toggleElement.innerText = "Pokaż element" :
-            button_toggleElement.innerText = "Ukryj element";
-    });
+    form.addEventListener("submit", function (e) {
+    
+        var checksum = 0;
+        var message = {};
+    
+        e.preventDefault();
+    
+        if (form.name.value == "") {
+            form.name.placeholder = "Pole obowiązkowe!";
+            form.name.classList.add("wrong");
+        } else {
+            form.name.classList.remove("wrong");
+            message.name = form.name.value;
+            checksum++
+        }
+    
+        if (form.message.value == "") {
+            form.message.placeholder = "Pole obowiązkowe!";
+            form.message.classList.add("wrong");
+        } else {
+            form.message.classList.remove("wrong");
+            message.text = form.message.value;
+            checksum++
+        }
+    
+        if (form.email.value == "") {
+            form.email.placeholder = "Pole obowiązkowe!";
+            form.email.classList.add("wrong");
+        } else if (form.email.value.indexOf("@") == -1) {
+            form.email.value = "";
+            form.email.classList.add("wrong");
+            form.email.placeholder = "Niepoprawny adres email!";
+        } else {
+            form.email.classList.remove("wrong");
+            message.email = form.email.value;
+            checksum++
+        }
+    
+        if (form.tel.value == "") {
+            form.tel.placeholder = "Pole obowiązkowe!";
+            form.tel.classList.add("wrong");
+        } else if (isNaN(Number(form.tel.value))) {
+            form.tel.value = "";
+            form.tel.classList.add("wrong");
+            form.tel.placeholder = "Niepoprawny numer! Dozwolone wyłącznie liczby.";
+        } else {
+            form.tel.classList.remove("wrong");
+            message.tel = form.tel.value;
+            checksum++
+        }
+    
+        if (checksum == 4) {
+            show_message(message);
+        }
+    })
+    
+    function show_message(message) {
+        message_card.classList.remove("hidden");
+        message_name.innerText = message.name;
+        message_tel.innerText = message.tel;
+        message_email.innerText = message.email;
+        message_text.innerText = message.text;
+    }
 </code></pre>
-                              </div>
-                            </div>
-                            <div class="card text-white bg-dark border-dark border-top-0">
-                              <div class="card-header" id="headingTwo">
-                                <h5 class="mb-0">
-                                  <button class="btn btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h5 class="card-title">CSS:</h5>
-                                    
-                                  </button>
-                                </h5>
-                              </div>
-                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parentt="#accordionExample">  
-<pre><code>
-    .hidden{
-        display: none;
-    }                                    
-</code></pre>       
-                                
                               </div>
                             </div>
                           </div>
                           <br><br>
                 </div>
-    
-    
             </div>
             <br><br>
-    
-    
+
         </div>
         <script src="22.js"></script>
     
@@ -184,136 +206,7 @@
         crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
             crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
-    
-    
-            
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>     
     </body>
-
 </html>
-
-
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="pl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <link rel="stylesheet" href="../css/styleNew.css">
-
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="container-fluid template">
-            <div class="row ">
-                    <div class="col-1  template">
-                        <a href="../index.html#week2"><i class="material-icons md-46">home</i></a>
-                    </div>
-                    <div class="col-6 ">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="page-header">2. Walidator formularza </h1>
-                                <hr>
-                            </div>
-                        </div><br><br>
-                        <div class="row">
-                            <div class="col">
-                                    <form novalidate>
-                                        <div class="form-group">
-                                                <label>Podaj imię:</label>
-                                                <input type="text" name="name" class="form-control" placeholder="Imię">
-                                        </div>
-                                        <div class="form-group">
-                                                <label>Podaj email:</label>
-                                                <input type="email" name="email" class="form-control" placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                                <label>Podaj numer telefonu:</label>
-                                                <input type="text" name="tel" class="form-control" placeholder="Telefon">
-                                        </div>
-                                        <div class="form-group">
-                                                <label>Wpisz treść wiadomości:</label>
-                                                <textarea type="text" name="message" class="form-control" placeholder="Treść"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                                <button type="submit" name="button" class="btn btn-outline-info" value="1">Wyślij</button>
-                                        </div>
-                                    </form>
-                            </div>
-                        </div> 
-
-                    </div>
-                    <div class="col-5 ">
-                        <div class="row">
-                            <div class="accordion instruction border-bottom" id="accordionExample">
-                                <div class="card">
-                                    <div class="card-header" id="headingOne">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link link-info" type="button" data-toggle="collapse" data-target="#collapseOne"
-                                                aria-expanded="true" aria-controls="collapseOne">
-                                                Treść zadania
-                                            </button>
-                                        </h5>
-                                    </div>
-                    
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            Stwórz prosty walidator formularza, który zawierał będzie pola &#60;input> o typach “text”,
-                                            “email”, “number” oraz element &#60;textarea>. Dodaj do elementu &#60;form> atrybut
-                                            novalidate, aby wyłączyć domyślną walidację przeglądarki. Od Ciebie zależy, czy chcesz
-                                            wyświetlać komunikaty o błędach czy tylko podświetlać niepoprawnie uzupełnione pola np.
-                                            na czerwono. Za poprawnie uzupełnione pole &#60;input> o typie “text” lub pole &#60;textarea>
-                                            uznajemy takie, które ma wpisany przynajmniej jeden znak. W przypadku pola o typie
-                                            “email” sprawdź czy zawiera ono znak @, a w przypadku pola o typie “number” czy podana
-                                            wartość jest liczbą (pamiętaj, że DOM zwróci Ci zawsze wartość o typie String, więc
-                                            musisz znaleźć sposób, jak sprawdzić czy string ten zawiera wyłącznie liczbę).<br>
-                                            <b>Uwaga:</b>Uwaga: Jeśli stworzysz pole &#60;input> o typie “number” to w niektórych
-                                            przeglądarkach nie
-                                            będzie możliwości wpisania innych znaków niż liczby. Mimo to napisz logikę, która taką
-                                            walidację wykona, a aby móc wprowadzić inne znaki niż tylko liczby, zmień na czas testów
-                                            atrybut type pola &#60;input> z “number” na “text”.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br><br><br><br><br><br><br>
-                        <div class="row">
-                                <div class="col">
-                                        <div id="message_card" class="card hidden" style="width: 18rem;">
-                                                <div class="card-body">
-                                                  <h5 id="message_name" class="card-title"></h5>
-                                                  <h6 id="message_date" class="card-subtitle mb-2 text-muted"></h6>
-                                                  <p id="message_text" class="card-text"></p>
-                                                  <a id="message_tel"  href="#" class="card-link"></a>
-                                                  <a id="message_email"  href="#" class="card-link"></a>
-                                                </div>
-                                              </div>
-                                </div>
-                        </div>
-                    </div>
-        </div>
-    </div>
-    <script src="22.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-</body>
-
-</html> -->
