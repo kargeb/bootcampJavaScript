@@ -7,34 +7,14 @@
     function debounce(fn, time) {
 
         var time = time,
-            check = 0;
-            // clear;
-            
+            clear = null;
 
         return function() {
 
-            check++;
-            // showtime.max++;
-
+            clearTimeout(clear);
             
-
-            
-            var clear = setTimeout(function(){
-
-                if (check > 1){
-                    clearTimeout(clear);
-                    console.log(clear);
-                    clear--;
-                    check --;
-                    // showtime.value++;
-                } else {
+            clear = setTimeout(function(){
                     fn();
-                    check = 0;
-                    console.log(clear);
-                    // clear = null;
-                    // showtime.value = showtime.max;
-                }
-
             }, time);
 
         };
@@ -42,7 +22,7 @@
 
     var test = debounce( function(){
         console.log("z debance");
-    }, 5000);
+    }, 1000);
 
 
     start_button.addEventListener("click", test);
