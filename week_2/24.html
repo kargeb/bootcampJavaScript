@@ -13,70 +13,189 @@
 
     <link rel="stylesheet" href="../css/styleNew.css">
 
+    <link rel="stylesheet" href="../css/styles/atom-one-dark.css">
+
+    
+    <script src="../highlight.pack.js"></script>
+   
+    <link rel="stylesheet"  href="../themes/prism.css"/>
+
+
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container-fluid template">
-            <div class="row ">
-                    <div class="col-1  template">
-                        <a href="../index.html#week2"><i class="material-icons md-46">home</i></a>
-                    </div>
-                    <div class="col-6 ">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="page-header">4. Dziedziczenie z klasy EventEmitter </h1>
-                                <hr>
-                            </div>
-                        </div><br><br>
-                        <div class="row">
-                            <div class="col"><br>
-                                    <p><code>Database.prototype = Object.create(EventEmitter.prototype);</code></p>
-                                        <p><code> Database.prototype.constructor = Database;</code></p>
-                                        <br>
-                                        
-                                        <p><code>function Database(url) {</code></p>
-                                        
-                                            <p><code>EventEmitter.call(this);</code> </p>
-                                        
-                                                <p><code> this.url = url;  }</code></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-5 ">
-                        <div class="accordion instruction border-bottom" id="accordionExample">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link link-danger" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Treść zadania
-                                        </button>
-                                    </h5>
-                                </div>
-            
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        Przygotowany pod adresem <a href="http://pastebin.com/YEBncx0d" target="_blank">http://pastebin.com/YEBncx0d</a> kod zmodyﬁkuj tak, aby obiekty 
-                                        tworzone z klasy Database mogły korzystać z wszystkich metody klasy EventEmitter. Na 
-                                        chwilę obecną, podany kod wygeneruje błąd, gdyż klasa Database nie zawiera metody on 
-                                        oraz emit. Skorzystaj z dziedziczenia prototypowego, aby klasą nadrzędną dla Database 
-                                        stała się klasa EventEmitter. Zadanie to wymaga od Ciebie dopisania wyłącznie kilku 
-                                        linijek kodu.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="container-fluid ">
+            <header>
+                <div id="homeButton">
+                        <a href="../index.html#1"><i class="material-icons md-46">home</i></a>
+                    </div> 
+    
+            <div class="row mt-4"></div>
+            <div class="row head bg-secondary shadow-sm">
+               
+                
+                <div class="col-8 offset-2 text-white">
+                        <span class="badge badge-light shadow">Treść zadania</span>
+                    
+                    <h3><br>
+                        4. Dziedziczenie z klasy EventEmitter
+                        </h3>
+                        
+                        <p>               
+                                Przygotowany pod adresem <a href="http://pastebin.com/YEBncx0d" target="_blank">http://pastebin.com/YEBncx0d</a> kod zmodyﬁkuj tak, aby obiekty 
+                                tworzone z klasy Database mogły korzystać z wszystkich metody klasy EventEmitter. Na 
+                                chwilę obecną, podany kod wygeneruje błąd, gdyż klasa Database nie zawiera metody on 
+                                oraz emit. Skorzystaj z dziedziczenia prototypowego, aby klasą nadrzędną dla Database 
+                                stała się klasa EventEmitter. Zadanie to wymaga od Ciebie dopisania wyłącznie kilku 
+                                linijek kodu.
+                        </p>
+    
+                        <br>
                 </div>
-        </div>
-    </div>
-    <script src="24.js"></script>
+    
+    
+            </div>
+        </header>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          
+            <!----------- MAIN TASK ------------>
+            <br>
+                    
+            <div class="row justify-content-center ">
+    
+                <div class="col-md-8 bg-white shadow rounded">
+                        <span class="badge badge-secondary shadow">Rozwiązanie</span>
+    
+                        <div class="row justify-content-center ">
+
+                                <div class="col-auto "><br>
+                                        <pre><code class="language-js">
+    Database.prototype = Object.create(EventEmitter.prototype);
+    Database.prototype.constructor = Database;
+
+    function Database(url) {
+        EventEmitter.call(this);
+        this.url = url;  
+    }</code></pre>
+                                </div>
+                        </div>
+
+                        <div class="row justify-content-center pt-2">
+                            <div class="col-auto">
+                                    <button id="button_run" class="btn btn-outline-info">Uruchom</button>
+                            </div>
+
+                        </div>
+
+                        <div class="row justify-content-center pt-4">
+
+                            <div class="col-8 pb-4">
+                                <p id="content" class="alert alert-primary" role="alert"></p>
+                            </div>
+
+                        </div>
+                </div>
+    
+            </div>
+            <br><br>
+    
+    
+            <div class="row bg-secondary">
+              
+                <div class="col-8 offset-2 ">
+                    <br><br>
+                    <span class="badge badge-light shadow">Kody źródłowe</span>
+                    <div class="accordion" id="accordionExample">
+                            <div class="card text-white bg-dark border-dark ">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <br>
+                                  <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h5 class="card-title">1</h5>
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parentt="#accordionExample">
+                               
+                                        
+                                        <pre class="code">
+    function calculateDiscount(productsAmount) {
+
+        discountTableRows[highlightedRow] ? discountTableRows[highlightedRow].classList.remove("table-primary") : null;
+    
+        var currentDiscount = null;
+    
+        if (productsAmount < 5) {
+            currentDiscount = 0;
+        } else if (productsAmount >= 5 && productsAmount < 21) {
+            currentDiscount = 5;
+            highlightedRow = 0;
+        } else if (productsAmount >= 21 && productsAmount < 51) {
+            currentDiscount = 10;
+            highlightedRow = 1;
+        } else if (productsAmount >= 51 && productsAmount < 101) {
+            currentDiscount = 15;
+            highlightedRow = 2;
+        } else if (productsAmount >= 101) {
+            currentDiscount = 20;
+            highlightedRow = 3;
+        }
+    
+        discountTableRows[highlightedRow] ? discountTableRows[highlightedRow].classList.add("table-primary") : null;
+    
+        return currentDiscount;
+    }
+    </pre>
+                              </div>
+                            </div>
+                            <div class="card text-white bg-dark border-dark border-top-0">
+                              <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                  <button class="btn btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <h5 class="card-title">2</h5>
+                                    
+                                  </button>
+                                </h5>
+                              </div>
+                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parentt="#accordionExample">  
+                                    <pre><code>
+    {
+    }                                                     
+    </code>
+    </pre>       
+                                
+                              </div>
+                            </div>
+                          </div>
+                          <br><br>
+                </div>
+    
+    
+            </div>
+            <br><br>
+    
+    
+        </div>
+        <script src="24.js"></script>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    
+    <script>
+
+            $('.code').each(function(i, block) {
+              hljs.highlightBlock(block);
+                });
+                
+    </script>        
+    <script src="../prism.js"></script>
+            
+    </body>
 
 </html>

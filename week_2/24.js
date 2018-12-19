@@ -53,41 +53,52 @@ Database.prototype.disconnect = function() {
 }
 
 
+var content = document.getElementById("content"),
+    button_run = document.getElementById("button_run");
 
-// Użycie EventEmittera
-var ev = new EventEmitter();
+button_run.addEventListener("click", function(){
 
-ev.on("hello", function(message) {
-    console.log("Witaj " + message + "!");
-});
+            // Użycie EventEmittera
+        var ev = new EventEmitter();
 
-ev.on("hello", function(message) {
-    console.log("Siema " + message + ".");
-});
+        ev.on("hello", function(message) {
+            console.log("Witaj " + message + "!");
+            content.innerHTML += "Witaj "  + message + "!";
+        });
 
-ev.on("goodbye", function() {
-    console.log("Do widzenia!");
-});
+        ev.on("hello", function(message) {
+            console.log("Siema " + message + ".");
+            content.innerHTML += "<br> Siema "  + message + ".";
+        });
 
-ev.emit("hello", "Marek");
-ev.emit("goodbye");
-ev.emit("custom"); // nic się nie wydarzy
+        ev.on("goodbye", function() {
+            console.log("Do widzenia!");
+            content.innerHTML += "<br> Do widzenia! <br>";
+        });
 
-// DO ZROBIENIA!
-// Docelowe użycie klasy Database
-var db = new Database("db://localhost:3000"); // fikcyjny adres
+        ev.emit("hello", "Marek");
+        ev.emit("goodbye");
+        ev.emit("custom"); // nic się nie wydarzy
 
-db.on("connect", function(url) {
-    console.log("Połączenie z bazą pod adresem " + url + " zostało ustanowione.");
-});
+        // DO ZROBIENIA!
+        // Docelowe użycie klasy Database
+        var db = new Database("db://localhost:3000"); // fikcyjny adres
 
-db.on("disconnect", function(url) {
-    console.log("Połączenie z bazą pod adresem " + url + " zostało zakończone.");
-});
+        db.on("connect", function(url) {
+            console.log("Połączenie z bazą pod adresem " + url + " zostało ustanowione.");
+            content.innerHTML += "<br> Połączenie z bazą pod adresem " + url + " zostało ustanowione.";
+        });
 
-db.connect();
+        db.on("disconnect", function(url) {
+            console.log("Połączenie z bazą pod adresem " + url + " zostało zakończone.");
+            content.innerHTML += "<br> Połączenie z bazą pod adresem " + url + " zostało zakończone.";
+        });
 
-// po 5 sekundach rozłączamy się
-setTimeout(function() {
-    db.disconnect();
-}, 5000);
+        db.connect();
+
+        // po 5 sekundach rozłączamy się
+        setTimeout(function() {
+            db.disconnect();
+        }, 5000);
+
+})  
