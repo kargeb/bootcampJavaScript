@@ -9,7 +9,7 @@
 
         if (i >= 0) {
             output_countdown.innerText = i--;
-            setTimeout(startCountdown.bind(null, callback), 200);
+            setTimeout(startCountdown.bind(null, callback), 1000);
         } else {
             callback();
             i = 10;
