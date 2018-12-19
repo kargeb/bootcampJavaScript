@@ -13,74 +13,179 @@
 
     <link rel="stylesheet" href="../css/styleNew.css">
 
+    <link rel="stylesheet" href="../css/styles/atom-one-dark.css">
+
+    
+    <script src="../highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container-fluid template">
-            <div class="row ">
-                    <div class="col-1  template">
-                        <a href="../index.html#week2"><i class="material-icons md-46">home</i></a>
-                    </div>
-                    <div class="col-6 ">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="page-header">3. Odliczanie od 10 do 0</h1>
-                                <hr>
-                            </div>
-                        </div><br><br>
-                        <div class="row">
-                            <div class="col">
-                                <button id="count_button" class="btn btn-outline-info">Odlicz</button>
-                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p id="timer"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-5 ">
-                        <div class="accordion instruction border-bottom" id="accordionExample">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link link-danger" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Treść zadania
-                                        </button>
-                                    </h5>
-                                </div>
-            
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        Stwórz projekt, który po uruchomieniu odpowiedniej funkcji, pozwoli na odliczanie 
-                                        od 10 do 0. Wszystkie wartości powinny być wyświetlane na stronie, a czas pomiędzy 
-                                        zmianą wartości powinien wynosić 1 sekundę. Choć cały Twój kod może być podzielony na 
-                                        wiele funkcji, jedna z nich powinna uruchamiać proces odliczania. Przy wywołaniu tej 
-                                        funkcji, daj możliwość przekazania innej funkcji jako argument. Przekazaną funkcję 
-                                        wywołaj, gdy licznik osiągnie wartość 0.<br>
-                                        Istotą przekazywania jednej funkcji do drugiej (w tym przypadku nazwalibyśmy ją funkcją 
-                                        callback) jest to, aby dać użytkownikowi naszego kodu pewną gotową funkcjonalność 
-                                        (odliczanie od 10 do 0), ale także możliwość dodania czegoś od siebie, tj. wykonania 
-                                        własnej funkcji po zakończeniu odliczania. W przekazanej funkcji możesz wpisać po prostu 
-                                        console.log(“Odliczanie zakończone!”). <br>
-                                        Podpowiedź: użyj funkcji setTimeout wywołując ją wielokrotnie zamiast setInterval, 
-                                        którą wykonałbyś wyłącznie raz.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="container-fluid ">
+            <header>
+                <div id="homeButton">
+                        <a href="../index.html#1"><i class="material-icons md-46">home</i></a>
+                    </div> 
+    
+            <div class="row mt-4"></div>
+            <div class="row head bg-secondary shadow-sm">
+               
+                
+                <div class="col-8 offset-2 ">
+                        <span class="badge badge-light shadow">Treść zadania</span>
+                    
+                    <h3 class="text-white"><br>
+                        3. Odliczanie od 10 do 0
+                        </h3>
+                        <p class="text-white">               
+                            Stwórz projekt, który po uruchomieniu odpowiedniej funkcji, pozwoli na odliczanie 
+                            od 10 do 0. Wszystkie wartości powinny być wyświetlane na stronie, a czas pomiędzy 
+                            zmianą wartości powinien wynosić 1 sekundę. Choć cały Twój kod może być podzielony na 
+                            wiele funkcji, jedna z nich powinna uruchamiać proces odliczania. Przy wywołaniu tej 
+                            funkcji, daj możliwość przekazania innej funkcji jako argument. Przekazaną funkcję 
+                            wywołaj, gdy licznik osiągnie wartość 0.<br>
+                            Istotą przekazywania jednej funkcji do drugiej (w tym przypadku nazwalibyśmy ją funkcją 
+                            callback) jest to, aby dać użytkownikowi naszego kodu pewną gotową funkcjonalność 
+                            (odliczanie od 10 do 0), ale także możliwość dodania czegoś od siebie, tj. wykonania 
+                            własnej funkcji po zakończeniu odliczania. W przekazanej funkcji możesz wpisać po prostu 
+                            console.log(“Odliczanie zakończone!”). <br>
+                            Podpowiedź: użyj funkcji setTimeout wywołując ją wielokrotnie zamiast setInterval, 
+                            którą wykonałbyś wyłącznie raz.
+                        </p>
+    
+                        <br>
                 </div>
-        </div>
-    </div>
-    <script src="23.js"></script>
+    
+    
+            </div>
+        </header>
+          
+            <!----------- MAIN TASK ------------>
+            <br>
+                    
+            <div class="row justify-content-center ">
+    
+                <div class="col-md-8 bg-white shadow rounded">
+                        <span class="badge badge-secondary shadow">Rozwiązanie</span>
+    
+                        <div class="row justify-content-center pt-4">      
+                            <div class="col-auto">
+                                <button id="button_start" class="btn btn-outline-info">Odlicz</button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center p-4">
+                            <div class="col-auto">
+                                <h2 id="output_countdown">&nbsp;</h2>
+                            </div>
+                        </div>
+                </div>   
+            </div>
+            <br><br>
+    
+            <div class="row bg-secondary">
+              
+                <div class="col-8 offset-2 ">
+                    <br><br>
+                    <span class="badge badge-light shadow">Kody źródłowe</span>
+                    <div class="accordion" id="accordionExample">
+                            <div class="card text-white bg-dark border-dark ">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <br>
+                                  <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h5 class="card-title">Funkcja odliczająca z callbackiem:</h5>
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parentt="#accordionExample">
+                               
+                                        
+<pre><code>
+    var i = 10;
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    function startCountdown(callback) {
+
+        if (i >= 0) {
+            output_countdown.innerText = i--;
+            setTimeout(startCountdown.bind(null, callback), 200);
+        } else {
+            callback();
+            i = 10;
+            button_start.disabled = false;
+        }
+    }
+
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="card text-white bg-dark border-dark border-top-0">
+                              <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                  <button class="btn btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <h5 class="card-title">Cały kod:</h5>
+                                    
+                                  </button>
+                                </h5>
+                              </div>
+                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parentt="#accordionExample">  
+<pre><code>
+    (function () {
+
+        var output_countdown = document.getElementById("output_countdown"),
+            button_start = document.getElementById("button_start");
+    
+        var i = 10;
+    
+        function startCountdown(callback) {
+    
+            if (i >= 0) {
+                output_countdown.innerText = i--;
+                setTimeout(startCountdown.bind(null, callback), 200);
+            } else {
+                callback();
+                i = 10;
+                button_start.disabled = false;
+            }
+        }
+    
+        function passingFunction() {
+            console.log("Odliczanie zakończone!");
+            output_countdown.innerText = "Odliczanie zakończone!";
+        }
+    
+        button_start.addEventListener("click", function () {
+            button_start.disabled = true;
+            console.log("start");
+            startCountdown(passingFunction);
+        })
+    
+    })();             
+                                          
+</code></pre>       
+                                
+                              </div>
+                            </div>
+                          </div>
+                          <br><br>
+                </div>
+    
+    
+            </div>
+            <br><br>
+    
+    
+        </div>
+        <script src="23.js"></script>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>       
+    </body>
 
 </html>

@@ -1,39 +1,31 @@
-(function(){
+(function () {
 
-    var timer = document.getElementById("timer"),
-    count_button = document.getElementById("count_button");
+    var output_countdown = document.getElementById("output_countdown"),
+        button_start = document.getElementById("button_start");
 
-timer.innerText = "";
+    var i = 10;
 
-count_button.addEventListener("click",function(){
+    function startCountdown(callback) {
 
-    console.log("duoasasd");
-    counter(callback);
-
-})
-
-function callback(){
-    console.log("Działa! z Callbacka");
-}
-
-var i = 10;
-
-function counter(fun){
-
-    
-    
-    
-    if( i>=0 ) {
-        timer.innerText = i--;
-        setTimeout( counter.bind(this, fun), 1000);
-        
-    } else {
-        fun();
-        console.log("koniec");
-        timer.innerText = "KONIEC";
+        if (i >= 0) {
+            output_countdown.innerText = i--;
+            setTimeout(startCountdown.bind(null, callback), 200);
+        } else {
+            callback();
+            i = 10;
+            button_start.disabled = false;
+        }
     }
-}
+
+    function passingFunction() {
+        console.log("Odliczanie zakończone!");
+        output_countdown.innerText = "Odliczanie zakończone!";
+    }
+
+    button_start.addEventListener("click", function () {
+        button_start.disabled = true;
+        console.log("start");
+        startCountdown(passingFunction);
+    })
 
 })();
-
-
