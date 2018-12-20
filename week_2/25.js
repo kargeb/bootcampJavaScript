@@ -1,36 +1,72 @@
 (function() {
 
-    var start_button = document.getElementById("start");
-        // showtime = document.getElementById("showtime");
-        
+    var button_buttonBar = document.getElementById("button_buttonBar"),
+        buttonBar = document.getElementById("buttonBar"),
+        // button_scrollBar = document.getElementById("button_scrollBar"),
+        scrollBar = document.getElementById("scrollBar"),
+        // button_resizeBar = document.getElementById("button_resizeBar"),
+        resizeBar = document.getElementById("resizeBar");
 
+        
     function debounce(fn, time) {
 
-        var time = time,
-            clear = null;
+        // let time = time,
+        let clear = null;
 
         return function() {
 
             clearTimeout(clear);
             
             clear = setTimeout(function(){
-                    fn();
+                fn();
             }, time);
-
         };
     }
 
-    var test = debounce( function(){
+    function debounceWithBar(fn, time, bar) {
+
+        let clear = null,
+            clearInt = null,
+            interval = time/10,
+            counter = 0;
+
+            console.log(interval);
+
+        return function() {
+
+            counter = 0;
+            bar.value = counter;
+            clearTimeout(clear);
+            clearInterval(clearInt);
+            
+            clearInt = setInterval(() => {
+                console.log("counter = " + counter);
+                counter++;
+                bar.value = counter;
+                if(counter == 10){
+                    clearInterval(clearInt);
+                    counter = 0;
+                    bar.value = counter;
+                }
+            }, interval);
+
+            clear = setTimeout(function(){
+                fn();
+            }, time);
+        };
+    }
+
+    var test = debounceWithBar( function(){
         console.log("z debance");
-    }, 1000);
+    }, 1000, buttonBar);
 
 
-    start_button.addEventListener("click", test);
+    button_buttonBar.addEventListener("click", test);
 
 
-    var handleScroll = debounce(function() {
+    var handleScroll = debounceWithBar(function() {
         console.log("Scrollujemy!");
-    }, 200);
+    }, 600, scrollBar);
 
     // w tym miejscu pod handleScroll
     // powinna być nowa funkcja
@@ -45,8 +81,5 @@
     }, 100);
 
     window.addEventListener("resize", handleResize, false);
-
-    // console.log(showtime.value);
-    // console.log(showtime.max);
 
 })();
