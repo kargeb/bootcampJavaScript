@@ -85,7 +85,7 @@
                                 <progress id="buttonBar" value="0" max="10" class=""></progress>
                             </div>
                             <div class="col-2">
-                                <h3 id="output_buttonBar" class="hidden">Naciskamy!</h3>
+                                <h4 id="output_buttonBar" class="hidden">Naciskamy!</h4>
                             </div>
 
                         </div>
@@ -98,7 +98,7 @@
                                     <progress id="scrollBar" value="0" max="10"></progress>
                                 </div>
                                 <div class="col-2">
-                                        <h3 id="output_scrollBar" class="hidden">Scrollujemy!</h3>
+                                        <h4 id="output_scrollBar" class="hidden">Scrollujemy!</h4>
                                 </div>
                         </div>
                         <hr>
@@ -110,24 +110,10 @@
                                     <progress id="resizeBar" value="0" max="10"></progress>
                                 </div>
                                 <div class="col-2">
-                                        <h3 id="output_resizeBar" class="hidden">Zmieniamy rozmiar okna!</h3>
+                                        <h4 id="output_resizeBar" class="hidden">Zmieniamy rozmiar okna!</h4>
                                 </div>
                         </div>
 
-                        <!-- <div class="row justify-content-center pt-2">
-                            <div class="col-auto">
-                                    <button id="button_run" class="btn btn-outline-info">Uruchom</button>
-                            </div>
-
-                        </div> -->
-
-                        <!-- <div class="row justify-content-center pt-4">
-
-                            <div class="col-8 pb-4">
-                                
-                            </div>
-
-                        </div> -->
                 </div>
     
             </div>
@@ -145,7 +131,7 @@
                                 <h5 class="mb-0">
                                     <br>
                                   <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne">
-                                        <h5 class="card-title">Klasa EventEmitter:</h5>
+                                        <h5 class="card-title">Prosta funkcja debounce </h5>
                                   </button>
                                 </h5>
                               </div>
@@ -154,75 +140,150 @@
                                
                                         
                                         <pre class="code">
-    function EventEmitter() {
+    function debounce(fn, time) {
 
-        this.events = {};
-    
+        let clear = null;
+
+        return function() {
+
+            clearTimeout(clear);
+            
+            clear = setTimeout(function(){
+                fn();
+            }, time);
+        };
     }
-    
-    EventEmitter.prototype.on = function (type, fn) {
-    
-        if (!type || !fn) return;
-    
-        this.events[type] = this.events[type] || [];
-        this.events[type].push(fn);
-    
-    }
-    
-    EventEmitter.prototype.emit = function (type, data) {
-    
-        var fns = this.events[type];
-    
-        if (!fns || !fns.length) return;
-    
-        for (var i = 0; i < fns.length; i++) {
-            fns[i](data);
-        }
-    
-    };
-    </pre>
+</pre>
                               </div>
                             </div>
                             <div class="card text-white bg-dark border-dark border-top-0">
                               <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
                                   <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseTwo">
-                                    <h5 class="card-title">Klasa Database:</h5>
+                                    <h5 class="card-title">Użycie prostej debounce:</h5>
                                     
                                   </button>
                                 </h5>
                               </div>
                               <div id="collapseTwo" class="collapse show" data-parentt="#accordionExample">  
                                     <pre class="code">
-    Database.prototype = Object.create(EventEmitter.prototype);
-    Database.prototype.constructor = Database;
-    
-    function Database(url) {
-    
-        EventEmitter.call(this);
-    
-        this.url = url;
-    
-    }
-    
-    Database.prototype.connect = function () {
-    
-        // fikcyjne podłączenie do bazy
-    
-        this.emit("connect", this.url);
-    
-    }
-    
-    Database.prototype.disconnect = function () {
-    
-        // fikcyjne zakończenie połączenia z bazą
-    
-        this.emit("disconnect", this.url);
-    
-    }                                                     
+    var handleScroll = debounce(function() {
+        console.log("Scrollujemy!");
+    }, 600);
+
+    window.addEventListener("scroll", handleScroll, false);
+
+    var handleResize = debounce(function() {
+        console.log("Zmieniamy rozmiar okna!");
+    }, 100);
+
+    window.addEventListener("resize", handleResize, false);                                                     
 </pre>       
                                 
                               </div>
+                            </div>
+                            <div class="card text-white bg-dark border-dark border-top-0">
+                                        <div class="card-header" id="headingTwo">
+                                          <h5 class="mb-0">
+                                            <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseThree">
+                                              <h5 class="card-title">Cały kod</h5>
+                                              
+                                            </button>
+                                          </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse show" data-parentt="#accordionExample">  
+                                              <pre class="code">
+    (function() {
+
+        var button_buttonBar = document.getElementById("button_buttonBar"),
+            buttonBar = document.getElementById("buttonBar"),
+            scrollBar = document.getElementById("scrollBar"),
+            resizeBar = document.getElementById("resizeBar"),
+            output_buttonBar = document.getElementById("output_buttonBar"),
+            output_scrollBar = document.getElementById("output_scrollBar"),
+            output_resizeBar = document.getElementById("output_resizeBar");
+    
+            
+        function debounce(fn, time) {
+    
+            let clear = null;
+    
+            return function() {
+    
+                clearTimeout(clear);
+                
+                clear = setTimeout(function(){
+                    fn();
+                }, time);
+            };
+        }
+    
+        var handleScroll = debounce(function() {
+            console.log("Scrollujemy!");
+        }, 600);
+    
+        window.addEventListener("scroll", handleScroll, false);
+    
+        var handleResize = debounce(function() {
+            console.log("Zmieniamy rozmiar okna!");
+        }, 100);
+    
+        window.addEventListener("resize", handleResize, false);    
+    
+    
+    
+        function debounceWithBar(fn, time, bar, output) {
+    
+            let clear = null,
+                clearInt = null,
+                interval = time/10,
+                counter = 0;
+                
+            return function() {
+                    
+                output.classList.add("hidden");
+                counter = 0;
+                bar.value = counter;
+                clearTimeout(clear);
+                clearInterval(clearInt);
+                
+                clearInt = setInterval(() => {
+                    counter++;
+                    bar.value = counter;
+                    if(counter == 10){
+                        bar.value = counter;
+                        clearInterval(clearInt);
+                        counter = 0;
+                        bar.value = counter;
+                        output.classList.remove("hidden");
+                    }
+                }, interval);
+    
+                clear = setTimeout(function(){
+                    fn();
+                }, time);
+            };
+        }
+    
+        var handleButton = debounceWithBar( function(){
+        }, 1000, buttonBar, output_buttonBar);
+    
+        button_buttonBar.addEventListener("click", handleButton);
+    
+        var handleScrollBar = debounceWithBar(function() {
+        }, 600, scrollBar, output_scrollBar);
+    
+        window.addEventListener("scroll", handleScrollBar, false);
+    
+        var handleResizeBar = debounceWithBar(function() {
+        }, 100, resizeBar, output_resizeBar);
+    
+        window.addEventListener("resize", handleResizeBar, false);
+    
+    })();                                                    
+</pre>       
+                                          
+                                        </div>
                             </div>
                           </div>
                           <br><br>

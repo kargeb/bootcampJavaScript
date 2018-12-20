@@ -13,97 +13,393 @@
 
     <link rel="stylesheet" href="../css/styleNew.css">
 
+    <link rel="stylesheet" href="../css/styles/atom-one-dark.css">
+
+    
+    <script src="../highlight.pack.js"></script>
+   
+    <link rel="stylesheet"  href="../themes/prism.css"/>
+
+
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container-fluid template">
-            <div class="row ">
-                    <div class="col-1  template">
-                        <a href="../index.html#week3"><i class="material-icons md-46">home</i></a>
-                    </div>
-                    <div class="col-6 ">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="page-header">1. Polyﬁll metody repeat dla String</h1>
-                                <hr>
-                            </div>
-                        </div><br><br>
-                        <div class="row">
-                            <div class="col">
-                                <pre>
-        if (typeof String.prototype.repeat) {
-            console.log('Function named \"repeat\" already exist in JavaScript, use \"iterate\" function instead.');
-        
-            String.prototype.iterate = function (times) {
-        
-                try {
-                    if (typeof times === "number" && times >= 0) {
-        
-                        var text = "";
-        
-                        while (times) {
-                            text += this;
-                            times--;
-                        }
-        
-                        return text;
-        
-                    } else {
-                        throw new Error("Wrong value! Only positive numbers are allowed.");
+        <div class="container-fluid ">
+            <header>
+                <div id="homeButton">
+                        <a href="../index.html#2"><i class="material-icons md-46">home</i></a>
+                    </div> 
+    
+            <div class="row mt-4"></div>
+            <div class="row head bg-secondary shadow-sm">
+               
+                
+                <div class="col-8 offset-2 text-white">
+                        <span class="badge badge-light shadow">Treść zadania</span>
+                    
+                    <h3><br>
+                        1. Polyﬁll metody repeat dla String
+                        </h3>
+                        
+                        <p>               
+                                W standardzie EcmaScript 2015 (o którym więcej w 5 i 6 tygodniu Bootcampu) pojawiła się 
+                                nowa metoda dostępna na obiektach typu String o nazwie repeat. Jej użycie wygląda 
+                                następująco: <br>
+                                “hej ”.repeat(3) // zwraca “hej hej hej ” <br>
+                                Metoda ta jest dostępna we wszystkich nowoczesnych przeglądarkach internetowych, ale 
+                                aby poćwiczyć rozszerzanie wbudowanych typów, utwórz jej polyﬁll. W kodzie sprawdź 
+                                najpierw czy taka metoda już w przeglądarce została zaimplementowana, a jeśli nie, to 
+                                dopisz własną funkcję, która będzie mogła być na dowolnym stringu wywołana w podany 
+                                wyżej sposób. <br>
+                                Podpowiedź: rozszerzaj prototyp konstruktora String. Przy sprawdzeniu czy taka metoda 
+                                już istnieje, w nowoczesnych przeglądarkach otrzymasz odpowiedź pozytywną. Jeśli zatem 
+                                napiszesz odpowiedni warunek, to nie będzie można przetestować Twojej metody. Z tego 
+                                powodu, zamiast repeat możesz ją nazwać repeatt.
+                        </p>
+    
+                        <br>
+                </div>
+    
+    
+            </div>
+        </header>
+
+          
+            <!----------- MAIN TASK ------------>
+            <br>
+                    
+            <div class="row justify-content-center ">
+    
+                <div class="col-md-8 bg-white shadow rounded">
+                        <span class="badge badge-secondary shadow">Rozwiązanie</span>
+    
+                        <div class="row justify-content-center ">
+
+                                <div class="col-auto "><br>
+                                        <pre><code class="language-js">
+    if (typeof String.prototype.repeat) {
+        console.log('Function named \"repeat\" already exist in JavaScript, use \"iterate\" function instead.');
+    
+        String.prototype.iterate = function (times) {
+    
+            try {
+                if (typeof times === "number" && times >= 0) {
+    
+                    var text = "";
+                    while (times) {
+                        text += this;
+                        times--;
                     }
-        
-                } catch (e) {
-                    console.log(e.message);
+    
+                    return text;
+                } else {
+                    throw new Error("Wrong value! Only positive numbers are allowed.");
                 }
+            } catch (e) {
+                console.log(e.message);
             }
         }
-                                </pre>
+    }</code></pre>
+                                </div>
+                        </div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-5 ">
-                        <div class="accordion instruction border-bottom" id="accordionExample">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link link-danger" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Treść zadania
-                                        </button>
-                                    </h5>
-                                </div>
-            
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                            W standardzie EcmaScript 2015 (o którym więcej w 5 i 6 tygodniu Bootcampu) pojawiła się 
-                                            nowa metoda dostępna na obiektach typu String o nazwie repeat. Jej użycie wygląda 
-                                            następująco: <br>
-                                            “hej ”.repeat(3) // zwraca “hej hej hej ” <br>
-                                            Metoda ta jest dostępna we wszystkich nowoczesnych przeglądarkach internetowych, ale 
-                                            aby poćwiczyć rozszerzanie wbudowanych typów, utwórz jej polyﬁll. W kodzie sprawdź 
-                                            najpierw czy taka metoda już w przeglądarce została zaimplementowana, a jeśli nie, to 
-                                            dopisz własną funkcję, która będzie mogła być na dowolnym stringu wywołana w podany 
-                                            wyżej sposób. <br>
-                                            Podpowiedź: rozszerzaj prototyp konstruktora String. Przy sprawdzeniu czy taka metoda 
-                                            już istnieje, w nowoczesnych przeglądarkach otrzymasz odpowiedź pozytywną. Jeśli zatem 
-                                            napiszesz odpowiedni warunek, to nie będzie można przetestować Twojej metody. Z tego 
-                                            powodu, zamiast repeat możesz ją nazwać repeatt.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-        </div>
-    </div>
-    <script src="31.js"></script>
+    
+            </div>
+            <br><br>
+    
+    
+            <div class="row bg-secondary">
+              
+                <div class="col-8 offset-2 ">
+                    <br><br>
+                    <span class="badge badge-light shadow">Kody źródłowe</span>
+                    <div class="accordion" id="accordionExample">
+                            <div class="card text-white bg-dark border-dark ">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <br>
+                                  <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne">
+                                        <h5 class="card-title">Klasa EventEmitter:</h5>
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
+                               
+                                        
+                                        <pre class="code">
+    function EventEmitter() {
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        this.events = {};
+    
+    }
+    
+    EventEmitter.prototype.on = function (type, fn) {
+    
+        if (!type || !fn) return;
+    
+        this.events[type] = this.events[type] || [];
+        this.events[type].push(fn);
+    
+    }
+    
+    EventEmitter.prototype.emit = function (type, data) {
+    
+        var fns = this.events[type];
+    
+        if (!fns || !fns.length) return;
+    
+        for (var i = 0; i < fns.length; i++) {
+            fns[i](data);
+        }
+    
+    };
+    </pre>
+                              </div>
+                            </div>
+                            <div class="card text-white bg-dark border-dark border-top-0">
+                              <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                  <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseTwo">
+                                    <h5 class="card-title">Klasa Database:</h5>
+                                    
+                                  </button>
+                                </h5>
+                              </div>
+                              <div id="collapseTwo" class="collapse show" data-parentt="#accordionExample">  
+                                    <pre class="code">
+    Database.prototype = Object.create(EventEmitter.prototype);
+    Database.prototype.constructor = Database;
+    
+    function Database(url) {
+    
+        EventEmitter.call(this);
+    
+        this.url = url;
+    
+    }
+    
+    Database.prototype.connect = function () {
+    
+        // fikcyjne podłączenie do bazy
+    
+        this.emit("connect", this.url);
+    
+    }
+    
+    Database.prototype.disconnect = function () {
+    
+        // fikcyjne zakończenie połączenia z bazą
+    
+        this.emit("disconnect", this.url);
+    
+    }                                                     
+</pre>       
+                                
+                              </div>
+                            </div>
+                            <div class="card text-white bg-dark border-dark border-top-0">
+                                    <div class="card-header" id="headingTwo">
+                                      <h5 class="mb-0">
+                                        <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseThree">
+                                          <h5 class="card-title">Wykorzystanie klas:</h5>
+                            
+                                        </button>
+                                      </h5>
+                                    </div>
+                                    <div id="collapseThree" class="collapse show" data-parentt="#accordionExample">  
+                                          <pre class="code">
+    var content = document.getElementById("content"),
+        button_run = document.getElementById("button_run"); 
+    
+    button_run.addEventListener("click", function () {
+    
+        content.classList.remove("hidden");
+    
+        // Użycie EventEmittera
+        var ev = new EventEmitter();
+    
+        ev.on("hello", function (message) {
+            console.log("Witaj " + message + "!");
+            content.innerHTML += "Witaj " + message + "!";
+        });
+    
+        ev.on("hello", function (message) {
+            console.log("Siema " + message + ".");
+            content.innerHTML += "&lt;br> Siema " + message + ".";
+        });
+    
+        ev.on("goodbye", function () {
+            console.log("Do widzenia!");
+            content.innerHTML += "&lt;br> Do widzenia! &lt;br>";
+        });
+    
+        ev.emit("hello", "Marek");
+        ev.emit("goodbye");
+        ev.emit("custom"); // nic się nie wydarzy
+    
+        // DO ZROBIENIA!
+        // Docelowe użycie klasy Database
+        var db = new Database("db://localhost:3000"); // fikcyjny adres
+    
+        db.on("connect", function (url) {
+            console.log("Połączenie z bazą pod adresem " + url + " zostało ustanowione.");
+            content.innerHTML += " &lt;br> Połączenie z bazą pod adresem " + url + " zostało ustanowione.";
+        });
+    
+        db.on("disconnect", function (url) {
+            console.log("Połączenie z bazą pod adresem " + url + " zostało zakończone.");
+            content.innerHTML += "&lt;br> Połączenie z bazą pod adresem " + url + " zostało zakończone.";
+        });
+    
+        db.connect();
+    
+        // po 5 sekundach rozłączamy się
+        setTimeout(function () {
+            db.disconnect();
+        }, 5000);
+    
+    })                                                      
+</pre>       
+                                      
+                                    </div>
+                                  </div>
+                          </div>
+                          <br><br>
+                </div>
+    
+    
+            </div>
+            <br><br>
+    
+    
+        </div>
+        <script src="31.js"></script>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    
+    <script>
+
+            $('.code').each(function(i, block) {
+              hljs.highlightBlock(block);
+                });
+                
+    </script>        
+    <script src="../prism.js"></script>
+            
+    </body>
 
 </html>
+
+
+
+
+
+
+// <!DOCTYPE html>
+// <html lang="pl">
+
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+//     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+//         crossorigin="anonymous">
+
+//     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+//     <link rel="stylesheet" href="../css/styleNew.css">
+
+//     <title>Document</title>
+// </head>
+
+// <body>
+//     <div class="container-fluid template">
+//             <div class="row ">
+//                     <div class="col-1  template">
+//                         <a href="../index.html#week3"><i class="material-icons md-46">home</i></a>
+//                     </div>
+//                     <div class="col-6 ">
+//                         <div class="row">
+//                             <div class="col">
+//                                 <h1 class="page-header">1. Polyﬁll metody repeat dla String</h1>
+//                                 <hr>
+//                             </div>
+//                         </div><br><br>
+//                         <div class="row">
+//                             <div class="col">
+//                                 <pre>
+//         if (typeof String.prototype.repeat) {
+//             console.log('Function named \"repeat\" already exist in JavaScript, use \"iterate\" function instead.');
+        
+//             String.prototype.iterate = function (times) {
+        
+//                 try {
+//                     if (typeof times === "number" && times >= 0) {
+        
+//                         var text = "";
+        
+//                         while (times) {
+//                             text += this;
+//                             times--;
+//                         }
+        
+//                         return text;
+        
+//                     } else {
+//                         throw new Error("Wrong value! Only positive numbers are allowed.");
+//                     }
+        
+//                 } catch (e) {
+//                     console.log(e.message);
+//                 }
+//             }
+//         }
+//                                 </pre>
+
+//                             </div>
+//                         </div>
+//                     </div>
+//                     <div class="col-5 ">
+//                         <div class="accordion instruction border-bottom" id="accordionExample">
+//                             <div class="card">
+//                                 <div class="card-header" id="headingOne">
+//                                     <h5 class="mb-0">
+//                                         <button class="btn btn-link link-danger" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+//                                             Treść zadania
+//                                         </button>
+//                                     </h5>
+//                                 </div>
+            
+//                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+//                                     <div class="card-body">
+//                                             W standardzie EcmaScript 2015 (o którym więcej w 5 i 6 tygodniu Bootcampu) pojawiła się 
+//                                             nowa metoda dostępna na obiektach typu String o nazwie repeat. Jej użycie wygląda 
+//                                             następująco: <br>
+//                                             “hej ”.repeat(3) // zwraca “hej hej hej ” <br>
+//                                             Metoda ta jest dostępna we wszystkich nowoczesnych przeglądarkach internetowych, ale 
+//                                             aby poćwiczyć rozszerzanie wbudowanych typów, utwórz jej polyﬁll. W kodzie sprawdź 
+//                                             najpierw czy taka metoda już w przeglądarce została zaimplementowana, a jeśli nie, to 
+//                                             dopisz własną funkcję, która będzie mogła być na dowolnym stringu wywołana w podany 
+//                                             wyżej sposób. <br>
+//                                             Podpowiedź: rozszerzaj prototyp konstruktora String. Przy sprawdzeniu czy taka metoda 
+//                                             już istnieje, w nowoczesnych przeglądarkach otrzymasz odpowiedź pozytywną. Jeśli zatem 
+//                                             napiszesz odpowiedni warunek, to nie będzie można przetestować Twojej metody. Z tego 
+//                                             powodu, zamiast repeat możesz ją nazwać repeatt.
+//                                 </div>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//         </div>
+//     </div>
+    // <script src="31.js">
+   

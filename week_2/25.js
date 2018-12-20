@@ -11,7 +11,6 @@
         
     function debounce(fn, time) {
 
-        // let time = time,
         let clear = null;
 
         return function() {
@@ -24,14 +23,26 @@
         };
     }
 
+    var handleScroll = debounce(function() {
+        console.log("Scrollujemy!");
+    }, 600);
+
+    window.addEventListener("scroll", handleScroll, false);
+
+    var handleResize = debounce(function() {
+        console.log("Zmieniamy rozmiar okna!");
+    }, 100);
+
+    window.addEventListener("resize", handleResize, false);    
+
+
+
     function debounceWithBar(fn, time, bar, output) {
 
         let clear = null,
             clearInt = null,
             interval = time/10,
             counter = 0;
-
-            console.log(interval);
             
         return function() {
                 
@@ -42,7 +53,6 @@
             clearInterval(clearInt);
             
             clearInt = setInterval(() => {
-                console.log("counter = " + counter);
                 counter++;
                 bar.value = counter;
                 if(counter == 10){
@@ -60,30 +70,19 @@
         };
     }
 
-    var test = debounceWithBar( function(){
-        console.log("z debance");
+    var handleButton = debounceWithBar( function(){
     }, 1000, buttonBar, output_buttonBar);
 
+    button_buttonBar.addEventListener("click", handleButton);
 
-    button_buttonBar.addEventListener("click", test);
-
-
-    var handleScroll = debounceWithBar(function() {
-        console.log("Scrollujemy!");
+    var handleScrollBar = debounceWithBar(function() {
     }, 600, scrollBar, output_scrollBar);
 
-    // w tym miejscu pod handleScroll
-    // powinna być nowa funkcja
+    window.addEventListener("scroll", handleScrollBar, false);
 
-    // Przypisanie zdarzenia "scroll"
-    window.addEventListener("scroll", handleScroll, false);
-
-    // Możesz również przetestować funkcję
-    // ze zdarzeniem "resize" skalując okno
-    var handleResize = debounceWithBar(function() {
-        console.log("Zmieniamy rozmiar okna!");
+    var handleResizeBar = debounceWithBar(function() {
     }, 100, resizeBar, output_resizeBar);
 
-    window.addEventListener("resize", handleResize, false);
+    window.addEventListener("resize", handleResizeBar, false);
 
 })();

@@ -134,16 +134,6 @@ h1 {
     border-color: #7C4DFF;
 }
 
-#homeButton{
-    /* border: 1px solid black; */
-    display: inline-block;
-    position: absolute;
-    z-index: 1;
-    /* left: 5%; */
-    margin-top: -1%;
-    
-}
-
 #task1-p{
     
 }
@@ -197,4 +187,24 @@ label {
 
 progress {
     width: 80%;
+}
+
+#homeButton{
+    /* border: 1px solid black; */
+    display: inline-block;
+    position: absolute;
+    /* z-index: 1; */
+    left: 2%;
+    margin-top: -1%;
+    
+}
+
+nav {
+    margin-top: 10%;
+    right: 2%;
+    position: fixed;
+}
+
+nav li {
+    margin-top: 30%;
 }
