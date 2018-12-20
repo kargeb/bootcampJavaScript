@@ -2,10 +2,11 @@
 
     var button_buttonBar = document.getElementById("button_buttonBar"),
         buttonBar = document.getElementById("buttonBar"),
-        // button_scrollBar = document.getElementById("button_scrollBar"),
         scrollBar = document.getElementById("scrollBar"),
-        // button_resizeBar = document.getElementById("button_resizeBar"),
-        resizeBar = document.getElementById("resizeBar");
+        resizeBar = document.getElementById("resizeBar"),
+        output_buttonBar = document.getElementById("output_buttonBar"),
+        output_scrollBar = document.getElementById("output_scrollBar"),
+        output_resizeBar = document.getElementById("output_resizeBar");
 
         
     function debounce(fn, time) {
@@ -23,7 +24,7 @@
         };
     }
 
-    function debounceWithBar(fn, time, bar) {
+    function debounceWithBar(fn, time, bar, output) {
 
         let clear = null,
             clearInt = null,
@@ -31,9 +32,10 @@
             counter = 0;
 
             console.log(interval);
-
+            
         return function() {
-
+                
+            output.classList.add("hidden");
             counter = 0;
             bar.value = counter;
             clearTimeout(clear);
@@ -44,9 +46,11 @@
                 counter++;
                 bar.value = counter;
                 if(counter == 10){
+                    bar.value = counter;
                     clearInterval(clearInt);
                     counter = 0;
                     bar.value = counter;
+                    output.classList.remove("hidden");
                 }
             }, interval);
 
@@ -58,7 +62,7 @@
 
     var test = debounceWithBar( function(){
         console.log("z debance");
-    }, 1000, buttonBar);
+    }, 1000, buttonBar, output_buttonBar);
 
 
     button_buttonBar.addEventListener("click", test);
@@ -66,7 +70,7 @@
 
     var handleScroll = debounceWithBar(function() {
         console.log("Scrollujemy!");
-    }, 600, scrollBar);
+    }, 600, scrollBar, output_scrollBar);
 
     // w tym miejscu pod handleScroll
     // powinna być nowa funkcja
@@ -76,9 +80,9 @@
 
     // Możesz również przetestować funkcję
     // ze zdarzeniem "resize" skalując okno
-    var handleResize = debounce(function() {
+    var handleResize = debounceWithBar(function() {
         console.log("Zmieniamy rozmiar okna!");
-    }, 100);
+    }, 100, resizeBar, output_resizeBar);
 
     window.addEventListener("resize", handleResize, false);
 

@@ -194,3 +194,7 @@ pre .language-js {
 label {
     cursor: pointer;
 }
+
+progress {
+    width: 80%;
+}
