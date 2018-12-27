@@ -98,17 +98,17 @@
                         <div class="row justify-content-center pt-2">
                             <div class="col-auto">
 
-                                <button id="button" class="btn btn-outline-warning">Naciś</button>
+                                <button id="button" class="btn btn-outline-warning">Klik</button>
 
                             </div>
 
                         </div>
                         <div class="row justify-content-center pt-2">
-                            <div class="col-auto">
+                            <div class="col-auto py-4">
 
                                 <div id="section" class="alert alert-warning" role="alert">
 
-                                        Element manipulacyjny
+                                        #section
 
                                 </div>
 
@@ -132,151 +132,47 @@
                                 <h5 class="mb-0">
                                     <br>
                                   <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne">
-                                        <h5 class="card-title">Klasa EventEmitter:</h5>
+                                        <h5 class="card-title">Cały kod:</h5>
                                   </button>
                                 </h5>
                               </div>
                           
                               <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
                                
-                                        
                                         <pre class="code">
-    function EventEmitter() {
-
-        this.events = {};
-    
+    function Toggler(tag){
+        this.tag = document.querySelector(tag);
     }
     
-    EventEmitter.prototype.on = function (type, fn) {
-    
-        if (!type || !fn) return;
-    
-        this.events[type] = this.events[type] || [];
-        this.events[type].push(fn);
-    
+    Toggler.prototype.getElem = function(){
+        return this.tag
     }
     
-    EventEmitter.prototype.emit = function (type, data) {
+    Toggler.prototype.show = function(){
+        this.tag.style.display = "";
+    }
     
-        var fns = this.events[type];
+    Toggler.prototype.hide = function(){
+        this.tag.style.display = "none";
+    }
     
-        if (!fns || !fns.length) return;
     
-        for (var i = 0; i < fns.length; i++) {
-            fns[i](data);
+    var elem = new Toggler("#section");
+    var button = document.querySelector("#button");
+    
+    
+    button.addEventListener("click", function() {
+    
+        if(elem.getElem().style.display == "none") {
+            elem.show();
+        } else {
+            elem.hide();
         }
     
-    };
-    </pre>
+    }, false);
+</pre>
                               </div>
                             </div>
-                            <div class="card text-white bg-dark border-dark border-top-0">
-                              <div class="card-header" id="headingTwo">
-                                <h5 class="mb-0">
-                                  <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseTwo">
-                                    <h5 class="card-title">Klasa Database:</h5>
-                                    
-                                  </button>
-                                </h5>
-                              </div>
-                              <div id="collapseTwo" class="collapse show" data-parentt="#accordionExample">  
-                                    <pre class="code">
-    Database.prototype = Object.create(EventEmitter.prototype);
-    Database.prototype.constructor = Database;
-    
-    function Database(url) {
-    
-        EventEmitter.call(this);
-    
-        this.url = url;
-    
-    }
-    
-    Database.prototype.connect = function () {
-    
-        // fikcyjne podłączenie do bazy
-    
-        this.emit("connect", this.url);
-    
-    }
-    
-    Database.prototype.disconnect = function () {
-    
-        // fikcyjne zakończenie połączenia z bazą
-    
-        this.emit("disconnect", this.url);
-    
-    }                                                     
-</pre>       
-                                
-                              </div>
-                            </div>
-                            <div class="card text-white bg-dark border-dark border-top-0">
-                                    <div class="card-header" id="headingTwo">
-                                      <h5 class="mb-0">
-                                        <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseThree">
-                                          <h5 class="card-title">Wykorzystanie klas:</h5>
-                            
-                                        </button>
-                                      </h5>
-                                    </div>
-                                    <div id="collapseThree" class="collapse show" data-parentt="#accordionExample">  
-                                          <pre class="code">
-    var content = document.getElementById("content"),
-        button_run = document.getElementById("button_run"); 
-    
-    button_run.addEventListener("click", function () {
-    
-        content.classList.remove("hidden");
-    
-        // Użycie EventEmittera
-        var ev = new EventEmitter();
-    
-        ev.on("hello", function (message) {
-            console.log("Witaj " + message + "!");
-            content.innerHTML += "Witaj " + message + "!";
-        });
-    
-        ev.on("hello", function (message) {
-            console.log("Siema " + message + ".");
-            content.innerHTML += "&lt;br> Siema " + message + ".";
-        });
-    
-        ev.on("goodbye", function () {
-            console.log("Do widzenia!");
-            content.innerHTML += "&lt;br> Do widzenia! &lt;br>";
-        });
-    
-        ev.emit("hello", "Marek");
-        ev.emit("goodbye");
-        ev.emit("custom"); // nic się nie wydarzy
-    
-        // DO ZROBIENIA!
-        // Docelowe użycie klasy Database
-        var db = new Database("db://localhost:3000"); // fikcyjny adres
-    
-        db.on("connect", function (url) {
-            console.log("Połączenie z bazą pod adresem " + url + " zostało ustanowione.");
-            content.innerHTML += " &lt;br> Połączenie z bazą pod adresem " + url + " zostało ustanowione.";
-        });
-    
-        db.on("disconnect", function (url) {
-            console.log("Połączenie z bazą pod adresem " + url + " zostało zakończone.");
-            content.innerHTML += "&lt;br> Połączenie z bazą pod adresem " + url + " zostało zakończone.";
-        });
-    
-        db.connect();
-    
-        // po 5 sekundach rozłączamy się
-        setTimeout(function () {
-            db.disconnect();
-        }, 5000);
-    
-    })                                                      
-</pre>       
-                                      
-                                    </div>
-                                  </div>
                           </div>
                           <br><br>
                 </div>

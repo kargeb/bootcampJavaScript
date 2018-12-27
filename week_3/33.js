@@ -44,18 +44,22 @@ if( typeof fetch == "function" ){
 
 let button = document.querySelector("button"),
     alert = document.querySelector("div[role='alert']"),
+    showContent = document.getElementById("showContent"),
     address = "http://code.eduweb.pl/bootcamp/users/";
+
 
 
 function good(content){
     alert.classList.add("alert-success");
     alert.innerText = "Great";
+    showContent.innerHTML = content;
     console.log(content);
 }
 
 function bad(message){
     alert.classList.add("alert-danger");
     alert.innerText = message;
+    showContent.innerHTML = message;
     console.log(message);
 }
 

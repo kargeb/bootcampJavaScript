@@ -1,6 +1,3 @@
-var button = document.querySelector("#button");
-
-
 function Toggler(tag){
     this.tag = document.querySelector(tag);
 }
@@ -18,8 +15,8 @@ Toggler.prototype.hide = function(){
 }
 
 
-
 var elem = new Toggler("#section");
+var button = document.querySelector("#button");
 
 
 button.addEventListener("click", function() {
