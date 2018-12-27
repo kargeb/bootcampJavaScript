@@ -12,22 +12,27 @@ if( typeof fetch == "function" ){
         let xhr = new XMLHttpRequest();
         
         xhr.open("GET", url, true);
-        
+
+        console.log("polaczenie utworzone");
+
+
         
         
         xhr.onreadystatechange = function(e){
             
-            
+        
             
             if( this.readyState == 4 && this.status == 200 ) {
                 
                 
+                console.log( this.status );
                 fn_success(xhr.response);
                 
                 
             } else if ( this.readyState == 4 && this.status != 200 ) {
                 
                 
+                console.log( this.status );
                 xhr.onerror = function(e){
                     fn_failure(mesage);
                     
@@ -35,6 +40,7 @@ if( typeof fetch == "function" ){
             }
         }
         
+
         xhr.send(null);
     } 
     
@@ -45,26 +51,26 @@ if( typeof fetch == "function" ){
 let button = document.querySelector("button"),
     alert = document.querySelector("div[role='alert']"),
     showContent = document.getElementById("showContent"),
-    cardBorderStyles = document.querySelectorAll(".border-secondary"),
-    cardTextStyles = document.querySelectorAll(".text-secondary"),
+    // cardBorderStyles = document.querySelectorAll(".border-secondary"),
+    // cardTextStyles = document.querySelectorAll(".text-secondary"),
     address = "http://code.eduweb.pl/bootcamp/users/";
 
 
-console.log(cardBorderStyles);
-console.log(cardTextStyles);
-console.log(cardTextStyles[1]);
+// console.log(cardBorderStyles);
+// console.log(cardTextStyles);
+// console.log(cardTextStyles[1]);
 
 function good(content){
     alert.classList.add("alert-success");
     alert.innerText = "Great";
     showContent.innerHTML = content;
 
-    // cardBorderStyles[0].classList.remove("border-secondary");
-    cardBorderStyles[0].classList.add("border-success");
-    cardBorderStyles[1].classList.add("border-success");
+    // // cardBorderStyles[0].classList.remove("border-secondary");
+    // cardBorderStyles[0].classList.add("border-success");
+    // cardBorderStyles[1].classList.add("border-success");
 
-    cardTextStyles[0].classList.add("text-success");
-    cardTextStyles[1].classList.add("text-success");
+    // cardTextStyles[0].classList.add("text-success");
+    // cardTextStyles[1].classList.add("text-success");
 
     console.log(content);
 }
