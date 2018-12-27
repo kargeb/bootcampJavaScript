@@ -45,14 +45,27 @@ if( typeof fetch == "function" ){
 let button = document.querySelector("button"),
     alert = document.querySelector("div[role='alert']"),
     showContent = document.getElementById("showContent"),
+    cardBorderStyles = document.querySelectorAll(".border-secondary"),
+    cardTextStyles = document.querySelectorAll(".text-secondary"),
     address = "http://code.eduweb.pl/bootcamp/users/";
 
 
+console.log(cardBorderStyles);
+console.log(cardTextStyles);
+console.log(cardTextStyles[1]);
 
 function good(content){
     alert.classList.add("alert-success");
     alert.innerText = "Great";
     showContent.innerHTML = content;
+
+    // cardBorderStyles[0].classList.remove("border-secondary");
+    cardBorderStyles[0].classList.add("border-success");
+    cardBorderStyles[1].classList.add("border-success");
+
+    cardTextStyles[0].classList.add("text-success");
+    cardTextStyles[1].classList.add("text-success");
+
     console.log(content);
 }
 
