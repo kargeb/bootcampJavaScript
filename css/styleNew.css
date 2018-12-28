@@ -218,3 +218,15 @@ nav li {
 #task33index{
     z-index: 1000;
 }
+
+#connectionChecker ul {
+    margin-bottom: 0%;
+    min-height: 2rem;
+}
+
+#connectionChecker li {
+    line-height: 1rem;
+    margin-left: -1rem;
+}
+
+

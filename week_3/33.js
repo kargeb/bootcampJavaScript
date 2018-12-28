@@ -15,6 +15,9 @@ if( typeof fetch == "function" ){
 
         console.log("polaczenie utworzone");
 
+        connectionCheckerList.children[0].classList.remove("hidden");
+        connectionCheckerList.children[0].innerText = "Połączenie ustanownione";
+
 
         
         
@@ -26,6 +29,8 @@ if( typeof fetch == "function" ){
                 
                 
                 console.log( this.status );
+                connectionCheckerList.children[1].classList.remove("hidden");
+                connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
                 fn_success(xhr.response);
                 
                 
@@ -34,6 +39,8 @@ if( typeof fetch == "function" ){
                 
                 console.log( this.status );
                 xhr.onerror = function(e){
+                    connectionCheckerList.children[1].classList.remove("hidden");
+                    connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
                     fn_failure(mesage);
                     
                 }
@@ -49,35 +56,24 @@ if( typeof fetch == "function" ){
 }
 
 let button = document.querySelector("button"),
-    alert = document.querySelector("div[role='alert']"),
     showContent = document.getElementById("showContent"),
-    // cardBorderStyles = document.querySelectorAll(".border-secondary"),
-    // cardTextStyles = document.querySelectorAll(".text-secondary"),
-    address = "http://code.eduweb.pl/bootcamp/users/";
+    address = "http://code.eduweb.pl/bootcamp/users/",
+    connectionChecker = document.getElementById("connectionChecker"),
+    connectionCheckerList = document.querySelector("#connectionChecker ul"),
+    labelError = document.getElementById("labelError"),
+    labelSuccess = document.getElementById("labelSuccess");
 
-
-// console.log(cardBorderStyles);
-// console.log(cardTextStyles);
-// console.log(cardTextStyles[1]);
 
 function good(content){
-    alert.classList.add("alert-success");
-    alert.innerText = "Great";
+    connectionChecker.classList.add("alert-success");
+    labelSuccess.classList.remove("hidden");
     showContent.innerHTML = content;
-
-    // // cardBorderStyles[0].classList.remove("border-secondary");
-    // cardBorderStyles[0].classList.add("border-success");
-    // cardBorderStyles[1].classList.add("border-success");
-
-    // cardTextStyles[0].classList.add("text-success");
-    // cardTextStyles[1].classList.add("text-success");
-
     console.log(content);
 }
 
 function bad(message){
-    alert.classList.add("alert-danger");
-    alert.innerText = message;
+    connectionChecker.classList.add("alert-danger");
+    labelError.classList.remove("hidden");
     showContent.innerHTML = message;
     console.log(message);
 }
