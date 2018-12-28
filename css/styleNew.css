@@ -210,13 +210,9 @@ nav li {
 }
 
 #task33div{
-    height: 100px;
-    width: 50%;
+    min-height: 100px;
+    max-height: 300px;
     overflow: auto;
-}
-
-#task33index{
-    z-index: 1000;
 }
 
 #connectionChecker ul {
@@ -227,6 +223,7 @@ nav li {
 #connectionChecker li {
     line-height: 1rem;
     margin-left: -1rem;
+    min-width: 100px;
 }
 
 

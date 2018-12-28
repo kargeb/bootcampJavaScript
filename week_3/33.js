@@ -55,9 +55,11 @@ if( typeof fetch == "function" ){
     console.log("nie ma fetch wiec robimy fetch");
 }
 
-let button = document.querySelector("button"),
+let buttonOk = document.getElementById("buttonOk"),
+    buttonBad = document.getElementById("buttonBad"),
     showContent = document.getElementById("showContent"),
-    address = "http://code.eduweb.pl/bootcamp/users/",
+    addressOk = "http://code.eduweb.pl/bootcamp/users/",
+    addressBad = "http://code.eduweb.pl/bootcamp/usersssssssssss/",
     connectionChecker = document.getElementById("connectionChecker"),
     connectionCheckerList = document.querySelector("#connectionChecker ul"),
     labelError = document.getElementById("labelError"),
@@ -78,8 +80,36 @@ function bad(message){
     console.log(message);
 }
 
-button.addEventListener("click", function(){
+buttonOk.addEventListener("click", function(){
 
-    fecz(address, good, bad);
+    resetConnectionChecker();
+    // fecz(addressOk, good, bad);
+
+    fecz("http://code.eduweb.pl/bootcamp/users/", 
+        function(data){
+        connectionChecker.classList.add("alert-success");
+        labelSuccess.classList.remove("hidden");
+        showContent.innerHTML = data;
+        console.log(data);
+    }, function(err){
+        connectionChecker.classList.add("alert-danger");
+        labelError.classList.remove("hidden");
+        showContent.innerHTML = err;
+        console.log(err);
+    });
 
 });
+
+buttonBad.addEventListener("click", function(){
+
+    resetConnectionChecker();
+    fecz(addressBad, good, bad);
+
+});
+
+function resetConnectionChecker(){
+    labelError.classList.add("hidden");
+    labelSuccess.classList.add("hidden");
+    connectionChecker.classList.remove("alert-success");
+    connectionChecker.classList.remove("alert-danger");
+}
