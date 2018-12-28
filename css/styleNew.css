@@ -164,7 +164,7 @@ body {
     background-color: #fff;
 }
 
-.badge {
+.badge.shadow {
     padding: 1%;
     margin-top: -2%;
     margin-left: -6%;
