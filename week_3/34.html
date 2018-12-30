@@ -87,9 +87,7 @@
 
                             <div class="col-auto pb-2">
 <pre class="pb-0"><code class="language-js">
-if (typeof fetch == "function") {
-
-function fecz(url, fn_success, fn_failure) {
+function getJSON(url, fn_success, fn_failure) {
 
     let message = "Wystąpił błąd!";
     let xhr = new XMLHttpRequest();
@@ -113,7 +111,7 @@ function fecz(url, fn_success, fn_failure) {
     fn_failure(message);
 }}}
 xhr.send(null);
-}}</code></pre>
+}</code></pre>
                             </div>
                         </div>
                         <hr>
@@ -175,35 +173,36 @@ xhr.send(null);
                               <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
                                
                                         <pre class="code">
-    if (typeof fetch == "function") {
+    function getJSON(url, fn_success, fn_failure) {
 
-        function fecz(url, fn_success, fn_failure) {
+        let message = "Wystąpił błąd!";
+        let xhr = new XMLHttpRequest();
     
-            let message = "Wystąpił błąd!";
-            let xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.setRequestHeader("Accept", "application/json");
     
-            xhr.open("GET", url, true);
+        connectionCheckerList.children[0].classList.remove("hidden");
+        connectionCheckerList.children[0].innerText = "Połączenie ustanownione";
     
-            connectionCheckerList.children[0].classList.remove("hidden");
-            connectionCheckerList.children[0].innerText = "Połączenie ustanownione";
+        xhr.onreadystatechange = function (e) {
     
-            xhr.onreadystatechange = function (e) {
+            if (this.readyState == 4 && this.status == 200) {
+                connectionCheckerList.children[1].classList.remove("hidden");
+                connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
     
-                if (this.readyState == 4 && this.status == 200) {
+                let data = JSON.parse(xhr.response);
+    
+                fn_success(data);
+    
+            } else if (this.readyState == 4 && this.status != 200) {
+                xhr.onerror = function (e) {
                     connectionCheckerList.children[1].classList.remove("hidden");
                     connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
-                    fn_success(xhr.response);
-    
-                } else if (this.readyState == 4 && this.status != 200) {
-                    xhr.onerror = function (e) {
-                        connectionCheckerList.children[1].classList.remove("hidden");
-                        connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
-                        fn_failure(message);
-                    }
+                    fn_failure(message);
                 }
             }
-            xhr.send(null);
         }
+        xhr.send(null);
     }
 </pre>
                               </div>
@@ -219,7 +218,7 @@ xhr.send(null);
                                   </h5>
                                 </div>
                             
-                                <div id="collapseTwo" class="collapse show" data-parentt="#accordionExample">
+                                <div id="collapseTwo" class="collapse" data-parentt="#accordionExample">
                                  
                                           <pre class="code">
     buttonOk.addEventListener("click", function () {
@@ -227,18 +226,18 @@ xhr.send(null);
         resetConnectionChecker();
         connectionChecker.classList.remove("hidden");
     
-        fecz("http://code.eduweb.pl/bootcamp/users/",
-            function (data) {
-                connectionChecker.classList.add("alert-success");
-                labelSuccess.classList.remove("hidden");
-                showContent.innerHTML = data;
-                console.log(data);
-            }, function (err) {
-                connectionChecker.classList.add("alert-danger");
-                labelError.classList.remove("hidden");
-                showContent.innerHTML = err;
-                console.log(err);
-            });
+        getJSON("http://code.eduweb.pl/bootcamp/users/",
+        function (data) {
+            connectionChecker.classList.add("alert-success");
+            labelSuccess.classList.remove("hidden");
+            showContent.innerText = writeContent(data);
+            console.log(data);
+        }, function (err) {
+            connectionChecker.classList.add("alert-danger");
+            labelError.classList.remove("hidden");
+            showContent.innerHTML = err;
+            console.log(err);
+        });
     });
   </pre>
                                 </div>
@@ -249,82 +248,46 @@ xhr.send(null);
                                   <h5 class="mb-0">
                                       <br>
                                     <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseThree">
-                                          <h5 class="card-title">Wykorzystanie Fecz (forma z funkcjami):</h5>
-                                    </button>
-                                  </h5>
-                                </div>
-                            
-                                <div id="collapseThree" class="collapse show" data-parentt="#accordionExample">
-                                 
-                                          <pre class="code">
-    buttonBad.addEventListener("click", function () {
-        resetConnectionChecker();
-        connectionChecker.classList.remove("hidden");
-
-        fecz(addressBad, fn_success, fn_error);
-    });
-    
-    function fn_success(content) {
-        connectionChecker.classList.add("alert-success");
-        labelSuccess.classList.remove("hidden");
-        showContent.innerHTML = content;
-        console.log(content);
-    }
-    
-    function fn_error(message) {
-        connectionChecker.classList.add("alert-danger");
-        labelError.classList.remove("hidden");
-        showContent.innerHTML = message;
-        console.log(message);
-    }
-  </pre>
-                                </div>
-                              </div>
-
-                              <div class="card text-white bg-dark border-dark ">
-                                <div class="card-header" id="headingOne">
-                                  <h5 class="mb-0">
-                                      <br>
-                                    <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseFour">
                                           <h5 class="card-title">Cały kod:</h5>
                                     </button>
                                   </h5>
                                 </div>
                             
-                                <div id="collapseFour" class="collapse show" data-parentt="#accordionExample">
+                                <div id="collapseThree" class="collapse" data-parentt="#accordionExample">
                                  
                                           <pre class="code">
-    if (typeof fetch == "function") {
+    function getJSON(url, fn_success, fn_failure) {
 
-        function fecz(url, fn_success, fn_failure) {
-
-            let message = "Wystąpił błąd!";
-            let xhr = new XMLHttpRequest();
-
-            xhr.open("GET", url, true);
-
-            connectionCheckerList.children[0].classList.remove("hidden");
-            connectionCheckerList.children[0].innerText = "Połączenie ustanownione";
-
-            xhr.onreadystatechange = function (e) {
-
-                if (this.readyState == 4 && this.status == 200) {
+        let message = "Wystąpił błąd!";
+        let xhr = new XMLHttpRequest();
+    
+        xhr.open("GET", url, true);
+        xhr.setRequestHeader("Accept", "application/json");
+    
+        connectionCheckerList.children[0].classList.remove("hidden");
+        connectionCheckerList.children[0].innerText = "Połączenie ustanownione";
+    
+        xhr.onreadystatechange = function (e) {
+    
+            if (this.readyState == 4 && this.status == 200) {
+                connectionCheckerList.children[1].classList.remove("hidden");
+                connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
+    
+                let data = JSON.parse(xhr.response);
+    
+                fn_success(data);
+    
+            } else if (this.readyState == 4 && this.status != 200) {
+                xhr.onerror = function (e) {
                     connectionCheckerList.children[1].classList.remove("hidden");
                     connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
-                    fn_success(xhr.response);
-
-                } else if (this.readyState == 4 && this.status != 200) {
-                    xhr.onerror = function (e) {
-                        connectionCheckerList.children[1].classList.remove("hidden");
-                        connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
-                        fn_failure(message);
-                    }
+                    fn_failure(message);
                 }
             }
-            xhr.send(null);
         }
+        xhr.send(null);
     }
-
+    
     let addressBad = "http://code.eduweb.pl/bootcamp/usersssssssssss/",
         buttonOk = document.getElementById("buttonOk"),
         buttonBad = document.getElementById("buttonBad"),
@@ -333,18 +296,18 @@ xhr.send(null);
         connectionCheckerList = document.querySelector("#connectionChecker ul"),
         labelError = document.getElementById("labelError"),
         labelSuccess = document.getElementById("labelSuccess");
-
-
+    
+    
     buttonOk.addEventListener("click", function () {
-
+    
         resetConnectionChecker();
         connectionChecker.classList.remove("hidden");
-
-        fecz("http://code.eduweb.pl/bootcamp/users/",
+    
+        getJSON("http://code.eduweb.pl/bootcamp/users/",
             function (data) {
                 connectionChecker.classList.add("alert-success");
                 labelSuccess.classList.remove("hidden");
-                showContent.innerHTML = data;
+                showContent.innerText = writeContent(data);
                 console.log(data);
             }, function (err) {
                 connectionChecker.classList.add("alert-danger");
@@ -353,27 +316,38 @@ xhr.send(null);
                 console.log(err);
             });
     });
-
+    
+    function writeContent(obj) {
+        let content = "";
+        for (var person in obj) {
+            for (var personData in obj[person]) {
+                content += obj[person][personData] + " | ";
+            }
+            content += "\n";
+        }
+        return content;
+    };
+    
     buttonBad.addEventListener("click", function () {
         resetConnectionChecker();
         connectionChecker.classList.remove("hidden");
-        fecz(addressBad, fn_success, fn_error);
+        getJSON(addressBad, fn_success, fn_error);
     });
-
+    
     function fn_success(content) {
         connectionChecker.classList.add("alert-success");
         labelSuccess.classList.remove("hidden");
         showContent.innerHTML = content;
         console.log(content);
     }
-
+    
     function fn_error(message) {
         connectionChecker.classList.add("alert-danger");
         labelError.classList.remove("hidden");
         showContent.innerHTML = message;
         console.log(message);
     }
-
+    
     function resetConnectionChecker() {
         labelError.classList.add("hidden");
         labelSuccess.classList.add("hidden");

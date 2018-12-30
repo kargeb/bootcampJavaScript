@@ -1,36 +1,33 @@
-if (typeof fetch == "function") {
+function getJSON(url, fn_success, fn_failure) {
 
-    function fecz(url, fn_success, fn_failure) {
+    let message = "Wystąpił błąd!";
+    let xhr = new XMLHttpRequest();
 
-        let message = "Wystąpił błąd!";
-        let xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.setRequestHeader("Accept", "application/json");
 
-        xhr.open("GET", url, true);
-        xhr.setRequestHeader("Accept", "application/json");
+    connectionCheckerList.children[0].classList.remove("hidden");
+    connectionCheckerList.children[0].innerText = "Połączenie ustanownione";
 
-        connectionCheckerList.children[0].classList.remove("hidden");
-        connectionCheckerList.children[0].innerText = "Połączenie ustanownione";
+    xhr.onreadystatechange = function (e) {
 
-        xhr.onreadystatechange = function (e) {
+        if (this.readyState == 4 && this.status == 200) {
+            connectionCheckerList.children[1].classList.remove("hidden");
+            connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
 
-            if (this.readyState == 4 && this.status == 200) {
+            let data = JSON.parse(xhr.response);
+
+            fn_success(data);
+
+        } else if (this.readyState == 4 && this.status != 200) {
+            xhr.onerror = function (e) {
                 connectionCheckerList.children[1].classList.remove("hidden");
                 connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
-
-                let data = JSON.parse(xhr.response);
-                
-                fn_success(data);
-
-            } else if (this.readyState == 4 && this.status != 200) {
-                xhr.onerror = function (e) {
-                    connectionCheckerList.children[1].classList.remove("hidden");
-                    connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
-                    fn_failure(message);
-                }
+                fn_failure(message);
             }
         }
-        xhr.send(null);
     }
+    xhr.send(null);
 }
 
 let addressBad = "http://code.eduweb.pl/bootcamp/usersssssssssss/",
@@ -48,7 +45,7 @@ buttonOk.addEventListener("click", function () {
     resetConnectionChecker();
     connectionChecker.classList.remove("hidden");
 
-    fecz("http://code.eduweb.pl/bootcamp/users/",
+    getJSON("http://code.eduweb.pl/bootcamp/users/",
         function (data) {
             connectionChecker.classList.add("alert-success");
             labelSuccess.classList.remove("hidden");
@@ -62,27 +59,21 @@ buttonOk.addEventListener("click", function () {
         });
 });
 
-function writeContent(obj){
+function writeContent(obj) {
     let content = "";
-
-    for (var key in obj) {
-
-        for (var key2 in obj[key]){
-
-            content += obj[key][key2] + " | ";
+    for (var person in obj) {
+        for (var personData in obj[person]) {
+            content += obj[person][personData] + " | ";
         }
-
         content += "\n";
-
     }
-
     return content;
 };
 
 buttonBad.addEventListener("click", function () {
     resetConnectionChecker();
     connectionChecker.classList.remove("hidden");
-    fecz(addressBad, fn_success, fn_error);
+    getJSON(addressBad, fn_success, fn_error);
 });
 
 function fn_success(content) {

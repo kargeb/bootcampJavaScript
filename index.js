@@ -1,4 +1,4 @@
-let buttons = document.getElementById("buttons"),
+let buttonsMenu = document.getElementById("buttonsMenu"),
     tasks = document.getElementById("tasks").children,
     previousPageId = window.location.href[window.location.href.length-1];
 
@@ -20,7 +20,7 @@ if( previousPageId >=0 && previousPageId <=5) {
 }
 
 
-buttons.addEventListener("click", function(e){
+buttonsMenu.addEventListener("click", function(e){
 
     if(e.target.id) {
 

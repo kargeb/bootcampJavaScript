@@ -4,11 +4,12 @@ h1 {
 }
 
 #mainHeader {
-    margin-top: 1em;
+    /* margin-top: 1em; */
 }
 
 #headerIndex {
     background: linear-gradient(to right, #0575e6, #021b79);
+    /* height: 800px; */
 }
 
 h3 {
@@ -72,4 +73,8 @@ h3 {
 }
 .mainList a:first-child {
     border-top: none;
+}
+
+#buttonsMenu button{
+    height: 10rem;
 }
