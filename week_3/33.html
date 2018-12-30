@@ -81,19 +81,50 @@
                 <div class="col-md-8 bg-white shadow rounded">
                         <span class="badge badge-secondary shadow">Rozwiązanie</span>
     
+                        <div class="row justify-content-center ">
+
+                            <div class="col-auto pb-2">
+<pre><code class="language-js">
+    if (typeof fetch == "function") {
+
+        function fecz(url, fn_success, fn_failure) {
+    
+            let message = "Wystąpił błąd!";
+            let xhr = new XMLHttpRequest();
+    
+            xhr.open("GET", url, true);
+    
+            xhr.onreadystatechange = function (e) {
+    
+                if (this.readyState == 4 && this.status == 200) {
+                    fn_success(xhr.response);
+    
+                } else if (this.readyState == 4 && this.status != 200) {
+                    xhr.onerror = function (e) {
+                        fn_failure(message);
+                    }
+                }
+            }
+            xhr.send(null);
+        }
+    }</code></pre>
+                            </div>
+                        </div>
+                        <hr>
+
                         <div class="row justify-content-around">
 
                             <div class="col-2 offset-4 pt-5">
-                                <button id="buttonOk" class="btn btn-outline-info">Pobierz <br> (poprawny adres)</button>
+                                <button id="buttonOk" class="btn btn-outline-info">Pobierz dane<br> (poprawny adres)</button>
                             </div>
                             
                             <div class="col-2 pt-5">
-                                <button id="buttonBad" class="btn btn-outline-info">Pobierz <br> (niepoprawny adres)</button>
+                                <button id="buttonBad" class="btn btn-outline-info">Pobierz dane<br> (niepoprawny adres)</button>
                             </div>
 
                             <div class="col-2 offset-2 pt-3">
     
-                                <div id="connectionChecker" class="border border-secondary rounded alert alert-secondary p-1 w-100">
+                                <div id="connectionChecker" class="border border-secondary rounded alert alert-secondary p-1 w-100 hidden">
                                     <ul>
                                         <li class="hidden"></li>
                                         <li class="hidden"></li>
@@ -106,10 +137,10 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-center pt-2">
-                            <div id="task33div" class="col-8 my-4 d-flex justify-content-center border border-secondary rounded">
+                        <div class="row justify-content-center pt-2 ">
+                            <div id="task33div" class="col-8 my-4 d-flex justify-content-center border border-secondary rounded ">
 
-                                <p id="showContent"></p>
+                                <div id="showContent" class="py-3"></div>
 
                             </div>
 
@@ -118,8 +149,7 @@
     
             </div>
             <br><br>
-    
-    
+
             <div class="row bg-secondary">
               
                 <div class="col-8 offset-2 ">
@@ -131,7 +161,7 @@
                                 <h5 class="mb-0">
                                     <br>
                                   <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne">
-                                        <h5 class="card-title">Cały kod:</h5>
+                                        <h5 class="card-title">Funkcja Fecz z rozwiązania:</h5>
                                   </button>
                                 </h5>
                               </div>
@@ -139,39 +169,215 @@
                               <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
                                
                                         <pre class="code">
-    function Toggler(tag){
-        this.tag = document.querySelector(tag);
-    }
+    if (typeof fetch == "function") {
+
+        function fecz(url, fn_success, fn_failure) {
     
-    Toggler.prototype.getElem = function(){
-        return this.tag
-    }
+            let message = "Wystąpił błąd!";
+            let xhr = new XMLHttpRequest();
     
-    Toggler.prototype.show = function(){
-        this.tag.style.display = "";
-    }
+            xhr.open("GET", url, true);
     
-    Toggler.prototype.hide = function(){
-        this.tag.style.display = "none";
-    }
+            connectionCheckerList.children[0].classList.remove("hidden");
+            connectionCheckerList.children[0].innerText = "Połączenie ustanownione";
     
+            xhr.onreadystatechange = function (e) {
     
-    var elem = new Toggler("#section");
-    var button = document.querySelector("#button");
+                if (this.readyState == 4 && this.status == 200) {
+                    connectionCheckerList.children[1].classList.remove("hidden");
+                    connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
+                    fn_success(xhr.response);
     
-    
-    button.addEventListener("click", function() {
-    
-        if(elem.getElem().style.display == "none") {
-            elem.show();
-        } else {
-            elem.hide();
+                } else if (this.readyState == 4 && this.status != 200) {
+                    xhr.onerror = function (e) {
+                        connectionCheckerList.children[1].classList.remove("hidden");
+                        connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
+                        fn_failure(message);
+                    }
+                }
+            }
+            xhr.send(null);
         }
-    
-    }, false);
+    }
 </pre>
                               </div>
                             </div>
+
+                            <div class="card text-white bg-dark border-dark ">
+                                <div class="card-header" id="headingOne">
+                                  <h5 class="mb-0">
+                                      <br>
+                                    <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseTwo">
+                                          <h5 class="card-title">Wykorzystanie Fecz (forma zalecana w treści zadania):</h5>
+                                    </button>
+                                  </h5>
+                                </div>
+                            
+                                <div id="collapseTwo" class="collapse show" data-parentt="#accordionExample">
+                                 
+                                          <pre class="code">
+    buttonOk.addEventListener("click", function () {
+
+        resetConnectionChecker();
+        connectionChecker.classList.remove("hidden");
+    
+        fecz("http://code.eduweb.pl/bootcamp/users/",
+            function (data) {
+                connectionChecker.classList.add("alert-success");
+                labelSuccess.classList.remove("hidden");
+                showContent.innerHTML = data;
+                console.log(data);
+            }, function (err) {
+                connectionChecker.classList.add("alert-danger");
+                labelError.classList.remove("hidden");
+                showContent.innerHTML = err;
+                console.log(err);
+            });
+    });
+  </pre>
+                                </div>
+                              </div>
+
+                              <div class="card text-white bg-dark border-dark ">
+                                <div class="card-header" id="headingOne">
+                                  <h5 class="mb-0">
+                                      <br>
+                                    <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseThree">
+                                          <h5 class="card-title">Wykorzystanie Fecz (forma z funkcjami):</h5>
+                                    </button>
+                                  </h5>
+                                </div>
+                            
+                                <div id="collapseThree" class="collapse show" data-parentt="#accordionExample">
+                                 
+                                          <pre class="code">
+    buttonBad.addEventListener("click", function () {
+        resetConnectionChecker();
+        connectionChecker.classList.remove("hidden");
+
+        fecz(addressBad, fn_success, fn_error);
+    });
+    
+    function fn_success(content) {
+        connectionChecker.classList.add("alert-success");
+        labelSuccess.classList.remove("hidden");
+        showContent.innerHTML = content;
+        console.log(content);
+    }
+    
+    function fn_error(message) {
+        connectionChecker.classList.add("alert-danger");
+        labelError.classList.remove("hidden");
+        showContent.innerHTML = message;
+        console.log(message);
+    }
+  </pre>
+                                </div>
+                              </div>
+
+                              <div class="card text-white bg-dark border-dark ">
+                                <div class="card-header" id="headingOne">
+                                  <h5 class="mb-0">
+                                      <br>
+                                    <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseFour">
+                                          <h5 class="card-title">Cały kod:</h5>
+                                    </button>
+                                  </h5>
+                                </div>
+                            
+                                <div id="collapseFour" class="collapse show" data-parentt="#accordionExample">
+                                 
+                                          <pre class="code">
+    if (typeof fetch == "function") {
+
+        function fecz(url, fn_success, fn_failure) {
+
+            let message = "Wystąpił błąd!";
+            let xhr = new XMLHttpRequest();
+
+            xhr.open("GET", url, true);
+
+            connectionCheckerList.children[0].classList.remove("hidden");
+            connectionCheckerList.children[0].innerText = "Połączenie ustanownione";
+
+            xhr.onreadystatechange = function (e) {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    connectionCheckerList.children[1].classList.remove("hidden");
+                    connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
+                    fn_success(xhr.response);
+
+                } else if (this.readyState == 4 && this.status != 200) {
+                    xhr.onerror = function (e) {
+                        connectionCheckerList.children[1].classList.remove("hidden");
+                        connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
+                        fn_failure(message);
+                    }
+                }
+            }
+            xhr.send(null);
+        }
+    }
+
+    let addressBad = "http://code.eduweb.pl/bootcamp/usersssssssssss/",
+        buttonOk = document.getElementById("buttonOk"),
+        buttonBad = document.getElementById("buttonBad"),
+        showContent = document.getElementById("showContent"),
+        connectionChecker = document.getElementById("connectionChecker"),
+        connectionCheckerList = document.querySelector("#connectionChecker ul"),
+        labelError = document.getElementById("labelError"),
+        labelSuccess = document.getElementById("labelSuccess");
+
+
+    buttonOk.addEventListener("click", function () {
+
+        resetConnectionChecker();
+        connectionChecker.classList.remove("hidden");
+
+        fecz("http://code.eduweb.pl/bootcamp/users/",
+            function (data) {
+                connectionChecker.classList.add("alert-success");
+                labelSuccess.classList.remove("hidden");
+                showContent.innerHTML = data;
+                console.log(data);
+            }, function (err) {
+                connectionChecker.classList.add("alert-danger");
+                labelError.classList.remove("hidden");
+                showContent.innerHTML = err;
+                console.log(err);
+            });
+    });
+
+    buttonBad.addEventListener("click", function () {
+        resetConnectionChecker();
+        connectionChecker.classList.remove("hidden");
+        fecz(addressBad, fn_success, fn_error);
+    });
+
+    function fn_success(content) {
+        connectionChecker.classList.add("alert-success");
+        labelSuccess.classList.remove("hidden");
+        showContent.innerHTML = content;
+        console.log(content);
+    }
+
+    function fn_error(message) {
+        connectionChecker.classList.add("alert-danger");
+        labelError.classList.remove("hidden");
+        showContent.innerHTML = message;
+        console.log(message);
+    }
+
+    function resetConnectionChecker() {
+        labelError.classList.add("hidden");
+        labelSuccess.classList.add("hidden");
+        connectionChecker.classList.remove("alert-success");
+        connectionChecker.classList.remove("alert-danger");
+    }
+  </pre>
+                                </div>
+                              </div>
+
                           </div>
                           <br><br>
                 </div>
