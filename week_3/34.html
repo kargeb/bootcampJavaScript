@@ -99,17 +99,18 @@ function getJSON(url, fn_success, fn_failure) {
             </div>
             <pre class="py-0 pl-5"><code class="language-js">
         xhr.onreadystatechange = function (e) {
-        if (this.readyState == 4 && this.status == 200) 
+            if (this.readyState == 4 && this.status == 200) 
 
 </code></pre>
                 <div class="">
-                    <pre class="py-1 pl-5 border border-secondary rounded"><code class="language-js">fn_success(JSON.parse(xhr.response));</code></pre>
+                    <pre class="py-1 pl-5 border border-secondary rounded no-whitespace-normalization"><code class="language-js">       fn_success(JSON.parse(xhr.response));</code></pre>
                 </div>
-                <pre pre class="py-0 pl-5"><code class="language-js">                    
-            } else if (this.readyState == 4 && this.status != 200) {
-    xhr.onerror = function (e) {
-    fn_failure(message);
-}}}
+                <pre pre class="py-0 pl-5 no-whitespace-normalization"><code class="language-js">    } else if (this.readyState == 4 && this.status != 200) {
+        xhr.onerror = function (e) {
+            fn_failure(message);
+        }
+    }
+}
 xhr.send(null);
 }</code></pre>
                             </div>
@@ -165,7 +166,7 @@ xhr.send(null);
                                 <h5 class="mb-0">
                                     <br>
                                   <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne">
-                                        <h5 class="card-title">Funkcja Fecz z rozwiązania:</h5>
+                                        <h5 class="card-title">Funkcja getJSON z rozwiązania:</h5>
                                   </button>
                                 </h5>
                               </div>
@@ -213,7 +214,7 @@ xhr.send(null);
                                   <h5 class="mb-0">
                                       <br>
                                     <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseTwo">
-                                          <h5 class="card-title">Wykorzystanie Fecz (forma zalecana w treści zadania):</h5>
+                                          <h5 class="card-title">Wykorzystanie getJSON (forma zalecana w treści zadania):</h5>
                                     </button>
                                   </h5>
                                 </div>
