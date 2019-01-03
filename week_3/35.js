@@ -4,20 +4,20 @@ var
 // button_add_page = document.getElementById("button_add_page"),
     button_goToURL = document.getElementById("button_goToURL"),
     // button_check = document.getElementById("button_check"),
-    input = document.getElementById("basic-url"),
+    input_url = document.getElementById("input_url"),
     summary = document.getElementById("summary");
-    result = document.querySelector("h1[class='display-4']");
+    outputGetPage = document.getElementById("outputGetPage");
     
 var regex = /\/35\.html\?page=\d+$/;
 
 var input_url ="?page=2";
 
-console.log(result);
+console.log(outputGetPage);
 
 console.log(window.location.href);
 console.log(window.location.pathname);
 
-console.log(input);
+console.log(input_url);
 
 getPage();
 
@@ -33,21 +33,21 @@ function getPage(){
 
 
         console.log("jest teb zndhd");
-        result.innerText = /\d*$/.exec( window.location.href )[0];
+        outputGetPage.innerText = /\d*$/.exec( window.location.href )[0];
 
 
-         return  Number( result.innerText );
+         return  Number( outputGetPage.innerText );
 
     } else {
         console.log("nie ma");
-        result.innerText = "null";
+        outputGetPage.innerText = "null";
         return null;
     }
 }
 
 button_goToURL.addEventListener("click", function(){
     
-    let temp = input.value;
+    let temp = input_url.value;
 
     console.log(temp);
 
