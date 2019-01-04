@@ -1,16 +1,13 @@
 console.log("35");
 
-var 
-// button_add_page = document.getElementById("button_add_page"),
-    button_goToURL = document.getElementById("button_goToURL"),
-    // button_check = document.getElementById("button_check"),
+var  button_goToURL = document.getElementById("button_goToURL"),
     input_url = document.getElementById("input_url"),
-    summary = document.getElementById("summary");
-    outputGetPage = document.getElementById("outputGetPage");
+    summary = document.getElementById("summary"),
+    outputGetPage = document.getElementById("output_GetPage");
     
 var regex = /\/35\.html\?page=\d+$/;
 
-var input_url ="?page=2";
+// var input_url ="?page=2";
 
 console.log(outputGetPage);
 
@@ -18,6 +15,7 @@ console.log(window.location.href);
 console.log(window.location.pathname);
 
 console.log(input_url);
+console.log(input_url.value);
 
 getPage();
 
@@ -49,6 +47,8 @@ button_goToURL.addEventListener("click", function(){
     
     let temp = input_url.value;
 
+    console.log("jestem w button");
+    // console.log(input_url);
     console.log(temp);
 
     window.location.href = window.location.pathname + temp;

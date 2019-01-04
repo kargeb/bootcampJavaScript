@@ -52,11 +52,18 @@ h1 {
     margin-bottom: 1em;
 }
 
-#show_sum{
+.output_result{
     font-size: 2em;
     font-weight: bold;
-    color: #007bff;
     margin-top: -0.2em;
+}
+
+.output_result#show_sum{
+    color: #007bff;
+}
+
+.output_result#output_GetPage{
+    color: #ffc107;
 }
 
 #show_data_button{
