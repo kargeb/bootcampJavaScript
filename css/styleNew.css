@@ -206,15 +206,23 @@ progress {
     
 }
 
-/* nav {
+.mainNav {
     margin-top: 10%;
-    right: 2%;
+    right: 0%;
+    width: 10rem;
     position: fixed;
-} */
+    border: #dc3545 solid 1px;
+}
 
-/* nav li {
+.mainNav li {
     margin-top: 30%;
-} */
+    background-color: #ffc107;
+}
+
+.mainNav li:hover {
+    margin-top: 30%;
+    background-color: #3d07ff;
+}
 
 #task33div{
     min-height: 5rem;
