@@ -15,7 +15,7 @@ function getPage() {
     }
 }
 
-outputGetPage.innerText = getPage();
+getPage() ? outputGetPage.innerText = getPage() : outputGetPage.innerText = "NULL";
 showSummary();
 
 button_goToURL.addEventListener("click", function () {
