@@ -7,126 +7,245 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
-    
+        crossorigin="anonymous">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="../css/styleNew.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="../css/styles/atom-one-dark.css">
+
+    
+    <script src="../highlight.pack.js"></script>
+   
+    <link rel="stylesheet"  href="../themes/prism.css"/>
+
 
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container-fluid template">
-            <div class="row ">
-                <div class="col-1  template">
-                    <a href="../index.html#week4"><i class="material-icons md-46">home</i></a>
-                </div>
-                <div class="col-11 ">
-                    <div class="row">
-                        <div class="col">
-                            <h1 class="page-header">5. Własny plugin dla spisu treści</h1>
-                            <hr>
-                        </div>
-                    </div>
-         
-                    <div class="row">
-                        <div class="col">
-
-                                <div class="container">
-
-                                        <!--
-                                            usuń ten element i wygeneruj go dynamicznie
-                                            na podstawie poniższych sekcji i ich nagłówków
-                                        -->
-                                        <!--         
-                                            <div class="toc">
-                                
-                                                <h2>Spis treści</h2>
-                                
-                                                <ul>
-                                                    <li><a href="">1. Wstęp</a></li>
-                                                    <li><a href="">2. Rozdział pierwszy</a></li>
-                                                    <li><a href="">3. Rozdział drugi</a></li>
-                                                    <li><a href="">4. Rozdział trzeci</a></li>
-                                                    <li><a href="">5. Zakończenie</a></li>
-                                                </ul>
-                                
-                                            </div> 
-                                        -->
-                                
-                                        <section class="section">
-                                
-                                            <h2>Wstęp</h2>
-                                
-                                            <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
-                                
-                                            <p>Etiam posuere quam ac quam. Maecenas aliquet accumsan leo. Nullam dapibus fermentum ipsum. Etiam quis quam. Integer lacinia. Nulla est. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Integer vulputate sem a nibh rutrum consequat. Maecenas lorem. Pellentesque pretium lectus id turpis. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Fusce wisi. Phasellus faucibus molestie nisl. Fusce eget urna. Curabitur vitae diam non enim vestibulum interdum. Nulla quis diam. Ut tempus purus at lorem.</p>
-                                
-                                            <p>Morbi a metus. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Nullam sapien sem, ornare ac, nonummy non, lobortis a, enim. Nunc tincidunt ante vitae massa. Duis ante orci, molestie vitae, vehicula venenatis, tincidunt ac, pede. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo. Etiam commodo dui eget wisi. Donec iaculis gravida nulla. Donec quis nibh at felis congue commodo. Etiam bibendum elit eget erat.</p>
-                                
-                                        </section>
-                                
-                                        <section class="section">
-                                
-                                            <h2>Rozdział pierwszy</h2>
-                                
-                                            <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
-                                
-                                            <p>Etiam posuere quam ac quam. Maecenas aliquet accumsan leo. Nullam dapibus fermentum ipsum. Etiam quis quam. Integer lacinia. Nulla est. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Integer vulputate sem a nibh rutrum consequat. Maecenas lorem. Pellentesque pretium lectus id turpis. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Fusce wisi. Phasellus faucibus molestie nisl. Fusce eget urna. Curabitur vitae diam non enim vestibulum interdum. Nulla quis diam. Ut tempus purus at lorem.</p>
-                                
-                                        </section>
-                                
-                                        <section class="section">
-                                
-                                            <h2>Rozdział drugi</h2>
-                                
-                                            <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
-                                
-                                            <p>Etiam posuere quam ac quam. Maecenas aliquet accumsan leo. Nullam dapibus fermentum ipsum. Etiam quis quam. Integer lacinia. Nulla est. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Integer vulputate sem a nibh rutrum consequat. Maecenas lorem. Pellentesque pretium lectus id turpis. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Fusce wisi. Phasellus faucibus molestie nisl. Fusce eget urna. Curabitur vitae diam non enim vestibulum interdum. Nulla quis diam. Ut tempus purus at lorem.</p>
-                                
-                                            <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
-                                
-                                        </section>
-                                
-                                        <section class="section">
-                                
-                                            <h2>Rozdział trzeci</h2>
-                                
-                                            <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
-                                
-                                            <p>Etiam posuere quam ac quam. Maecenas aliquet accumsan leo. Nullam dapibus fermentum ipsum. Etiam quis quam. Integer lacinia. Nulla est. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Integer vulputate sem a nibh rutrum consequat. Maecenas lorem. Pellentesque pretium lectus id turpis. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Fusce wisi. Phasellus faucibus molestie nisl. Fusce eget urna. Curabitur vitae diam non enim vestibulum interdum. Nulla quis diam. Ut tempus purus at lorem.</p>
-                                
-                                        </section>
-                                
-                                        <section class="section">
-                                
-                                            <h2>Zakończenie</h2>
-                                
-                                            <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
-                                
-                                        </section>
-                                
-                                    </div>
-
-                            
-                        </div>
+        <div class="container-fluid ">
+            <header>
+                <div id="homeButton">
+                        <a href="../index.html#3"><i class="material-icons md-46">home</i></a>
                     </div> 
+    
+            <div class="row mt-4"></div>
+            <div class="row head bg-secondary shadow-sm">
+               
+                
+                <div class="col-8 offset-2 text-white">
+                        <span class="badge badge-light shadow">Treść zadania</span>
+                    
+                    <h3><br>
+                        5. Własny plugin dla spisu treści
+                        </h3>
+                        
+                        <p>               
+                            Stwórz funkcję o nazwie getPage, która pozwoli odczytać numer strony z adresu URL. <br>
+                            Dane na temat adresu URL strony, na której wykonuje się Twój kod JavaScript, możesz 
+                            odczytać za pomocą obiektu window.location. Dopisz do adresu Twojej strony ?page=2 i 
+                            wykorzystując odpowiednią właściwość obiektu location, a także odpowiednie wyrażenie 
+                            regularne, zwróć z funkcji 2 (typ Number) lub null, jeśli query string ?page=X nie będzie 
+                            podany lub będzie niepoprawny, np. ?page=tekst <br> <br>
+                            Użycie funkcji powinno wyglądać następująco: <br>
+                            // dla adresu np. http://localhost/test/?page=2 <br>
+                            getPage(); // zwraca 2 <br>
+                            // dla adresu np. http://localhost/test/ <br>
+                            getPage(); // zwraca null <br>
+                            // dla adresu np. http://localhost/test/?page=nieliczba <br>
+                            getPage(); // zwraca null  <br>
+                        </p>
+    
+                        <br>
                 </div>
+    
+    
             </div>
+        </header>
+
+          
+            <!----------- MAIN TASK ------------>
+            <br>
+                    
+            <div class="row justify-content-center ">
+    
+                <div class="col-md-8 bg-white shadow rounded">
+                        <span class="badge badge-secondary shadow">Rozwiązanie</span>
+
+                        <div class="row">
+                            <div class="col">
+    
+                                    <div class="container">
+    
+                                            <!--
+                                                usuń ten element i wygeneruj go dynamicznie
+                                                na podstawie poniższych sekcji i ich nagłówków
+                                            -->
+                                            <!--         
+                                                <div class="toc">
+                                    
+                                                    <h2>Spis treści</h2>
+                                    
+                                                    <ul>
+                                                        <li><a href="">1. Wstęp</a></li>
+                                                        <li><a href="">2. Rozdział pierwszy</a></li>
+                                                        <li><a href="">3. Rozdział drugi</a></li>
+                                                        <li><a href="">4. Rozdział trzeci</a></li>
+                                                        <li><a href="">5. Zakończenie</a></li>
+                                                    </ul>
+                                    
+                                                </div> 
+                                            -->
+                                    
+                                            <section class="section">
+                                    
+                                                <h2>Wstęp</h2>
+                                    
+                                                <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
+                                    
+                                                <p>Etiam posuere quam ac quam. Maecenas aliquet accumsan leo. Nullam dapibus fermentum ipsum. Etiam quis quam. Integer lacinia. Nulla est. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Integer vulputate sem a nibh rutrum consequat. Maecenas lorem. Pellentesque pretium lectus id turpis. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Fusce wisi. Phasellus faucibus molestie nisl. Fusce eget urna. Curabitur vitae diam non enim vestibulum interdum. Nulla quis diam. Ut tempus purus at lorem.</p>
+                                    
+                                                <p>Morbi a metus. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Nullam sapien sem, ornare ac, nonummy non, lobortis a, enim. Nunc tincidunt ante vitae massa. Duis ante orci, molestie vitae, vehicula venenatis, tincidunt ac, pede. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo. Etiam commodo dui eget wisi. Donec iaculis gravida nulla. Donec quis nibh at felis congue commodo. Etiam bibendum elit eget erat.</p>
+                                    
+                                            </section>
+                                    
+                                            <section class="section">
+                                    
+                                                <h2>Rozdział pierwszy</h2>
+                                    
+                                                <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
+                                    
+                                                <p>Etiam posuere quam ac quam. Maecenas aliquet accumsan leo. Nullam dapibus fermentum ipsum. Etiam quis quam. Integer lacinia. Nulla est. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Integer vulputate sem a nibh rutrum consequat. Maecenas lorem. Pellentesque pretium lectus id turpis. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Fusce wisi. Phasellus faucibus molestie nisl. Fusce eget urna. Curabitur vitae diam non enim vestibulum interdum. Nulla quis diam. Ut tempus purus at lorem.</p>
+                                    
+                                            </section>
+                                    
+                                            <section class="section">
+                                    
+                                                <h2>Rozdział drugi</h2>
+                                    
+                                                <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
+                                    
+                                                <p>Etiam posuere quam ac quam. Maecenas aliquet accumsan leo. Nullam dapibus fermentum ipsum. Etiam quis quam. Integer lacinia. Nulla est. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Integer vulputate sem a nibh rutrum consequat. Maecenas lorem. Pellentesque pretium lectus id turpis. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Fusce wisi. Phasellus faucibus molestie nisl. Fusce eget urna. Curabitur vitae diam non enim vestibulum interdum. Nulla quis diam. Ut tempus purus at lorem.</p>
+                                    
+                                                <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
+                                    
+                                            </section>
+                                    
+                                            <section class="section">
+                                    
+                                                <h2>Rozdział trzeci</h2>
+                                    
+                                                <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
+                                    
+                                                <p>Etiam posuere quam ac quam. Maecenas aliquet accumsan leo. Nullam dapibus fermentum ipsum. Etiam quis quam. Integer lacinia. Nulla est. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Integer vulputate sem a nibh rutrum consequat. Maecenas lorem. Pellentesque pretium lectus id turpis. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Fusce wisi. Phasellus faucibus molestie nisl. Fusce eget urna. Curabitur vitae diam non enim vestibulum interdum. Nulla quis diam. Ut tempus purus at lorem.</p>
+                                    
+                                            </section>
+                                    
+                                            <section class="section">
+                                    
+                                                <h2>Zakończenie</h2>
+                                    
+                                                <p>Praesent in mauris eu tortor porttitor accumsan. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aenean fermentum risus id tortor. Integer imperdiet lectus quis justo. Integer tempor. Vivamus ac urna vel leo pretium faucibus. Mauris elementum mauris vitae tortor. In dapibus augue non sapien. Aliquam ante. Curabitur bibendum justo non orci.</p>
+                                    
+                                            </section>
+                                    
+                                        </div>
+    
+                                
+                            </div>
+                        </div> 
+
+  
+                </div>
+    
+            </div>
+            <br><br>
+
+            <div class="row bg-secondary">
+              
+                <div class="col-8 offset-2 ">
+                    <br><br>
+                    <span class="badge badge-light shadow">Kody źródłowe</span>
+                    <div class="accordion" id="accordionExample">
+                            <div class="card text-white bg-dark border-dark ">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <br>
+                                  <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne">
+                                        <h5 class="card-title">Cały kod:</h5>
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
+                               
+                                        <pre class="code">
+    var button_goToURL = document.getElementById("button_goToURL"),
+        input_url = document.getElementById("input_url"),
+        summary = document.getElementById("summary"),
+        outputGetPage = document.getElementById("output_GetPage");
+    
+    var regex = /\/35\.html\?page=\d+$/;
+    
+    function getPage() {
+    
+        if (regex.test(window.location.href)) {
+            return Number(/\d*$/.exec(window.location.href)[0]);
+    
+        } else {
+            return null;
+        }
+    }
+    
+    outputGetPage.innerText = getPage();
+    showSummary();
+    
+    button_goToURL.addEventListener("click", function () {
+        window.location.href = window.location.pathname + input_url.value;
+    });
+    
+    function showSummary() {
+        summary.innerText = "adress " + window.location.href + 
+                " \n cos tam cos tam ze wyrazeniem: \n /\\/35\\.html\\?page=\\d+$/";
+    }
+</pre>
+                              </div>
+                            </div>
+
+                          </div>
+                          <br><br>
+                </div>
+    
+    
+            </div>
+            <br><br>
+    
+    
         </div>
         
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
-    <!-- <script src="45.js"></script> -->
-    <script src="js/jquery.toc.js"></script>
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+        <!-- <script src="44.js"></script> -->
+        <script src="js/jquery.toc.js"></script>
+        <script>
+                $(".section").toc();
+        </script>
+    
     <script>
-            $(".section").toc();
-    </script>
-</body>
+
+            $('.code').each(function(i, block) {
+              hljs.highlightBlock(block);
+                });
+                
+    </script>        
+    <script src="../prism.js"></script>
+            
+    </body>
 
 </html>
