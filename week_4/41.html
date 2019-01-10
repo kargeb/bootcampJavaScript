@@ -43,19 +43,18 @@
                         </h3>
                         
                         <p>               
-                            Stwórz funkcję o nazwie getPage, która pozwoli odczytać numer strony z adresu URL. <br>
-                            Dane na temat adresu URL strony, na której wykonuje się Twój kod JavaScript, możesz 
-                            odczytać za pomocą obiektu window.location. Dopisz do adresu Twojej strony ?page=2 i 
-                            wykorzystując odpowiednią właściwość obiektu location, a także odpowiednie wyrażenie 
-                            regularne, zwróć z funkcji 2 (typ Number) lub null, jeśli query string ?page=X nie będzie 
-                            podany lub będzie niepoprawny, np. ?page=tekst <br> <br>
-                            Użycie funkcji powinno wyglądać następująco: <br>
-                            // dla adresu np. http://localhost/test/?page=2 <br>
-                            getPage(); // zwraca 2 <br>
-                            // dla adresu np. http://localhost/test/ <br>
-                            getPage(); // zwraca null <br>
-                            // dla adresu np. http://localhost/test/?page=nieliczba <br>
-                            getPage(); // zwraca null  <br>
+                          Podaj przykłady selektorów, które pozwolą znaleźć na stronie następujące elementy: <br>
+                          - wszystkie elementy &lt;div>, posiadające zarówno klasę grid oraz klasę grid-12. <br>
+                          - wszystkie elementy &lt;a>, których atrybut href zaczyna się na “http”, znajdujące się w 
+                          elemencie o klasie nav <br>
+                          - wszystkie elementy &lt;input>, których typ to radio lub checkbox oraz dodatkowo nie są 
+                          aktualnie zaznaczone (checked). <br>
+                          - wyłącznie pierwszy element &lt;p>, który jest pusty (nie zawiera dzieci) oraz znajduje się w 
+                          elemencie &lt;div> z identyﬁkatorem text <br>
+                          - wszystkie elementy z klasą pagination-item, które nie są elementem &lt;span> <br>  
+                          Uwaga: Możesz utworzyć prostą stronę w HTML, gdzie w jakiś sposób podświetlisz 
+                          znalezione powyższymi selektorami elementy, ale możesz równie dobrze po prostu wypisać 
+                          te selektory w pliku tekstowym, bez tworzenia dla tego przykładu specjalnej strony.
                         </p>
     
                         <br>
@@ -85,7 +84,7 @@
                                       </button>
                                       <button type="button" class="btn btn-outline-secondary" >
                                               Wyłącznie pierwszy element &lt;p&gt;, który jest pusty (nie zawiera dzieci) oraz znajduje się w elemencie &lt;div&gt;
-                                              z identyﬁkatorem "text"  <br> <span> $("div#text p:empty");</span>
+                                              z identyﬁkatorem "text"  <br> <span> $("div#text p:empty").first();</span>
                                       </button>
                                       <button type="button" class="btn btn-outline-secondary" >
                                              Wszystkie elementy z klasą "pagination-item" , które nie są elementem &lt;span&gt;<br> <span>$(".pagination-item:not(span)"); </span>
@@ -271,34 +270,53 @@
                               <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
                                
                                         <pre class="code">
-    var button_goToURL = document.getElementById("button_goToURL"),
-        input_url = document.getElementById("input_url"),
-        summary = document.getElementById("summary"),
-        outputGetPage = document.getElementById("output_GetPage");
-    
-    var regex = /\/35\.html\?page=\d+$/;
-    
-    function getPage() {
-    
-        if (regex.test(window.location.href)) {
-            return Number(/\d*$/.exec(window.location.href)[0]);
-    
-        } else {
-            return null;
-        }
-    }
-    
-    outputGetPage.innerText = getPage();
-    showSummary();
-    
-    button_goToURL.addEventListener("click", function () {
-        window.location.href = window.location.pathname + input_url.value;
-    });
-    
-    function showSummary() {
-        summary.innerText = "adress " + window.location.href + 
-                " \n cos tam cos tam ze wyrazeniem: \n /\\/35\\.html\\?page=\\d+$/";
-    }
+    (function ($) {
+      $(document).ready(function () {
+  
+          var buttons = $(".selector_buttons button");
+  
+          $(buttons[0]).on("click", function () {
+              var divs = $("div.grid.grid-12");
+  
+              $(this).toggleClass("task41_bg_button_first");
+              $(divs).toggleClass("task41_bg_button_first");
+          })
+  
+          $(buttons[1]).on("click", function () {
+              var links = $(".nav a[href^='http']");
+  
+              $(this).toggleClass("task41_bg_button_third");
+              $(links).toggleClass("task41_bg_button_third");
+          })
+  
+          $(buttons[2]).on("click", function () {
+              var unchecked = $("input:radio:not(:checked), input:checkbox:not(:checked)");
+  
+              $(this).toggleClass("task41_bg_button_second");
+              if ($(this).hasClass("task41_bg_button_second")) {
+                  $("input:radio, input:checkbox").prop('disabled', true);
+              } else {
+                  $("input:radio, input:checkbox").prop('disabled', false);
+              }
+              $(unchecked).parent().toggleClass("task41_bg_button_second");
+          })
+  
+          $(buttons[3]).on("click", function () {
+              var paragraphs = $("div#text p:empty").first();
+  
+              $(this).toggleClass("task41_bg_button_fourth");
+              $(paragraphs).toggleClass("task41_bg_button_fourth");
+          })
+  
+          $(buttons[4]).on("click", function () {
+              var paginations = $(".pagination-item:not(span)");
+  
+              $(this).toggleClass("task41_bg_button_fifth");
+              $(paginations).toggleClass("task41_bg_button_fifth");
+          })
+      });
+  })(jQuery);
+                                        
 </pre>
                               </div>
                             </div>
