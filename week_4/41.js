@@ -2,21 +2,10 @@
 
 $(document).ready(function(){
 
-    console.log("jquery");
-    console.log($);
 
-    var buttons = $(".line_break_buttons button");
-    // var sample = $(".nav > a[href^='http']");
-    // var sample = $(".nav a[href^='http']");
-    var sample = $(".pagination-item:not(span)");
-
-    console.log(sample);
-
-    // console.log(sample.toggleClass("task41_bg_button_first") );
+    var buttons = $(".selector_buttons button");
 
     $(buttons[0]).on("click", function(){
-
-        // $(this).toggleClass("task41_bg_button_first");
         var divs = $("div.grid.grid-12");
 
         $(this).toggleClass("task41_bg_button_first");
@@ -65,27 +54,6 @@ $(document).ready(function(){
         $(paginations).toggleClass("task41_bg_button_fifth");
 
     })
-
-
-    // function show(elems){
-
-    //     elems.each( function(){
-
-    //         $(this).css("background-color", "#dc3545");
-    
-    //     });
-
-    // }
-
-    // sample.css("background-color", "#dc3545");
-    // boxes.parent().css("background-color", "#dc3545");
-
-
-
-
-
-    // show(sample);
-
 
 });
 
