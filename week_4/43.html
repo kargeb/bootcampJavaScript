@@ -43,19 +43,12 @@
                         </h3>
                         
                         <p>               
-                            Stwórz funkcję o nazwie getPage, która pozwoli odczytać numer strony z adresu URL. <br>
-                            Dane na temat adresu URL strony, na której wykonuje się Twój kod JavaScript, możesz 
-                            odczytać za pomocą obiektu window.location. Dopisz do adresu Twojej strony ?page=2 i 
-                            wykorzystując odpowiednią właściwość obiektu location, a także odpowiednie wyrażenie 
-                            regularne, zwróć z funkcji 2 (typ Number) lub null, jeśli query string ?page=X nie będzie 
-                            podany lub będzie niepoprawny, np. ?page=tekst <br> <br>
-                            Użycie funkcji powinno wyglądać następująco: <br>
-                            // dla adresu np. http://localhost/test/?page=2 <br>
-                            getPage(); // zwraca 2 <br>
-                            // dla adresu np. http://localhost/test/ <br>
-                            getPage(); // zwraca null <br>
-                            // dla adresu np. http://localhost/test/?page=nieliczba <br>
-                            getPage(); // zwraca null  <br>
+                            Stwórz aplikację, która zawierać będzie prosty formularz z wyłącznie jednym polem 
+                            &lt;input>, a także przyciskiem &lt;button>. Napisz kod tak, aby po wpisaniu informacji do 
+                            pola i po wciśnięciu przycisku, wstawić wpisane informacje do nowego elementu &lt;li>, a 
+                            ten element do wcześniej wstawionego elementu &lt;ul>. W ten sposób za każdym razem, 
+                            gdy zostanie wpisane np. jakieś imię, pojawi się ono na stronie. Dodatkowo zadbaj o to, by 
+                            jeśli nic nie zostało wpisane do pola, nie wstawiać na stronę pustego elementu &lt;li>.
                         </p>
     
                         <br>
@@ -119,34 +112,56 @@
                               <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
                                
                                         <pre class="code">
-    var button_goToURL = document.getElementById("button_goToURL"),
-        input_url = document.getElementById("input_url"),
-        summary = document.getElementById("summary"),
-        outputGetPage = document.getElementById("output_GetPage");
+    (function($){
+        $(document).ready(function(){
+        
+        var button_input = $("#button-addon2"),
+            input = $("input")
+            list = $("#task43_list"),
+            tab = [];
     
-    var regex = /\/35\.html\?page=\d+$/;
-    
-    function getPage() {
-    
-        if (regex.test(window.location.href)) {
-            return Number(/\d*$/.exec(window.location.href)[0]);
-    
-        } else {
-            return null;
-        }
-    }
-    
-    outputGetPage.innerText = getPage();
-    showSummary();
-    
-    button_goToURL.addEventListener("click", function () {
-        window.location.href = window.location.pathname + input_url.value;
-    });
-    
-    function showSummary() {
-        summary.innerText = "adress " + window.location.href + 
-                " \n cos tam cos tam ze wyrazeniem: \n /\\/35\\.html\\?page=\\d+$/";
-    }
+            button_input.on("click", function(){
+                show_the_list();
+            })
+            
+            input.on("keypress", function(e){
+                if(e.key == "Enter"){
+                    show_the_list();
+                }
+            })
+            
+            function show_the_list(){
+                
+                if( input.val() ){
+        
+                    list.children().remove();
+                    input.attr("placeholder", "Wprowadź tekst" );
+        
+                    tab.unshift( input.val() );
+        
+                    for(var i=0; i&lt;tab.length; i++){
+        
+                        var temp = $(" &lt;li class= \"list-group-item h"+ (i+1) +"\">" + tab[i] + "&lt;/li>");
+        
+                        if(i==0){
+                            temp.css("display","none");
+                            list.append( temp.fadeIn("slow") );
+                            
+                        } else if( i == 4 ){
+                            list.append(temp);
+                            list.children().last().fadeOut("slow");
+                            tab.length = tab.length-1;
+                        } else {
+                            list.append(temp);
+                        }
+                    }
+                    input.val("");
+                } else {
+                    input.attr("placeholder", "WPISZ TEKST!!!");
+                }
+            }
+        });
+    })(jQuery);
 </pre>
                               </div>
                             </div>

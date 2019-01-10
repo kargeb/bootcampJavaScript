@@ -43,19 +43,19 @@
                         </h3>
                         
                         <p>               
-                            Stwórz funkcję o nazwie getPage, która pozwoli odczytać numer strony z adresu URL. <br>
-                            Dane na temat adresu URL strony, na której wykonuje się Twój kod JavaScript, możesz 
-                            odczytać za pomocą obiektu window.location. Dopisz do adresu Twojej strony ?page=2 i 
-                            wykorzystując odpowiednią właściwość obiektu location, a także odpowiednie wyrażenie 
-                            regularne, zwróć z funkcji 2 (typ Number) lub null, jeśli query string ?page=X nie będzie 
-                            podany lub będzie niepoprawny, np. ?page=tekst <br> <br>
-                            Użycie funkcji powinno wyglądać następująco: <br>
-                            // dla adresu np. http://localhost/test/?page=2 <br>
-                            getPage(); // zwraca 2 <br>
-                            // dla adresu np. http://localhost/test/ <br>
-                            getPage(); // zwraca null <br>
-                            // dla adresu np. http://localhost/test/?page=nieliczba <br>
-                            getPage(); // zwraca null  <br>
+                            Stwórz aplikację, która pozwoli po kliknięciu wybranego przycisku, np. “Załaduj”, pobrać 
+                            Ajaxem dane typu JSON i wyświetlić je na stronie. Adres, pod który wyślesz zapytanie z 
+                            użyciem jQuery to <a href="http://code.eduweb.pl/bootcamp/users/">http://code.eduweb.pl/bootcamp/users/</a>
+                            Otrzymane dane wyświetl na stronie w formie nieuporządkowanej listy &lt;ul>, a każdego 
+                            użytkownika w tagu &lt;li>. Z podanych danych wyłuskaj name, username, email oraz 
+                            phone. Sformatuj je według własnego uznania.
+                            Podpowiedź: Dane możesz umieścić w elemencie &lt;li> jak tylko chcesz. Jeśli jednak 
+                            chciałbyś poznać tzw. systemy templatingu, to polecam dodatkowo zapoznać się np. z 
+                            Handlebars.js. Biblioteka ta pozwoli Ci utworzyć szablon HTML, do którego następnie 
+                            przekażesz dane JSON, a w odpowiedzi otrzymasz gotowy kod HTML z wstawionymi w 
+                            odpowiednie miejsca danymi. Taki kod pozostanie wstawić na stronę. Jak korzystać z 
+                            Handlebars.js od A do Z dowiesz się z naszego wpisu na blogu pt. Kompendium wiedzy o 
+                            Handlebars.js.
                         </p>
     
                         <br>
@@ -75,11 +75,16 @@
                         <span class="badge badge-secondary shadow">Rozwiązanie</span>
 
 
-                        <div class="row justify-content-center my-4">
-                            <div class="col">
+                        <div class="row justify-content-center mt-4 ">
+                            <div class="col-auto">
 
                                 <button id="downloadButton" type="button" class="btn btn-outline-secondary" >Pobierz dane</button>
                                 
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-auto table-responsive">
+                                <p id="here"></p>
                             </div>
                         </div>
 
@@ -108,34 +113,52 @@
                               <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
                                
                                         <pre class="code">
-    var button_goToURL = document.getElementById("button_goToURL"),
-        input_url = document.getElementById("input_url"),
-        summary = document.getElementById("summary"),
-        outputGetPage = document.getElementById("output_GetPage");
+    (function ($) {
+
+        $(document).ready(function () {
     
-    var regex = /\/35\.html\?page=\d+$/;
+            var downloadButton = $("#downloadButton"),
+                url = "http://code.eduweb.pl/bootcamp/users/",
+                tablePlace = $("#here");
     
-    function getPage() {
+            ul = $('&lt;ul>');
+            ul.insertAfter(downloadButton);
     
-        if (regex.test(window.location.href)) {
-            return Number(/\d*$/.exec(window.location.href)[0]);
+            downloadButton.on("click", function () {
     
-        } else {
-            return null;
-        }
-    }
+                $.getJSON(url, function (data) {
+                    showTable(data);
+                });
+            })
     
-    outputGetPage.innerText = getPage();
-    showSummary();
+            function showTable(JSONobject) {
     
-    button_goToURL.addEventListener("click", function () {
-        window.location.href = window.location.pathname + input_url.value;
-    });
+                var headTable = $("&lt;table>", {
+                    "class": "table table-hover"
+                }).append("&lt;thead>&lt;tr>");
     
-    function showSummary() {
-        summary.innerText = "adress " + window.location.href + 
-                " \n cos tam cos tam ze wyrazeniem: \n /\\/35\\.html\\?page=\\d+$/";
-    }
+                headTable.find("tr").append("&lt;th>#&lt;/th>")
+                    .append("&lt;th>Name&lt;/th>")
+                    .append("&lt;th>Username&lt;/th>")
+                    .append("&lt;th>Email&lt;/th>")
+                    .append("&lt;th>Phone&lt;/th>");
+    
+                var bodyTable = $("&lt;tbody>");
+    
+                headTable.find("thead").after(bodyTable);
+    
+                $(JSONobject).each(function (i, elem) {
+                    bodyTable.append("&lt;tr>").append("&lt;th>" + elem.id + "&lt;/th>")
+                        .append("&lt;td>" + elem.name + "&lt;/td>")
+                        .append("&lt;td>" + elem.username + "&lt;/td>")
+                        .append("&lt;td>" + elem.email + "&lt;/td>")
+                        .append("&lt;td>" + elem.phone + "&lt;/td>");
+                })
+                
+                headTable.insertAfter(tablePlace);
+            }
+        });
+    })(jQuery);
 </pre>
                               </div>
                             </div>

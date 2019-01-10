@@ -1,23 +1,15 @@
 (function($){
-
 $(document).ready(function(){
 
-    console.log("task42");
-
     var icon = $(".menu_icon"),
-        navi = $("#task42_container");
-
-    console.log(icon);
-    console.log(navi);
+        rozwiazanie = $("#rozwiazanie"),
+        bottom = $("#bottom"),
+        mainNav = $(".mainNav");
 
     icon.on("click", function(){
-
-        // $(nav).hide(500);
-        // navi.slideToggle();
-        navi.slideToggle("fast");
-
+        mainNav.slideToggle();
+        rozwiazanie.slideToggle();
+        bottom.slideToggle();
     })
-
 });
-
 })(jQuery);

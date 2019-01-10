@@ -181,12 +181,22 @@ progress {
     
 }
 
+/* Navigation--------------------------------- */
+
 .mainNav {
     margin-top: 10%;
     right: 0%;
     width: 10rem;
     position: fixed;
-    border: #dc3545 solid 1px;
+    /* border: #dc3545 solid 1px; */
+}
+
+.mainNav li:hover{
+    background-color: white;
+}
+
+/* .mainNav ul {
+    list-style-type: none;
 }
 
 .mainNav li {
@@ -194,10 +204,17 @@ progress {
     background-color: #ffc107;
 }
 
-.mainNav li:hover {
-    margin-top: 30%;
-    background-color: #3d07ff;
+.mainNav li div{
+    background-color: #dc3545;
+    margin-left: 80%;
 }
+
+.mainNav li div:hover {
+    background-color: #3d07ff;
+    margin-left: 1%;
+} */
+
+/* Navigation--------------------------------- */
 
 #task33div{
     min-height: 5rem;

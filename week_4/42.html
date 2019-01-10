@@ -26,6 +26,25 @@
 
 <body>
         <div class="container-fluid ">
+                <nav class="mainNav">
+                        <ul class="nav nav-pills flex-column">
+                                <li class="nav-item">
+                                  <a class="nav-link text-right" href="#">1</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link active" href="12.html">2. Pokazywanie elementów i animacje</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link text-right" href="13.html">3</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link text-right" href="14.html">4</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link text-right" href="15.html">5</a>
+                                </li>
+                              </ul>
+                    </nav>
             <header>
                 <div id="homeButton">
                         <a href="../index.html#3"><i class="material-icons md-46">home</i></a>
@@ -43,19 +62,11 @@
                         </h3>
                         
                         <p>               
-                            Stwórz funkcję o nazwie getPage, która pozwoli odczytać numer strony z adresu URL. <br>
-                            Dane na temat adresu URL strony, na której wykonuje się Twój kod JavaScript, możesz 
-                            odczytać za pomocą obiektu window.location. Dopisz do adresu Twojej strony ?page=2 i 
-                            wykorzystując odpowiednią właściwość obiektu location, a także odpowiednie wyrażenie 
-                            regularne, zwróć z funkcji 2 (typ Number) lub null, jeśli query string ?page=X nie będzie 
-                            podany lub będzie niepoprawny, np. ?page=tekst <br> <br>
-                            Użycie funkcji powinno wyglądać następująco: <br>
-                            // dla adresu np. http://localhost/test/?page=2 <br>
-                            getPage(); // zwraca 2 <br>
-                            // dla adresu np. http://localhost/test/ <br>
-                            getPage(); // zwraca null <br>
-                            // dla adresu np. http://localhost/test/?page=nieliczba <br>
-                            getPage(); // zwraca null  <br>
+                            Stwórz kontener z przykładową nawigacją, który domyślnie nie będzie widoczny. Może on 
+                            znajdować się na samej górze strony lub w sidebarze. Następnie umieść na stronie 
+                            przycisk typu “hamburger menu” ☰, po kliknięciu którego wysunie się wcześniej ukryte 
+                            menu. Animacja jaką zastosujesz, zależy od Ciebie. Ponowne kliknięcie przycisku powinno 
+                            chować nawigację.
                         </p>
     
                         <br>
@@ -72,7 +83,7 @@
             <div class="row justify-content-center ">
     
                 <div class="col-md-8 bg-white shadow rounded">
-                        <span class="badge badge-secondary shadow">Rozwiązanie</span>
+                        <span id="rozwiazanie" class="badge badge-secondary shadow">Rozwiązanie</span>
 
 
                         <div class="row justify-content-center mb-4">
@@ -83,21 +94,6 @@
                                     <i class="material-icons menu_icon">menu</i>
                         
                                 </div>
-        
-                                <div class="col-9">
-                                    <br>
-                                    <div id="task42_container">
-                                        <nav class="navbar navbar-light bg-light">
-                                            <a class="navbar-brand">Navbar</a>
-                                            <form class="form-inline">
-                                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                                <button class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
-                                            </form>
-                                        </nav>
-                                    </div>
-                                </div>
-        
-
                         </div>
 
   
@@ -106,7 +102,7 @@
             </div>
             <br><br>
 
-            <div class="row bg-secondary">
+            <div id="bottom" class="row bg-secondary">
               
                 <div class="col-8 offset-2 ">
                     <br><br>
@@ -125,34 +121,22 @@
                               <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
                                
                                         <pre class="code">
-    var button_goToURL = document.getElementById("button_goToURL"),
-        input_url = document.getElementById("input_url"),
-        summary = document.getElementById("summary"),
-        outputGetPage = document.getElementById("output_GetPage");
-    
-    var regex = /\/35\.html\?page=\d+$/;
-    
-    function getPage() {
-    
-        if (regex.test(window.location.href)) {
-            return Number(/\d*$/.exec(window.location.href)[0]);
-    
-        } else {
-            return null;
-        }
-    }
-    
-    outputGetPage.innerText = getPage();
-    showSummary();
-    
-    button_goToURL.addEventListener("click", function () {
-        window.location.href = window.location.pathname + input_url.value;
-    });
-    
-    function showSummary() {
-        summary.innerText = "adress " + window.location.href + 
-                " \n cos tam cos tam ze wyrazeniem: \n /\\/35\\.html\\?page=\\d+$/";
-    }
+    (function($){
+        $(document).ready(function(){
+        
+            var icon = $(".menu_icon"),
+                rozwiazanie = $("#rozwiazanie"),
+                bottom = $("#bottom"),
+                mainNav = $(".mainNav");
+        
+            icon.on("click", function(){
+                mainNav.slideToggle();
+                rozwiazanie.slideToggle();
+                bottom.slideToggle();
+            })
+        });
+        })(jQuery);
+                                                    
 </pre>
                               </div>
                             </div>

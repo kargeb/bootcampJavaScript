@@ -1,5 +1,4 @@
 (function($){
-
     $(document).ready(function(){
     
     var button_input = $("#button-addon2"),
@@ -44,9 +43,8 @@
                 }
                 input.val("");
             } else {
-                input.attr("placeholder", "WPISZ WARTOŚĆ!!!");
+                input.attr("placeholder", "WPISZ TEKST!!!");
             }
         }
     });
-    
 })(jQuery);

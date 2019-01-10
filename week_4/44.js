@@ -1,66 +1,47 @@
-(function($){
+(function ($) {
 
-    $(document).ready(function(){
+    $(document).ready(function () {
 
         var downloadButton = $("#downloadButton"),
             url = "http://code.eduweb.pl/bootcamp/users/",
-            dataJSON;
+            tablePlace = $("#here");
 
-            ul = $('<ul>');
-            ul.insertAfter(downloadButton);
+        ul = $('<ul>');
+        ul.insertAfter(downloadButton);
 
+        downloadButton.on("click", function () {
 
-        downloadButton.on("click", function(){
-
-            console.log("works");
-
-            $.getJSON(url,function(data){
-                
-                dataJSON = data;
-                console.log(dataJSON);
-
-                // for( var key in dataJSON){
-                //     console.log( "key [" + key + "] = " + dataJSON[key].name);
-                // }
-
-                $(dataJSON).each(function(i, elem){
-
-                    console.log( elem );
-
-                    ul.append("<li>" + elem.name + ", " + elem.username + ", " + elem.email + ", " + elem.phone + "</li>");
-
-                })
-
+            $.getJSON(url, function (data) {
+                showTable(data);
             });
         })
 
-        function showTable(JSONobject){
-
-            // var trThead = 
-            console.log("globalna funkcja");
+        function showTable(JSONobject) {
 
             var headTable = $("<table>", {
-                "class" : "table table-hover"
+                "class": "table table-hover"
             }).append("<thead><tr>");
 
             headTable.find("tr").append("<th>#</th>")
-                                .append("<th>Name</th>")
-                                .append("<th>Username</th>")
-                                .append("<th>Email</th>")
-                                .append("<th>Phone</th>");
+                .append("<th>Name</th>")
+                .append("<th>Username</th>")
+                .append("<th>Email</th>")
+                .append("<th>Phone</th>");
 
-            var bodyTable =$("<tbody>").append("<tr>").append("<th>duap daupd</th>");                    
+            var bodyTable = $("<tbody>");
 
             headTable.find("thead").after(bodyTable);
 
-            headTable.insertBefore(downloadButton);
+            $(JSONobject).each(function (i, elem) {
+                bodyTable.append("<tr>").append("<th>" + elem.id + "</th>")
+                    .append("<td>" + elem.name + "</td>")
+                    .append("<td>" + elem.username + "</td>")
+                    .append("<td>" + elem.email + "</td>")
+                    .append("<td>" + elem.phone + "</td>");
 
+            })
 
-
+            headTable.insertAfter(tablePlace);
         }
-
-        showTable();
-
     });
-    
 })(jQuery);
