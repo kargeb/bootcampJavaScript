@@ -44,19 +44,22 @@
                         </h3>
                         
                         <p>               
-                            Stwórz funkcję o nazwie getPage, która pozwoli odczytać numer strony z adresu URL. <br>
-                            Dane na temat adresu URL strony, na której wykonuje się Twój kod JavaScript, możesz 
-                            odczytać za pomocą obiektu window.location. Dopisz do adresu Twojej strony ?page=2 i 
-                            wykorzystując odpowiednią właściwość obiektu location, a także odpowiednie wyrażenie 
-                            regularne, zwróć z funkcji 2 (typ Number) lub null, jeśli query string ?page=X nie będzie 
-                            podany lub będzie niepoprawny, np. ?page=tekst <br> <br>
-                            Użycie funkcji powinno wyglądać następująco: <br>
-                            // dla adresu np. http://localhost/test/?page=2 <br>
-                            getPage(); // zwraca 2 <br>
-                            // dla adresu np. http://localhost/test/ <br>
-                            getPage(); // zwraca null <br>
-                            // dla adresu np. http://localhost/test/?page=nieliczba <br>
-                            getPage(); // zwraca null  <br>
+                            Napisz własny plugin jQuery o nazwie toc, który umożliwi dynamiczne generowanie spisu 
+                            treści na podstawie sekcji zawierających treść. TOC to skrót od Table of Contents i oznacza 
+                            po prostu Spis Treści.
+                            Przygotowałem dla Ciebie pliki startowe, od których powinieneś zacząć. Znajdziesz je tutaj. 
+                            Zauważ, że plik index.html zawiera kilka sekcji. Każda z nich zawiera nagłówek &lt;h2> 
+                            oraz treść w postaci paragrafów &lt;p>. Na samym dole strony znajdziesz podlinkowane skrypty. Jest to biblioteka jQuery, a także plik jquery.toc.js, w którym powinieneś 
+                            napisać cały kod pluginu. Poniżej tych skryptów znajduje się skrypt liniowy, wywołujący 
+                            Twój plugin na zebranych elementach o klasie section. Na samej górze strony znajdziesz 
+                            spis treści, zawarty w elemencie &lt;div> z klasą toc.
+                            Twoim zadaniem będzie usunięcie (ręczne, w kodzie) tego elementu, a następnie napisanie 
+                            pluginu tak, aby taki element generował i wstawiał go dokładnie w to samo miejsce 
+                            (podpowiedź: przed pierwszym elementem &lt;section>). Treść odnośnika powinna 
+                            odpowiadać treści nagłówka &lt;h2> każdej sekcji. Dodatkowo stwórz mechanizm, który 
+                            pozwoli po kliknięciu w wybrany odnośnik spisu treści, przenieść użytkownika do 
+                            odpowiedniej sekcji (w kodzie, który wstawiłem na sztywno, celowo nie ma tego 
+                            rozwiązania).
                         </p>
     
                         <br>
@@ -76,8 +79,8 @@
                         <span class="badge badge-secondary shadow">Rozwiązanie</span>
 
                         <div class="row justify-content-center">
-                            <div class="col-auto">
-                                <button id="button_apply" >Apply plugin</button>
+                            <div class="col-auto pt-4">
+                                <button id="button_apply" class="btn btn-outline-secondary">Apply plugin</button>
                             </div>
                         </div>
 
@@ -181,7 +184,7 @@
                                 <h5 class="mb-0">
                                     <br>
                                   <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne">
-                                        <h5 class="card-title">Cały kod:</h5>
+                                        <h5 class="card-title">Plugin jquery.toc.js</h5>
                                   </button>
                                 </h5>
                               </div>
@@ -189,34 +192,34 @@
                               <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
                                
                                         <pre class="code">
-    var button_goToURL = document.getElementById("button_goToURL"),
-        input_url = document.getElementById("input_url"),
-        summary = document.getElementById("summary"),
-        outputGetPage = document.getElementById("output_GetPage");
-    
-    var regex = /\/35\.html\?page=\d+$/;
-    
-    function getPage() {
-    
-        if (regex.test(window.location.href)) {
-            return Number(/\d*$/.exec(window.location.href)[0]);
-    
-        } else {
-            return null;
-        }
-    }
-    
-    outputGetPage.innerText = getPage();
-    showSummary();
-    
-    button_goToURL.addEventListener("click", function () {
-        window.location.href = window.location.pathname + input_url.value;
-    });
-    
-    function showSummary() {
-        summary.innerText = "adress " + window.location.href + 
-                " \n cos tam cos tam ze wyrazeniem: \n /\\/35\\.html\\?page=\\d+$/";
-    }
+        (function ($, window, document, undefined) {
+
+            $.fn.toc = function () {
+        
+                var sections = $("section");
+        
+                var containerToc = $("&lt;div>", {
+                    "class": "toc"
+                }).append("&lt;h2>Spis treści&lt;/h2>")
+                    .append("&lt;ul>");
+        
+                sections.first().before(containerToc);
+        
+                return this.each(function (i) {
+        
+                    $(this).attr("id", i);
+        
+                    var li = $("&lt;li>");
+                    var a = $("&lt;a>", {
+                        href: "#" + i,
+                        text: (i + 1) + ". " + $(this).find("h2").text()
+                    });
+        
+                    li.append(a);
+                    containerToc.find("ul").append(li);
+                })
+            };
+        })(jQuery, window, document);
 </pre>
                               </div>
                             </div>

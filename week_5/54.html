@@ -13,67 +13,205 @@
 
     <link rel="stylesheet" href="../css/styleNew.css">
 
+    <link rel="stylesheet" href="../css/styles/atom-one-dark.css">
+
+    
+    <script src="../highlight.pack.js"></script>
+   
+    <link rel="stylesheet"  href="../themes/prism.css"/>
+
+
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container-fluid template">
-            <div class="row ">
-                <div class="col-1  template">
-                    <a href="../index.html#week5"><i class="material-icons md-46">home</i></a>
+        <div class="container-fluid ">
+            <header>
+                <div id="homeButton">
+                        <a href="../index.html#3"><i class="material-icons md-46">home</i></a>
+                    </div> 
+    
+            <div class="row mt-4"></div>
+            <div class="row head bg-secondary shadow-sm">
+               
+                
+                <div class="col-8 offset-2 text-white">
+                        <span class="badge badge-light shadow">Treść zadania</span>
+                    
+                    <h3><br>
+                        4. Iteartor dla klasy losującej liczby
+                        </h3>
+                        
+                        <p>               
+                            W lekcjach drugiego tygodnia, w sekcji Praktyczne projekty znajduje się lekcja 
+                            pt. Losowanie Dużego Lotka. Utwórz z użyciem zapisu ES6 klasę Lotek, która zawierać 
+                            będzie metodę getNumbers, a ta z kolei wylosuje liczby według logiki ze wspomnianej 
+                            lekcji. Metoda ta powinna być wywoływana od razu przy tworzeniu nowej instancji obiektu 
+                            tej klasy. Wylosowane liczby musisz zatem zapisać wewnątrz obiektu. Dodatkowo stwórz 
+                            metodę checkNumbers, która pozwoli podać 6 liczb jako osobne argumenty i zwróci obiekt, 
+                            który zawierał będzie właściwości numbers, gdzie będzie tablica z traﬁonymi liczbami oraz 
+                            count, gdzie będzie liczba traﬁonych numerów.
+                            To jednak dopiero początek, gdyż najważniejszym celem tego zadania jest dodanie 
+                            iteratora do tej klasy. Po poprawnym jego dodaniu, kiedy na obiekcie utworzonym z tej 
+                            klasy użyjemy operatora …spread lub pętli for…of, powinien on zwrócić kolejne wylosowane liczby. 
+                            Przykładowe użycie tego kodu powinno wyglądać następująco:
+                            https://pastebin.com/0zygc3hk.
+                        </p>
+    
+                        <br>
                 </div>
-                <div class="col-11 ">
-                    <div class="row">
-                        <div class="col">
-                            <h1 class="page-header">4. Iteartor dla klasy losującej liczby</h1>
-                            <hr>
-                        </div>
-                    </div>
-         
-                    <div class="row">
-
-                        <div class="col">
-
-                            <input id="inputNewNumber" type="number">
-                            <button id="buttonNewNumber" class="btn btn-outline-success">Podaj liczbę</button>
-                            <button id="buttonRandomNumbers" class="btn btn-outline-success">Wstaw losowe</button>
-
-                        </div>
-
-                        <div class="col">
-
-                            <h2 id="gotNumbers" ></h2>
-
-                        </div>
-                        <div class="col">
-
-                           
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            
-                            <button id="buttonDraw" class="btn btn-outline-success">Losuj liczby</button>
-
-                        </div>
-                        <div class="col">
-                            <h2 id="showDrawNumbers"></h2>
-                        </div>
-                        <div class="col">
-
-                        </div>
-                    </div>
-                </div>
+    
+    
             </div>
+        </header>
+
+          
+            <!----------- MAIN TASK ------------>
+            <br>
+                    
+            <div class="row justify-content-center ">
+    
+                <div class="col-md-8 bg-white shadow rounded">
+                        <span class="badge badge-secondary shadow">Rozwiązanie</span>
+
+
+                        <div class="row">
+
+                            <div class="col">
+    
+                                <input id="inputNewNumber" type="number">
+                                <button id="buttonNewNumber" class="btn btn-outline-success">Podaj liczbę</button>
+                                <button id="buttonRandomNumbers" class="btn btn-outline-success">Wstaw losowe</button>
+    
+                            </div>
+    
+                            <div class="col">
+    
+                                <h2 id="gotNumbers" ></h2>
+    
+                            </div>
+                            <div class="col">
+    
+                               
+                            </div>
+    
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                
+                                <button id="buttonDraw" class="btn btn-outline-success">Losuj liczby</button>
+    
+                            </div>
+                            <div class="col">
+                                <h2 id="showDrawNumbers"></h2>
+                            </div>
+                            <div class="col">
+    
+                            </div>
+                        </div>
+
+  
+                </div>
+    
+            </div>
+            <br><br>
+
+            <div class="row bg-secondary">
+              
+                <div class="col-8 offset-2 ">
+                    <br><br>
+                    <span class="badge badge-light shadow">Kody źródłowe</span>
+                    <div class="accordion" id="accordionExample">
+                            <div class="card text-white bg-dark border-dark ">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <br>
+                                  <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne">
+                                        <h5 class="card-title">Cały kod:</h5>
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
+                               
+                                        <pre class="code">
+    (function ($) {
+
+        $(document).ready(function () {
+    
+            var downloadButton = $("#downloadButton"),
+                url = "http://code.eduweb.pl/bootcamp/users/",
+                tablePlace = $("#here");
+    
+            ul = $('&lt;ul>');
+            ul.insertAfter(downloadButton);
+    
+            downloadButton.on("click", function () {
+    
+                $.getJSON(url, function (data) {
+                    showTable(data);
+                });
+            })
+    
+            function showTable(JSONobject) {
+    
+                var headTable = $("&lt;table>", {
+                    "class": "table table-hover"
+                }).append("&lt;thead>&lt;tr>");
+    
+                headTable.find("tr").append("&lt;th>#&lt;/th>")
+                    .append("&lt;th>Name&lt;/th>")
+                    .append("&lt;th>Username&lt;/th>")
+                    .append("&lt;th>Email&lt;/th>")
+                    .append("&lt;th>Phone&lt;/th>");
+    
+                var bodyTable = $("&lt;tbody>");
+    
+                headTable.find("thead").after(bodyTable);
+    
+                $(JSONobject).each(function (i, elem) {
+                    bodyTable.append("&lt;tr>").append("&lt;th>" + elem.id + "&lt;/th>")
+                        .append("&lt;td>" + elem.name + "&lt;/td>")
+                        .append("&lt;td>" + elem.username + "&lt;/td>")
+                        .append("&lt;td>" + elem.email + "&lt;/td>")
+                        .append("&lt;td>" + elem.phone + "&lt;/td>");
+                })
+                
+                headTable.insertAfter(tablePlace);
+            }
+        });
+    })(jQuery);
+</pre>
+                              </div>
+                            </div>
+
+                          </div>
+                          <br><br>
+                </div>
+    
+    
+            </div>
+            <br><br>
+    
+    
         </div>
         
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
-    <script src="54.js"></script>
-</body>
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+        <script src="54.js"></script>
+    
+    <script>
+
+            $('.code').each(function(i, block) {
+              hljs.highlightBlock(block);
+                });
+                
+    </script>        
+    <script src="../prism.js"></script>
+            
+    </body>
 
 </html>
