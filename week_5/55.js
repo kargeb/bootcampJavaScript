@@ -2,8 +2,8 @@ console.log("55");
 
 const   downloadButton = document.getElementById("downloadButton"),
         downloadButton2 = document.getElementById("downloadButton2"),
-        poka = document.getElementById("poka"),
-        innosc = document.getElementById("innosc");
+        poka = document.getElementById("poka");
+        // innosc = document.getElementById("innosc");
 
 const urls = [
     "http://code.eduweb.pl/kurs-jquery/images/photo-1.jpg",
@@ -107,6 +107,7 @@ function getPicture(urlsTab){
             
             tabImages[i] = new Image(300, 210);
                 tabImages[i].src = elem;
+                tabImages[i].className = "img-thumbnail m-1";
 
             tabImages[i].addEventListener("load", function(){
                 counter++
@@ -137,6 +138,7 @@ function preloadImages(urlsTab){
             
             tabImages[i] = new Image(300, 210);
                 tabImages[i].src = elem;
+                tabImages[i].className = "img-thumbnail m-1";
 
             tabImages[i].addEventListener("load", function(){
                 counter++

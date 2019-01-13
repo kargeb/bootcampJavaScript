@@ -249,3 +249,7 @@ progress {
     border-radius: 10px;
     padding: 0 1rem;
 }
+
+#task52_images img:hover{
+    background-color: #007bff;
+}

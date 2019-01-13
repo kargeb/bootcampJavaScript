@@ -70,14 +70,64 @@
 
 
          
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center ">
 
+                                <div class="col-auto "><br>
+                                        <pre><code class="language-js">
+        class EventEmitter {
+        
+            constructor(){  
+                this.events = {};
+            }
+        
+            on(type, fn) {
+                if(!type || !fn) return;
+                
+                this.events[type] = this.events[type] || [];
+                this.events[type].push(fn);
+            }
+        
+            emit(type, data) {
+                var fns = this.events[type];
+                if(!fns || !fns.length) return;
+                
+                for(var i = 0; i < fns.length; i++) {
+                    fns[i](data);
+                }
+            }
+        }
+        
+        class Database extends EventEmitter {
+        
+            constructor(url) {
+                super();
+                this.url = url;
+            }
+        
+            connect() {
+                super.emit("connect", this.url);
+            }
+            
+            disconnect() {
+                super.emit("disconnect", this.url);
+            }
+        }</code></pre>
+                                </div>
+                        </div>
+
+                        <div class="row justify-content-center pt-2">
                             <div class="col-auto">
-    
-                                <div id=poka></div>
-    
+                                    <button id="button_run" class="btn btn-outline-info">Uruchom</button>
                             </div>
-    
+
+                        </div>
+
+                        <div class="row justify-content-center pt-4">
+
+                            <div class="col-8 pb-4">
+                                <p id="content" class="alert alert-primary hidden" role="alert"></p>
+                            </div>
+
                         </div>
 
   

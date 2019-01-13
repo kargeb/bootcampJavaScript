@@ -64,16 +64,6 @@ function good(data){
         let { name, username, email, website, address : { geo : [first, second] }, company : { name : companyName } } = data[elem];
         
         console.log(name, username, email, website, first, second, companyName);
-        
-        // let templatePerson =    ` <p>
-        //                         Imię: ${name} <br>
-        //                         Nick: ${username} <br>
-        //                         Email: <a href="${email}">${email}</a> <br>
-        //                         Strona internetowa: <a href="${website}">${website}</a> <br>
-        //                         Nazwa firmy: ${companyName} <br>
-        //                         Mapa:  <a href="${createMap(first, second)}">klick</a>
-        //                         </p>
-        //                         <hr>` 
 
         let templatePerson =`   <tr>
                                     <td>${name}</td>                    
@@ -88,18 +78,6 @@ function good(data){
         console.log("przed tenplate person poka");
         tableBody += templatePerson;                        
     }
-
-    // let addText = ` <tr>
-    //                     <td>name</td>                    
-    //                     <td>username</td>                    
-    //                     <td><a href="email">email</a></td>                    
-    //                     <td><a href="website">website</a></td>                    
-    //                     <td>companyName</td>                    
-    //                     <td><a href="createMap(first, second)">klick</a></td>
-    //                 </tr>
-    //                 `;  
-
-
 
     poka.innerHTML = `  <table class="table">
     <thead>
@@ -117,9 +95,6 @@ function good(data){
         </tbody>
         </table> 
         `;
-
-                    console.log(poka);
-
 }
 
 function bad(message){
