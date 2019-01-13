@@ -1,13 +1,9 @@
-console.log("task 51");
-
 if( typeof fetch == "function" ){
     console.log("jest fetch wiec robimy fecz");
-    
     
     function fecz( url, fn_success, fn_failure ){
         
         console.log(url);
-        
         
         let mesage = "Error !";
         
@@ -58,6 +54,8 @@ function good(data){
     alert.classList.add("alert-success");
     alert.innerText = "Success";
     console.log(data[0]);
+    
+    let tableBody = "";
 
     for( let elem in data ){
 
@@ -67,18 +65,60 @@ function good(data){
         
         console.log(name, username, email, website, first, second, companyName);
         
-        let templatePerson =    ` <p>
-                                Imię: ${name} <br>
-                                Nick: ${username} <br>
-                                Email: <a href="${email}">${email}</a> <br>
-                                Strona internetowa: <a href="${website}">${website}</a> <br>
-                                Nazwa firmy: ${companyName} <br>
-                                Mapa:  <a href="${createMap(first, second)}">klick</a>
-                                </p>
-                                <hr>` 
+        // let templatePerson =    ` <p>
+        //                         Imię: ${name} <br>
+        //                         Nick: ${username} <br>
+        //                         Email: <a href="${email}">${email}</a> <br>
+        //                         Strona internetowa: <a href="${website}">${website}</a> <br>
+        //                         Nazwa firmy: ${companyName} <br>
+        //                         Mapa:  <a href="${createMap(first, second)}">klick</a>
+        //                         </p>
+        //                         <hr>` 
+
+        let templatePerson =`   <tr>
+                                    <td>${name}</td>                    
+                                    <td>${username}</td>                    
+                                    <td><a href="${email}">${email}</a></td>                    
+                                    <td><a href="${website}">${website}</a></td>                    
+                                    <td>${companyName}</td>                    
+                                    <td><a href="${createMap(first, second)}">klick</a></td>
+                                </tr>
+                                `;                    
         
-        poka.innerHTML += templatePerson;                        
+        console.log("przed tenplate person poka");
+        tableBody += templatePerson;                        
     }
+
+    // let addText = ` <tr>
+    //                     <td>name</td>                    
+    //                     <td>username</td>                    
+    //                     <td><a href="email">email</a></td>                    
+    //                     <td><a href="website">website</a></td>                    
+    //                     <td>companyName</td>                    
+    //                     <td><a href="createMap(first, second)">klick</a></td>
+    //                 </tr>
+    //                 `;  
+
+
+
+    poka.innerHTML = `  <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Imie</th>
+            <th scope="col">Nick</th>
+            <th scope="col">Email</th>
+            <th scope="col">Strona</th>
+            <th scope="col">Firma</th>
+            <th scope="col">Mapa</th>
+        </tr>
+        </thead>
+        <tbody> 
+            ${tableBody}
+        </tbody>
+        </table> 
+        `;
+
+                    console.log(poka);
 
 }
 
