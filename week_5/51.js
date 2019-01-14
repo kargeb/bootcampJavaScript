@@ -13,6 +13,8 @@ if( typeof fetch == "function" ){
         
         xhr.setRequestHeader("Accept", "application/json");
         
+        connectionCheckerList.children[0].classList.remove("hidden");
+        connectionCheckerList.children[0].innerText = "Połączenie ustanownione";
         
         xhr.onreadystatechange = function(e){
             
@@ -20,6 +22,9 @@ if( typeof fetch == "function" ){
             
             if( this.readyState == 4 && this.status == 200 ) {
                 
+                connectionCheckerList.children[1].classList.remove("hidden");
+                connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
+
                 let data = JSON.parse(xhr.response);
 
 
@@ -31,6 +36,10 @@ if( typeof fetch == "function" ){
                 
                 
                 xhr.onerror = function(e){
+
+                    connectionCheckerList.children[1].classList.remove("hidden");
+                    connectionCheckerList.children[1].innerText = "Status połączenia: " + this.status;
+
                     fn_failure(mesage);
                     
                 }
@@ -45,14 +54,17 @@ if( typeof fetch == "function" ){
 }
 
 let downloadButton = document.getElementById("downloadButton"),
-    alert = document.querySelector("div[role='alert']"),
+    connectionChecker = document.getElementById("connectionChecker"),
+    connectionCheckerList = document.querySelector("#connectionChecker ul"),
+    connectionCheckerLabelError = document.getElementById("labelError"),
+    connectionCheckerLabelSuccess = document.getElementById("labelSuccess");
     poka = document.getElementById("poka"),
     address = "http://code.eduweb.pl/bootcamp/json/",
     mapLink = "http://bing.com/maps/default.aspx?cp=";  // http://bing.com/maps/default.aspx?cp=LAT~LON
 
 function good(data){
-    alert.classList.add("alert-success");
-    alert.innerText = "Success";
+    connectionChecker.classList.add("alert-success");
+    connectionCheckerLabelSuccess.classList.remove("hidden");
     console.log(data[0]);
     
     let tableBody = "";
@@ -98,8 +110,8 @@ function good(data){
 }
 
 function bad(message){
-    alert.classList.add("alert-danger");
-    alert.innerText = message;
+    connectionChecker.classList.add("alert-danger");
+    connectionCheckerLabelError.classList.remove("hidden");
     console.log(message);
 }
 
@@ -111,6 +123,17 @@ function createMap(LAT, LON){
 
 downloadButton.addEventListener("click", function(){
 
+    resetConnectionChecker();
+    connectionChecker.classList.remove("hidden");
     fecz(address, good, bad);
 
 });
+
+function resetConnectionChecker() {
+    connectionCheckerLabelError.classList.add("hidden");
+    connectionCheckerLabelSuccess.classList.add("hidden");
+    connectionChecker.classList.remove("alert-success");
+    connectionChecker.classList.remove("alert-danger");
+    connectionCheckerList.children[0].classList.add("hidden");
+    connectionCheckerList.children[1].classList.add("hidden");
+}

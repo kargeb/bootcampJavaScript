@@ -36,8 +36,8 @@ let addressBad = "http://code.eduweb.pl/bootcamp/usersssssssssss/",
     showContent = document.getElementById("showContent"),
     connectionChecker = document.getElementById("connectionChecker"),
     connectionCheckerList = document.querySelector("#connectionChecker ul"),
-    labelError = document.getElementById("labelError"),
-    labelSuccess = document.getElementById("labelSuccess");
+    connectionCheckerLabelError = document.getElementById("labelError"),
+    connectionCheckerLabelSuccess = document.getElementById("labelSuccess");
 
 
 buttonOk.addEventListener("click", function () {
@@ -48,12 +48,12 @@ buttonOk.addEventListener("click", function () {
     getJSON("http://code.eduweb.pl/bootcamp/users/",
         function (data) {
             connectionChecker.classList.add("alert-success");
-            labelSuccess.classList.remove("hidden");
+            connectionCheckerLabelSuccess.classList.remove("hidden");
             showContent.innerText = writeContent(data);
             console.log(data);
         }, function (err) {
             connectionChecker.classList.add("alert-danger");
-            labelError.classList.remove("hidden");
+            connectionCheckerLabelError.classList.remove("hidden");
             showContent.innerHTML = err;
             console.log(err);
         });
@@ -78,21 +78,23 @@ buttonBad.addEventListener("click", function () {
 
 function fn_success(content) {
     connectionChecker.classList.add("alert-success");
-    labelSuccess.classList.remove("hidden");
+    connectionCheckerLabelSuccess.classList.remove("hidden");
     showContent.innerHTML = content;
     console.log(content);
 }
 
 function fn_error(message) {
     connectionChecker.classList.add("alert-danger");
-    labelError.classList.remove("hidden");
+    connectionCheckerLabelError.classList.remove("hidden");
     showContent.innerHTML = message;
     console.log(message);
 }
 
 function resetConnectionChecker() {
-    labelError.classList.add("hidden");
-    labelSuccess.classList.add("hidden");
+    connectionCheckerLabelError.classList.add("hidden");
+    connectionCheckerLabelSuccess.classList.add("hidden");
     connectionChecker.classList.remove("alert-success");
     connectionChecker.classList.remove("alert-danger");
+    connectionCheckerList.children[0].classList.add("hidden");
+    connectionCheckerList.children[1].classList.add("hidden");
 }
