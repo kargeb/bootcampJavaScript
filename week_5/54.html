@@ -75,9 +75,9 @@
                         <span class="badge badge-secondary shadow">Rozwiązanie</span>
 
 
-                        <div class="row">
+                        <div class="row justify-content-center py-4">
 
-                            <div class="col">
+                            <div class="col-auto">
     
                                 <input id="inputNewNumber" type="number">
                                 <button id="buttonNewNumber" class="btn btn-outline-success">Podaj liczbę</button>
@@ -85,30 +85,28 @@
     
                             </div>
     
-                            <div class="col">
+                            <div class="col-auto">
     
                                 <h2 id="gotNumbers" ></h2>
     
                             </div>
-                            <div class="col">
-    
-                               
-                            </div>
     
                         </div>
-                        <div class="row">
-                            <div class="col">
+                        <div class="row justify-content-center py-4">
+                            <div class="col-auto">
                                 
                                 <button id="buttonDraw" class="btn btn-outline-success">Losuj liczby</button>
     
                             </div>
-                            <div class="col">
+                            <div class="col-auto">
                                 <h2 id="showDrawNumbers"></h2>
                             </div>
-                            <div class="col">
-    
-                            </div>
                         </div>
+                        <div class="row justify-content-center py-4">
+                            <div class="col-auto">
+                                <p id="output_result"></p>
+                            </div>
+                        </div>                        
 
   
                 </div>
@@ -127,7 +125,7 @@
                                 <h5 class="mb-0">
                                     <br>
                                   <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne">
-                                        <h5 class="card-title">Cały kod:</h5>
+                                        <h5 class="card-title">Klasa Lotek:</h5>
                                   </button>
                                 </h5>
                               </div>
@@ -135,52 +133,190 @@
                               <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
                                
                                         <pre class="code">
-    (function ($) {
+        class Lotek {
 
-        $(document).ready(function () {
-    
-            var downloadButton = $("#downloadButton"),
-                url = "http://code.eduweb.pl/bootcamp/users/",
-                tablePlace = $("#here");
-    
-            ul = $('&lt;ul>');
-            ul.insertAfter(downloadButton);
-    
-            downloadButton.on("click", function () {
-    
-                $.getJSON(url, function (data) {
-                    showTable(data);
-                });
-            })
-    
-            function showTable(JSONobject) {
-    
-                var headTable = $("&lt;table>", {
-                    "class": "table table-hover"
-                }).append("&lt;thead>&lt;tr>");
-    
-                headTable.find("tr").append("&lt;th>#&lt;/th>")
-                    .append("&lt;th>Name&lt;/th>")
-                    .append("&lt;th>Username&lt;/th>")
-                    .append("&lt;th>Email&lt;/th>")
-                    .append("&lt;th>Phone&lt;/th>");
-    
-                var bodyTable = $("&lt;tbody>");
-    
-                headTable.find("thead").after(bodyTable);
-    
-                $(JSONobject).each(function (i, elem) {
-                    bodyTable.append("&lt;tr>").append("&lt;th>" + elem.id + "&lt;/th>")
-                        .append("&lt;td>" + elem.name + "&lt;/td>")
-                        .append("&lt;td>" + elem.username + "&lt;/td>")
-                        .append("&lt;td>" + elem.email + "&lt;/td>")
-                        .append("&lt;td>" + elem.phone + "&lt;/td>");
-                })
-                
-                headTable.insertAfter(tablePlace);
+            constructor(){
+                this.max = 49;
+                this.numberOfDrownNumbers = 6;
+                this.drownNumbers = this.getNumbers(this.max, this.numberOfDrownNumbers);
             }
-        });
-    })(jQuery);
+        
+            getNumbers(max, numberOfDrownNumbers) {
+                let tempDrownNumbers = [];
+        
+                while (tempDrownNumbers.length != numberOfDrownNumbers) {
+                    let randomNumber =  Math.floor( Math.random() * max ) + 1;
+            
+                    if( ! tempDrownNumbers.includes(  randomNumber ) ) {
+                        tempDrownNumbers.push( randomNumber );
+                    } 
+                }
+                return tempDrownNumbers;
+            }
+        
+            checkNumbers(userNumbers) {
+        
+                let match = [];
+        
+                for(let i=0; i&lt;userNumbers.length; i++){
+                    if( this.drownNumbers.includes( userNumbers[i] ) )
+                    match.push( userNumbers[i] );
+                }
+        
+                return { numbers : match,
+                            count : match.length };
+            }
+        
+            *[Symbol.iterator](){
+                yield *this.drownNumbers;
+            }
+        }
+</pre>
+                              </div>
+                            </div>
+
+                            <div class="card text-white bg-dark border-dark ">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <br>
+                                  <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseTwo">
+                                        <h5 class="card-title">Cały kod:</h5>
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseTwo" class="collapse show" data-parentt="#accordionExample">
+                               
+                                        <pre class="code">
+        class Lotek {
+
+            constructor(){
+                this.max = 49;
+                this.numberOfDrownNumbers = 6;
+                this.drownNumbers = this.getNumbers(this.max, this.numberOfDrownNumbers);
+            }
+        
+            getNumbers(max, numberOfDrownNumbers) {
+                let tempDrownNumbers = [];
+        
+                while (tempDrownNumbers.length != numberOfDrownNumbers) {
+                    let randomNumber =  Math.floor( Math.random() * max ) + 1;
+            
+                    if( ! tempDrownNumbers.includes(  randomNumber ) ) {
+                        tempDrownNumbers.push( randomNumber );
+                    } 
+                }
+                return tempDrownNumbers;
+            }
+        
+            checkNumbers(userNumbers) {
+        
+                let match = [];
+        
+                for(let i=0; i&lt;userNumbers.length; i++){
+                    if( this.drownNumbers.includes( userNumbers[i] ) )
+                    match.push( userNumbers[i] );
+                }
+        
+                return { numbers : match,
+                            count : match.length };
+            }
+        
+            *[Symbol.iterator](){
+                yield *this.drownNumbers;
+            }
+        }
+        
+        const inputNewNumber = document.getElementById("inputNewNumber"),
+                buttonNewNumber = document.getElementById("buttonNewNumber"),
+                buttonRandomNumbers = document.getElementById("buttonRandomNumbers"),
+                gotNumbers = document.getElementById("gotNumbers"),
+                showDrawNumbers = document.getElementById("showDrawNumbers"),
+                buttonDraw = document.getElementById("buttonDraw"),
+                output_result = document.getElementById("output_result");
+        
+        let newNumbers = [],
+            greatLotek;
+        
+        buttonNewNumber.addEventListener("click", function(){
+            inserNewNumber();
+        })
+        
+        buttonRandomNumbers.addEventListener("click", function(){
+            newNumbers = drawSix(49).sort( function(a, b) { return a - b } );
+            gotNumbers.innerText = newNumbers.join(", ");
+        })
+        
+        buttonDraw.addEventListener("click", function(){
+            greatLotek = new Lotek();
+        
+            showDrawNumbers.innerText = greatLotek.drownNumbers.sort( function(a, b) { return a - b } ).join(", ");
+            let {numbers, count} = greatLotek.checkNumbers( newNumbers );
+            output_result.innerText = "Liczba trafionych liczb: " + count + " \nOto numery: " + numbers;
+        })
+        
+        inputNewNumber.addEventListener("keypress",function(e){
+            if(newNumbers.length == 6){
+                buttonNewNumber.disabled = true;
+                inputNewNumber.placeholder = "Podałeś wszystkie 6 liczb";
+                inputNewNumber.value = "";
+                return false;
+            }
+        
+            if( e.key == "Enter" ){
+                inserNewNumber();
+            }
+        })
+        
+        function inserNewNumber(){
+            if( !inputNewNumber.value){
+                inputNewNumber.placeholder = "Podaj liczbę!";
+                return false;
+            }
+            
+            let number = Number(inputNewNumber.value);
+            
+            inputNewNumber.value = "";
+            inputNewNumber.placeholder = "";
+            
+            if( newNumbers.includes(number) ){
+                inputNewNumber.placeholder = "Już podałeś taką liczbę!";
+                inputNewNumber.value = "";
+                return false;
+            }
+            
+            if(Number.isInteger(number) && number > 0 && number < 49 ){
+                newNumbers.push(number);
+                gotNumbers.innerText = newNumbers.join(", ");
+                
+                if(newNumbers.length == 6){
+                    buttonNewNumber.disabled = true;
+                    inputNewNumber.placeholder = "Podałeś wszystkie 6 liczb";
+                    return false;
+                }
+            } else {
+                inputNewNumber.placeholder = "LIczba musi być CAŁKOWITA, większa od 0 i w zakresie 1-49";
+            }
+            
+            inputNewNumber.focus();
+        }
+        
+        function draw(max){
+            return Math.floor( Math.random() * max ) + 1; 
+        }
+        
+        function drawSix(max){
+            let drownNumbers = [];
+        
+            while (drownNumbers.length != 6) {
+                let randomNumber = draw(max);
+        
+                if( ! drownNumbers.includes(  randomNumber ) ) {
+                    drownNumbers.push( randomNumber );
+                }
+            }
+            return drownNumbers;
+        }
 </pre>
                               </div>
                             </div>

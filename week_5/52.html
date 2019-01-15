@@ -91,7 +91,7 @@
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="product" id="radio_charger" value="charger">
+                                                <input class="form-check-input" type="radio" name="product" id="radio_charger" value="charger" checked>
                                                 <label class="form-check-label" for="radio_charger">
                                                 Ładowarka
                                                 </label>
@@ -174,7 +174,7 @@
                                 <h5 class="mb-0">
                                     <br>
                                   <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne">
-                                        <h5 class="card-title">Cały kod:</h5>
+                                        <h5 class="card-title">Funkcja formatPrice():</h5>
                                   </button>
                                 </h5>
                               </div>
@@ -182,52 +182,97 @@
                               <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
                                
                                         <pre class="code">
-    (function ($) {
+        function formatPrice(currency){
 
-        $(document).ready(function () {
-    
-            var downloadButton = $("#downloadButton"),
-                url = "http://code.eduweb.pl/bootcamp/users/",
-                tablePlace = $("#here");
-    
-            ul = $('&lt;ul>');
-            ul.insertAfter(downloadButton);
-    
-            downloadButton.on("click", function () {
-    
-                $.getJSON(url, function (data) {
-                    showTable(data);
-                });
-            })
-    
-            function showTable(JSONobject) {
-    
-                var headTable = $("&lt;table>", {
-                    "class": "table table-hover"
-                }).append("&lt;thead>&lt;tr>");
-    
-                headTable.find("tr").append("&lt;th>#&lt;/th>")
-                    .append("&lt;th>Name&lt;/th>")
-                    .append("&lt;th>Username&lt;/th>")
-                    .append("&lt;th>Email&lt;/th>")
-                    .append("&lt;th>Phone&lt;/th>");
-    
-                var bodyTable = $("&lt;tbody>");
-    
-                headTable.find("thead").after(bodyTable);
-    
-                $(JSONobject).each(function (i, elem) {
-                    bodyTable.append("&lt;tr>").append("&lt;th>" + elem.id + "&lt;/th>")
-                        .append("&lt;td>" + elem.name + "&lt;/td>")
-                        .append("&lt;td>" + elem.username + "&lt;/td>")
-                        .append("&lt;td>" + elem.email + "&lt;/td>")
-                        .append("&lt;td>" + elem.phone + "&lt;/td>");
-                })
-                
-                headTable.insertAfter(tablePlace);
+            let exchangeRate = window.currencies[ currency ];
+        
+            return function(strings, ...values) {
+        
+                let output = strings[0] + values[0] + strings[1] + (values[1]/exchangeRate).toFixed(2) + " " +
+                                currency + strings[2] + (values[2]/exchangeRate).toFixed(2) + " " + currency + strings[3];
+        
+                return output;
             }
-        });
-    })(jQuery);
+        }
+</pre>
+                              </div>
+                            </div>
+
+                            <div class="card text-white bg-dark border-dark ">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <br>
+                                  <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseTwo">
+                                        <h5 class="card-title">Cały kod:</h5>
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseTwo" class="collapse show" data-parentt="#accordionExample">
+                               
+                                        <pre class="code">
+        var radioProduct = document.querySelectorAll("input[name='product']"),
+        radioCurrency = document.querySelectorAll("input[name='currency']"),
+        inputNumber = document.getElementById("input_number"),
+        output_description = document.getElementById("description"),
+        button_calculate = document.getElementById("button_calculate");
+    
+         button_calculate.addEventListener( "click", function () {
+        
+        let chosenProduct = "",
+            chosenCurrency = "",
+            prices = {
+                "pendrive": 2,
+                "charger": 54,
+                "earphones": 123
+            };
+            product = {};
+    
+            console.log(prices.pendrive);
+    
+        for( let key in radioProduct ){
+            if(radioProduct[key].checked){
+                chosenProduct = radioProduct[key].value
+            }
+        }
+    
+        for( let key in radioCurrency ){
+            if(radioCurrency[key].checked){
+                chosenCurrency = radioCurrency[key].value
+            }
+        }
+    
+        product.name = chosenProduct;
+        product.quantity = parseInt(inputNumber.value);
+        product.price = prices[chosenProduct];
+    
+        let { name: pName, price: pPrice, quantity: pQuantity } = product;
+    
+        let info = formatPrice(chosenCurrency)`Kupiłeś produkt '${pName}' w cenie ${pPrice} za sztukę. 
+                    Łączna wartość zamówienia to ${pPrice * pQuantity}.`;
+    
+        output_description.innerText = info;
+    });
+    
+    window.currencies = {
+        "PLN": 1,
+        "USD": 3.8078,
+        "EUR": 4.1794,
+        "GBP": 4.9456
+    };
+    
+    function formatPrice(currency){
+    
+        let exchangeRate = window.currencies[ currency ];
+    
+        return function(strings, ...values) {
+    
+            let output = strings[0] + values[0] + strings[1] + (values[1]/exchangeRate).toFixed(2) + " " +
+                            currency + strings[2] + (values[2]/exchangeRate).toFixed(2) + " " + currency + strings[3];
+    
+            return output;
+        }
+    }
 </pre>
                               </div>
                             </div>

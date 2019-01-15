@@ -4,23 +4,18 @@ class Lotek {
         this.max = 49;
         this.numberOfDrownNumbers = 6;
         this.drownNumbers = this.getNumbers(this.max, this.numberOfDrownNumbers);
-        console.log(" z konstruktora, drownNumbers = " + this.drownNumbers);
     }
 
     getNumbers(max, numberOfDrownNumbers) {
         let tempDrownNumbers = [];
 
         while (tempDrownNumbers.length != numberOfDrownNumbers) {
-    
             let randomNumber =  Math.floor( Math.random() * max ) + 1;
     
             if( ! tempDrownNumbers.includes(  randomNumber ) ) {
                 tempDrownNumbers.push( randomNumber );
-            } else {
-                console.log("powtórzyła sie: " + randomNumber);
-            }
+            } 
         }
-    
         return tempDrownNumbers;
     }
 
@@ -28,58 +23,49 @@ class Lotek {
 
         let match = [];
 
-        console.log( " z new numbers : " + newNumbers);
-
         for(let i=0; i<userNumbers.length; i++){
-
             if( this.drownNumbers.includes( userNumbers[i] ) )
             match.push( userNumbers[i] );
         }
 
-        return { numbers : match.slice(0),
+        return { numbers : match,
                  count : match.length };
     }
 
     *[Symbol.iterator](){
         yield *this.drownNumbers;
     }
-
 }
-
-console.log("lotek");
 
 const inputNewNumber = document.getElementById("inputNewNumber"),
       buttonNewNumber = document.getElementById("buttonNewNumber"),
       buttonRandomNumbers = document.getElementById("buttonRandomNumbers"),
       gotNumbers = document.getElementById("gotNumbers"),
       showDrawNumbers = document.getElementById("showDrawNumbers"),
-      buttonDraw = document.getElementById("buttonDraw");
+      buttonDraw = document.getElementById("buttonDraw"),
+      output_result = document.getElementById("output_result");
 
 let newNumbers = [],
-    greatLotek = new Lotek();
-
+    greatLotek;
 
 buttonNewNumber.addEventListener("click", function(){
     inserNewNumber();
 })
 
 buttonRandomNumbers.addEventListener("click", function(){
-
     newNumbers = drawSix(49).sort( function(a, b) { return a - b } );
     gotNumbers.innerText = newNumbers.join(", ");
-
 })
 
 buttonDraw.addEventListener("click", function(){
+    greatLotek = new Lotek();
 
-    console.log( greatLotek.drownNumbers );
     showDrawNumbers.innerText = greatLotek.drownNumbers.sort( function(a, b) { return a - b } ).join(", ");
-
-    console.log( greatLotek.checkNumbers( newNumbers ) );
+    let {numbers, count} = greatLotek.checkNumbers( newNumbers );
+    output_result.innerText = "Liczba trafionych liczb: " + count + " \nOto numery: " + numbers;
 })
 
 inputNewNumber.addEventListener("keypress",function(e){
-    
     if(newNumbers.length == 6){
         buttonNewNumber.disabled = true;
         inputNewNumber.placeholder = "Podałeś wszystkie 6 liczb";
@@ -93,7 +79,6 @@ inputNewNumber.addEventListener("keypress",function(e){
 })
 
 function inserNewNumber(){
-    
     if( !inputNewNumber.value){
         inputNewNumber.placeholder = "Podaj liczbę!";
         return false;
@@ -105,14 +90,12 @@ function inserNewNumber(){
     inputNewNumber.placeholder = "";
     
     if( newNumbers.includes(number) ){
-        
         inputNewNumber.placeholder = "Już podałeś taką liczbę!";
         inputNewNumber.value = "";
         return false;
     }
     
     if(Number.isInteger(number) && number > 0 && number < 49 ){
-        
         newNumbers.push(number);
         gotNumbers.innerText = newNumbers.join(", ");
         
@@ -121,7 +104,6 @@ function inserNewNumber(){
             inputNewNumber.placeholder = "Podałeś wszystkie 6 liczb";
             return false;
         }
-
     } else {
         inputNewNumber.placeholder = "LIczba musi być CAŁKOWITA, większa od 0 i w zakresie 1-49";
     }
@@ -134,19 +116,14 @@ function draw(max){
 }
 
 function drawSix(max){
-    
     let drownNumbers = [];
 
     while (drownNumbers.length != 6) {
-
         let randomNumber = draw(max);
 
         if( ! drownNumbers.includes(  randomNumber ) ) {
             drownNumbers.push( randomNumber );
-        } else {
-            console.log("powtórzyła sie: " + randomNumber);
         }
     }
-
     return drownNumbers;
 }

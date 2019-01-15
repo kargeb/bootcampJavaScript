@@ -155,52 +155,98 @@
                               <div id="collapseOne" class="collapse show" data-parentt="#accordionExample">
                                
                                         <pre class="code">
-    (function ($) {
-
-        $(document).ready(function () {
-    
-            var downloadButton = $("#downloadButton"),
-                url = "http://code.eduweb.pl/bootcamp/users/",
-                tablePlace = $("#here");
-    
-            ul = $('&lt;ul>');
-            ul.insertAfter(downloadButton);
-    
-            downloadButton.on("click", function () {
-    
-                $.getJSON(url, function (data) {
-                    showTable(data);
-                });
-            })
-    
-            function showTable(JSONobject) {
-    
-                var headTable = $("&lt;table>", {
-                    "class": "table table-hover"
-                }).append("&lt;thead>&lt;tr>");
-    
-                headTable.find("tr").append("&lt;th>#&lt;/th>")
-                    .append("&lt;th>Name&lt;/th>")
-                    .append("&lt;th>Username&lt;/th>")
-                    .append("&lt;th>Email&lt;/th>")
-                    .append("&lt;th>Phone&lt;/th>");
-    
-                var bodyTable = $("&lt;tbody>");
-    
-                headTable.find("thead").after(bodyTable);
-    
-                $(JSONobject).each(function (i, elem) {
-                    bodyTable.append("&lt;tr>").append("&lt;th>" + elem.id + "&lt;/th>")
-                        .append("&lt;td>" + elem.name + "&lt;/td>")
-                        .append("&lt;td>" + elem.username + "&lt;/td>")
-                        .append("&lt;td>" + elem.email + "&lt;/td>")
-                        .append("&lt;td>" + elem.phone + "&lt;/td>");
-                })
-                
-                headTable.insertAfter(tablePlace);
+        class EventEmitter {
+        
+            constructor(){  
+                this.events = {};
             }
-        });
-    })(jQuery);
+        
+            on(type, fn) {
+                if(!type || !fn) return;
+                
+                this.events[type] = this.events[type] || [];
+                this.events[type].push(fn);
+            }
+        
+            emit(type, data) {
+                var fns = this.events[type];
+                if(!fns || !fns.length) return;
+                
+                for(var i = 0; i &lt; fns.length; i++) {
+                    fns[i](data);
+                }
+            }
+        }
+        
+        class Database extends EventEmitter {
+        
+            constructor(url) {
+                super();
+                this.url = url;
+            }
+        
+            connect() {
+                super.emit("connect", this.url);
+            }
+            
+            disconnect() {
+                super.emit("disconnect", this.url);
+            }
+        }
+        
+        
+        var content = document.getElementById("content"),
+            button_run = document.getElementById("button_run"); 
+        
+        button_run.addEventListener("click", function () {
+        
+            content.classList.remove("hidden");
+        
+            // Użycie EventEmittera
+            var ev = new EventEmitter();
+        
+            ev.on("hello", function (message) {
+                console.log("Witaj " + message + "!");
+                content.innerHTML += "Witaj " + message + "!";
+            });
+        
+            ev.on("hello", function (message) {
+                console.log("Siema " + message + ".");
+                content.innerHTML += "&lt;br> Siema " + message + ".";
+            });
+        
+            ev.on("goodbye", function () {
+                console.log("Do widzenia!");
+                content.innerHTML += "&lt;br> Do widzenia! &lt;br>";
+            });
+        
+            ev.emit("hello", "Marek");
+            ev.emit("goodbye");
+            ev.emit("custom"); // nic się nie wydarzy
+        
+            // DO ZROBIENIA!
+            // Docelowe użycie klasy Database
+            var db = new Database("db://localhost:3000"); // fikcyjny adres
+        
+            db.on("connect", function (url) {
+                console.log("Połączenie z bazą pod adresem " + url + " zostało ustanowione.");
+                content.innerHTML += "&lt;br> Połączenie z bazą pod adresem " + url + " zostało ustanowione.";
+            });
+        
+            db.on("disconnect", function (url) {
+                console.log("Połączenie z bazą pod adresem " + url + " zostało zakończone.");
+                content.innerHTML += "&lt;br> Połączenie z bazą pod adresem " + url + " zostało zakończone.";
+            });
+        
+            db.connect();
+        
+            // po 5 sekundach rozłączamy się
+            setTimeout(function () {
+                db.disconnect();
+            }, 5000);
+        
+        })  
+                                            
 </pre>
                               </div>
                             </div>
