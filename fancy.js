@@ -1,9 +1,11 @@
 let mainHeader = document.getElementById("mainHeader"),
     headerHeader = document.getElementById("headerHeader"),
     buttonSection = document.getElementById("buttonSection"),
+    ul = document.querySelector("ul"),
     liList = document.querySelectorAll("li");
 
-let buttonsList = buttonSection.querySelectorAll("button");   
+let buttonsList = buttonSection.querySelectorAll("button"),
+    listHasSlidedIn = false;
 
 let tasksArray = [
                 [
@@ -51,56 +53,99 @@ let tasksArray = [
             ];
 
 
+listSlideOut(100, "translateX(-200%)");
 
-console.log(buttonsList);
-
-console.log(liList);
-console.log(liList[0]);
-console.log(mainHeader);
-console.log(headerHeader);
 
 buttonsList[0].addEventListener("click", function(){
-    listAnimationTranslate();
+
+    if(listHasSlidedIn){
+        listAnimationScale(70, false, 0);
+    } else {
+        firstButtonClick(0)
+    }
 })
 
 buttonsList[1].addEventListener("click", function(){
-    liList[0].style.transform = "scaleY(0.1)";
 
-    setTimeout(function(){
-        liList[0].style.transform = "";
-        liList[0].innerText = "Jakis nowy tekst dodany panie";
-        liList[0].style.borderColor = "white";
-    },200);
+    if(listHasSlidedIn){
+        listAnimationScale(70, false, 1);
+    } else {
+        firstButtonClick(1)
+    }
 })
+
 
 buttonsList[2].addEventListener("click", function(){
-    listAnimationScale(200, true, 3);
+
+    if(listHasSlidedIn){
+        listAnimationScale(70, false, 2);
+    } else {
+        firstButtonClick(2)
+    }
+    
+
+})
+
+
+buttonsList[3].addEventListener("click", function(){
+
+    if(listHasSlidedIn){
+        listAnimationScale(70, false, 3);
+    } else {
+        firstButtonClick(3)
+    }
+
 })
 
 
 
+buttonsList[4].addEventListener("click", function(){
 
-buttonSection.addEventListener("click", function(e){
+    if(listHasSlidedIn){
+        listAnimationScale(70, false, 4);
+    } else {
+        firstButtonClick(4)
+    }
 
-    console.log(e);
+
+    
+})
+buttonsList[5].addEventListener("click", function(){
+    
+    if(listHasSlidedIn){
+        listAnimationScale(70, false, 5);
+    } else {
+        firstButtonClick(5)
+    }
+
+})
+
+function firstButtonClick(week){
+    listHasSlidedIn = true;
+    ul.classList.remove("invisible");
 
     mainHeader.style.fontSize = "1px";
     mainHeader.style.opacity = 0;
 
     setTimeout(function(){
-        headerHeader.style.opacity = 0.9;
-        headerHeader.style.fontSize = "28px";
-    },100);
-});
+         headerHeader.style.opacity = 0.9;
+         headerHeader.style.fontSize = "28px";
+         listSlideIn(100, week);
+     },100);
+}
+
 
 headerHeader.addEventListener("click", function(){
+
+    listHasSlidedIn = false;
+    listSlideOut(100, "translateX(-200%)");
     headerHeader.style.opacity = "";
     headerHeader.style.fontSize = "";
 
     setTimeout(function(){
         mainHeader.style.fontSize = "";
         mainHeader.style.opacity = "";
-    },100);
+    },500);
 })
 
 
@@ -110,7 +155,6 @@ function listAnimationScale(interval, sameTime, week){
 
         liList.forEach(function(elem, i){
             elem.style.transform = "scaleY(0.1)";
-            // elem.innerText = tasksArray[week][i];
         });
 
         setTimeout(function(){
@@ -120,21 +164,6 @@ function listAnimationScale(interval, sameTime, week){
             });
         },interval);
 
-        // liList[0].style.transform = "scaleY(0.1)";
-        // liList[0].innerText = tasksArray[week][0];
-
-        // liList[1].style.transform = "scaleY(0.1)";
-        // liList[2].style.transform = "scaleY(0.1)";
-        // liList[3].style.transform = "scaleY(0.1)";
-        // liList[4].style.transform = "scaleY(0.1)";
-
-        // setTimeout(function(){
-        //     liList[0].style.transform = "";
-        //     liList[1].style.transform = "";
-        //     liList[2].style.transform = "";
-        //     liList[3].style.transform = "";
-        //     liList[4].style.transform = "";
-        // },interval);
     } else {
         liList[0].style.transform = "scaleY(0.1)";
 
@@ -145,58 +174,108 @@ function listAnimationScale(interval, sameTime, week){
         setTimeout(function(){
             liList[2].style.transform = "scaleY(0.1)";
             liList[0].style.transform = "";
+            liList[0].innerText = tasksArray[week][0];
         },2 * interval);
 
         setTimeout(function(){
             liList[3].style.transform = "scaleY(0.1)";
             liList[1].style.transform = "";
-            // liList[0].style.transform = "";
+            liList[1].innerText = tasksArray[week][1];
         },3 * interval);
 
         setTimeout(function(){
             liList[4].style.transform = "scaleY(0.1)";
             liList[2].style.transform = "";
+            liList[2].innerText = tasksArray[week][2];
         },4 * interval);
 
         setTimeout(function(){
             liList[3].style.transform = "";
+            liList[3].innerText = tasksArray[week][3];
         },5 * interval);
 
         setTimeout(function(){
             liList[4].style.transform = "";
+            liList[4].innerText = tasksArray[week][4];
         },6 * interval);
     }
 }
 
 
-function listAnimationTranslate(){
-    liList[0].style.transform = "translateX(-200%)";
+function listSlideOutAndIn(interval, type){
+    liList[0].style.transform = type;
 
     setTimeout(function(){
-        liList[1].style.transform = "translateX(-200%)";
-    },100);
+        liList[1].style.transform = type;
+    },1 * interval);
 
     setTimeout(function(){
-        liList[2].style.transform = "translateX(-200%)";
+        liList[2].style.transform = type;
         liList[0].style.transform = "";
-    },200);
+    },2 * interval);
 
     setTimeout(function(){
-        liList[3].style.transform = "translateX(-200%)";
+        liList[3].style.transform = type;
         liList[1].style.transform = "";
-        // liList[0].style.transform = "";
-    },300);
+    },3 * interval);
 
     setTimeout(function(){
-        liList[4].style.transform = "translateX(-200%)";
+        liList[4].style.transform = type;
         liList[2].style.transform = "";
-    },400);
+    },4 * interval);
 
     setTimeout(function(){
         liList[3].style.transform = "";
-    },500);
+    },5 * interval);
 
     setTimeout(function(){
         liList[4].style.transform = "";
-    },600);
+    },6 * interval);
+}
+
+function listSlideIn(interval, week){
+
+    liList[0].innerText = tasksArray[week][0];
+    liList[1].innerText = tasksArray[week][1];
+    liList[2].innerText = tasksArray[week][2];
+    liList[3].innerText = tasksArray[week][3];
+    liList[4].innerText = tasksArray[week][4];
+
+    liList[0].style.transform = "";
+
+    setTimeout(function(){
+        liList[1].style.transform = "";
+    },1 * interval);
+
+    setTimeout(function(){
+        liList[2].style.transform = "";
+    },2 * interval);
+
+    setTimeout(function(){
+        liList[3].style.transform = "";
+    },3 * interval);
+
+    setTimeout(function(){
+        liList[4].style.transform = "";
+    },4 * interval);
+}
+
+function listSlideOut(interval, type){
+    liList[0].style.transform = type;
+
+    setTimeout(function(){
+        liList[1].style.transform = type;
+    },1 * interval);
+
+    setTimeout(function(){
+        liList[2].style.transform = type;
+    },2 * interval);
+
+    setTimeout(function(){
+        liList[3].style.transform = type;
+    },3 * interval);
+
+    setTimeout(function(){
+        liList[4].style.transform = type;
+    },4 * interval);
 }
