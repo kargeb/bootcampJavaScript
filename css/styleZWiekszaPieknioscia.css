@@ -31,6 +31,7 @@ body,html {
 .container-fluid {
     margin: 0 auto;
     height: 100%;
+    /* width: 100%; */
     /* padding: 20px 0; */
     background-color: cadetblue;
 
@@ -49,22 +50,20 @@ main{
     width: 100%;
     background-color: blue;
 }
+
+#logo{
+    color: white;
+    transition: font-size 0.5s, opacity 0.5s;
+}
+
 .buttons{
     background-color: gainsboro;
 }
+
 .click{
     background-color: coral;
     border: 0px solid white;
     transition: border-width 0.1s, background-color 1s, font-size 0.3s, color 0.3s;
-    /* transition: background-color 1s;
-    transition: font-size 0.1s;
-    transition: color 0.1s; */
-
-}
-
-.click:hover{
-    /* border: 4px solid white; */
-    border-width: 6px;
 }
 
 .click:focus{
@@ -73,7 +72,6 @@ main{
     color: white;
 }
 
-/* #mainContainer {
-    height: 100%;
-    background-color: slategrey,
-} */
+.click:hover{
+    border-width: 6px;
+}
